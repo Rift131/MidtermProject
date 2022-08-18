@@ -8,5 +8,7 @@
 </head>
 <body>
 <h1>Welcome to CakeBids</h1>
+
+${SMOKETEST } <!-- DELETE LATER -->
 </body>
 </html>

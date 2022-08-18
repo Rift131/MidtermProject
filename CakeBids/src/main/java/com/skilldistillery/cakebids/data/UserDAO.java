@@ -1,5 +1,11 @@
 package com.skilldistillery.cakebids.data;
 
-public interface UserDAO {
+import com.skilldistillery.cakebids.entities.User.User;
 
+public interface UserDAO {
+	
+	
+	User findById(int userId);
+	
+	
 }
