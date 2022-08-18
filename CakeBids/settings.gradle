@@ -1,0 +1,4 @@
+rootProject.name = 'CakeBids'
+
+// notify Gradle of the other projects existence
+includeFlat 'JPACakeBids'
