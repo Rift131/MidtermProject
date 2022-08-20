@@ -54,7 +54,12 @@ public class User {
 	@OneToOne
 	@JoinColumn(name="address_id") //database fix required for foreign key 
 	private Address address;
-
+//
+//	@OneToOne
+//	@JoinColumn(name="owner_id")
+//	private Bakery bakery;
+	
+	
 	public User() {
 		super();
 	}
@@ -114,14 +119,6 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-//	public int getAddressId() {
-//		return addressId;
-//	}
-//
-//	public void setAddressId(int addressId) {
-//		this.addressId = addressId;
-//	}
 
 	public String getProfilePic() {
 		return profilePic;

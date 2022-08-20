@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,7 +18,7 @@ class BakeryTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Bakery Bakery;
+	private Bakery bakery;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,20 +33,44 @@ class BakeryTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		Bakery = em.find(Bakery.class, 1);
+		bakery = em.find(Bakery.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		Bakery = null;
+		bakery = null;
 	}
 
 	@Test
 	void test_Bakery_entity_mapping() {
-		assertNotNull(Bakery);
-		assertEquals("La Patisserie Chouquette", Bakery.getName());
-		//assertEquals("Apt. 5", Bakery.getBakery2());
+		assertNotNull(bakery);
+		assertEquals("La Patisserie Chouquette", bakery.getName());
+	}
+	@Test
+	void test_Bakery_entity_mapping_to_User_table() {
+		User owner = bakery.getOwner();
+		assertNotNull(owner);
+		assertEquals(1, owner.getId());
+	}
+	@Test
+	void test_Bakery_entity_mapping_to_bakery_review_table() {
+		assertNotNull(bakery);
+		assertNotNull(bakery.getReviews());
+		assertTrue(bakery.getReviews().size() > 0);
+	}
+	@Test
+	void test_Bakery_entity_mapping_to_bakery_image_table() {
+		assertNotNull(bakery);
+		assertNotNull(bakery.getBakeryImages());
+		assertTrue(bakery.getBakeryImages().size() > 0);
+	}
+	
+	@Test
+	void test_Bakery_entity_mapping_to_cake_bid_table() {
+		assertNotNull(bakery);
+		assertNotNull(bakery.getCakeBids());
+		assertTrue(bakery.getCakeBids().size() > 0);
 	}
 
 }

@@ -47,5 +47,6 @@ class AddressTest {
 		assertEquals("234 Science Way", address.getAddress());
 		assertEquals("Apt. 5", address.getAddress2());
 	}
+	
 
 }

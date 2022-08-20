@@ -42,9 +42,15 @@ class BakeryImageTest {
 	}
 
 	@Test
-	void test_Bakery_entity_mapping() {
+	void test_Bakery_image_entity_mapping() {
 		assertNotNull(bakeryImage);
 		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Pj_6y9xzcpWxjzB4IckMZa_jGYLlWh7nNg&usqp=CAU", bakeryImage.getImageUrl());
+	}
+	@Test
+	void test_Bakery_image_entity_mapping_to_bakery_table() {
+		assertNotNull(bakeryImage);
+		assertNotNull(bakeryImage.getDescription());
+		assertEquals("drip cake ", bakeryImage.getDescription());
 	}
 
 }

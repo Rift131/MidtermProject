@@ -47,6 +47,7 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("nyeGuy", user.getUsername());
 	}
+	
 	@Test
 	void test_User_mapping_to_cake_review() {
 		assertNotNull(user);

@@ -32,12 +32,13 @@ public class BakeryReview {
 //	@Column(name= "user_id")
 //	private int userId;
 	
-	@Column(name= "bakery_id")
-	private int bakeryId;
-	
 	@ManyToOne
 	@JoinColumn(name="user_id") // 
 	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name="bakery_id")
+	private Bakery bakery;
 	
 	
 	public BakeryReview() {
@@ -94,21 +95,21 @@ public class BakeryReview {
 //	public void setUserId(int userId) {
 //		this.userId = userId;
 //	}
-	public int getBakeryId() {
-		return bakeryId;
-	}
-	public void setBakeryId(int bakeryId) {
-		this.bakeryId = bakeryId;
-	}
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
+	public Bakery getBakery() {
+		return bakery;
+	}
+	public void setBakery(Bakery bakery) {
+		this.bakery = bakery;
+	}
 	@Override
 	public String toString() {
 		return "BakeryReview [id=" + id + ", rating=" + rating + ", reviewDate=" + reviewDate + ", reviewTitle="
-				+ reviewTitle + ", review=" + review + ", userId=" + ", bakeryId=" + bakeryId + "]";
+				+ reviewTitle + ", review=" + review + ", userId=" + ", bakeryId=" + "]";
 	}
 }

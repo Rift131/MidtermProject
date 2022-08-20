@@ -104,14 +104,6 @@ public class CakeReview {
 		this.cakeBidId = cakeBidId;
 	}
 
-//	public List<User> getUsers() {
-//		return users;
-//	}
-//
-//	public void setUsers(List<User> users) {
-//		this.users = users;
-//	}
-
 	public User getUser() {
 		return user;
 	}
@@ -123,7 +115,7 @@ public class CakeReview {
 	@Override
 	public String toString() {
 		return "CakeReview [id=" + id + ", rating=" + rating + ", reviewDate=" + reviewDate + ", reviewTitle="
-				+ reviewTitle + ", review=" + review + ", user=" + user + ", cakeBidId=" + cakeBidId + "]";
+				+ reviewTitle + ", review=" + review + ", user=" + user + ", cakeBidId=" + "]";
 	}
 
 }

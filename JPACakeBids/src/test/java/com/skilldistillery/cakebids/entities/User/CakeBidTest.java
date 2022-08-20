@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,6 +47,13 @@ class CakeBidTest {
 		assertNotNull(cakeBid);
 		assertEquals(1, cakeBid.getId());
 		assertEquals(150.00, cakeBid.getPrice());
+	}
+	@Test
+	void test_CakeBid_entity_mapping_to_Bakery_table() {
+		assertNotNull(cakeBid);
+		assertNotNull(cakeBid.getBakery());
+		assertEquals(1, cakeBid.getBakery().getId());
+		assertTrue(cakeBid.getBakery().getCakeBids().size() > 0);
 	}
 
 }

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,11 +19,8 @@ public class CakeBid {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "bakery_id")
-	private int bakeryId;
-	
-	@Column(name = "cake_id")
-	private int cakeId;
+//	@Column(name = "cake_id")
+//	private int cakeId;
 	
 	private double price;
 	
@@ -33,6 +32,12 @@ public class CakeBid {
 	
 	@Column(name = "fulfilled_date")
 	private LocalDateTime fulfilledDate;
+
+	@ManyToOne
+	@JoinColumn(name="bakery_id")
+	private Bakery bakery;
+	
+	
 
 	private String description;
 
@@ -65,21 +70,13 @@ public class CakeBid {
 		this.id = id;
 	}
 
-	public int getBakeryId() {
-		return bakeryId;
-	}
-
-	public void setBakeryId(int bakeryId) {
-		this.bakeryId = bakeryId;
-	}
-
-	public int getCakeId() {
-		return cakeId;
-	}
-
-	public void setCakeId(int cakeId) {
-		this.cakeId = cakeId;
-	}
+//	public int getCakeId() {
+//		return cakeId;
+//	}
+//
+//	public void setCakeId(int cakeId) {
+//		this.cakeId = cakeId;
+//	}
 
 	public double getPrice() {
 		return price;
@@ -121,11 +118,19 @@ public class CakeBid {
 		this.description = description;
 	}
 
+	public Bakery getBakery() {
+		return bakery;
+	}
+
+	public void setBakery(Bakery bakery) {
+		this.bakery = bakery;
+	}
+
 	@Override
 	public String toString() {
-		return "CakeBid [id=" + id + ", bakeryId=" + bakeryId + ", cakeId=" + cakeId + ", price=" + price + ", bidDate="
-				+ bidDate + ", acceptedDate=" + acceptedDate + ", fulfilledDate=" + fulfilledDate + ", description="
-				+ description + "]";
+		return "CakeBid [id=" + id + ", bakeryId=" + ", cakeId="  + ", price=" + price + ", bidDate="
+				+ bidDate + ", acceptedDate=" + acceptedDate + ", fulfilledDate=" + fulfilledDate + ", bakery=" + bakery
+				+ ", description=" + description + "]";
 	}
 
 }

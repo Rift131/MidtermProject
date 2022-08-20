@@ -1,5 +1,6 @@
 package com.skilldistillery.cakebids.entities.User;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
 public class Bakery {
 
@@ -23,10 +27,26 @@ public class Bakery {
 	private String websiteUrl;
 	@Column (name = "hours_operation")
 	private String hoursOfOperation;
-	@Column (name = "address_id")
-	private int addressId;
-	@Column (name = "user_id")
-	private int userId;
+	
+	@OneToOne
+	@JoinColumn(name="owner_id")
+	private User owner;
+	
+	@OneToMany(mappedBy="bakery")
+	private List<BakeryReview> reviews;
+	
+	@OneToMany(mappedBy="bakery")
+	private List<BakeryImage> bakeryImages;
+
+	@OneToMany(mappedBy="bakery")
+	private List<CakeBid> cakeBids;
+	
+	
+	
+	
+	public Bakery() {
+		super();
+	}
 
 	@Override
 	public int hashCode() {
@@ -45,9 +65,6 @@ public class Bakery {
 		return id == other.id;
 	}
 
-	public Bakery() {
-		super();
-	}
 
 	public int getId() {
 		return id;
@@ -97,27 +114,43 @@ public class Bakery {
 		this.hoursOfOperation = hoursOfOperation;
 	}
 
-	public int getAddressId() {
-		return addressId;
+
+	public User getOwner() {
+		return owner;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 
-	public int getUserId() {
-		return userId;
+	public List<BakeryReview> getReviews() {
+		return reviews;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setReviews(List<BakeryReview> reviews) {
+		this.reviews = reviews;
+	}
+
+	public List<BakeryImage> getBakeryImages() {
+		return bakeryImages;
+	}
+
+	public void setBakeryImages(List<BakeryImage> bakeryImages) {
+		this.bakeryImages = bakeryImages;
+	}
+
+	public List<CakeBid> getCakeBids() {
+		return cakeBids;
+	}
+
+	public void setCakeBids(List<CakeBid> cakeBids) {
+		this.cakeBids = cakeBids;
 	}
 
 	@Override
 	public String toString() {
+		// TODO: ADD IN USER OBJECT to the toString
 		return "Bakery [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl=" + imageUrl
-				+ ", websiteUrl=" + websiteUrl + ", hoursOfOperation=" + hoursOfOperation + ", addressId=" + addressId
-				+ ", userId=" + userId + "]";
+				+ ", websiteUrl=" + websiteUrl + ", hoursOfOperation=" + hoursOfOperation + ", addressId=" +  ", owner=" + "]";
 	}
-	
 }
