@@ -3,6 +3,7 @@ package com.skilldistillery.cakebids.entities.User;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,11 +17,11 @@ public class Occasion {
 	private String name;
 	
 	private LocalDateTime date;
-	
+	@Column(name="user_id")
 	private int userId;
 	
 	private String description;
-	
+	@Column(name="address_id")
 	private int addressId;
 
 	public Occasion() {

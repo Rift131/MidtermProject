@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="cake_review")
@@ -26,12 +28,13 @@ public class CakeReview {
 	
 	private String review;
 	
-	@Column(name="user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	@Column(name="cake_bid_id")
 	private int cakeBidId;
-
+	
 	public CakeReview() {
 		super();
 	}
@@ -93,14 +96,6 @@ public class CakeReview {
 		this.review = review;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
 	public int getCakeBidId() {
 		return cakeBidId;
 	}
@@ -109,10 +104,26 @@ public class CakeReview {
 		this.cakeBidId = cakeBidId;
 	}
 
+//	public List<User> getUsers() {
+//		return users;
+//	}
+//
+//	public void setUsers(List<User> users) {
+//		this.users = users;
+//	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "CakeReview [id=" + id + ", rating=" + rating + ", reviewDate=" + reviewDate + ", reviewTitle="
-				+ reviewTitle + ", review=" + review + ", userId=" + userId + ", cakeBidId=" + cakeBidId + "]";
+				+ reviewTitle + ", review=" + review + ", user=" + user + ", cakeBidId=" + cakeBidId + "]";
 	}
 
 }

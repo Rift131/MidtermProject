@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="bakery_review")
@@ -21,14 +23,23 @@ public class BakeryReview {
 	
 	@Column(name= "review_date")
 	private LocalDateTime reviewDate;
+
 	@Column(name= "review_title")
 	private String reviewTitle;
 	
 	private String review;
-	@Column(name= "user_id")
-	private int userId;
+	
+//	@Column(name= "user_id")
+//	private int userId;
+	
 	@Column(name= "bakery_id")
 	private int bakeryId;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id") // 
+	private User user;
+	
+	
 	public BakeryReview() {
 		super();
 	}
@@ -77,21 +88,27 @@ public class BakeryReview {
 	public void setReview(String review) {
 		this.review = review;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+//	public int getUserId() {
+//		return userId;
+//	}
+//	public void setUserId(int userId) {
+//		this.userId = userId;
+//	}
 	public int getBakeryId() {
 		return bakeryId;
 	}
 	public void setBakeryId(int bakeryId) {
 		this.bakeryId = bakeryId;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	@Override
 	public String toString() {
 		return "BakeryReview [id=" + id + ", rating=" + rating + ", reviewDate=" + reviewDate + ", reviewTitle="
-				+ reviewTitle + ", review=" + review + ", userId=" + userId + ", bakeryId=" + bakeryId + "]";
+				+ reviewTitle + ", review=" + review + ", userId=" + ", bakeryId=" + bakeryId + "]";
 	}
 }

@@ -1,6 +1,7 @@
 package com.skilldistillery.cakebids.entities.User;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,13 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	
 	private String username;
 	
@@ -42,7 +45,15 @@ public class User {
 	@Column(name = "about_me")
 	private String aboutMe;
 	
+	@OneToMany(mappedBy="user") // name of the field inside of the child class
+	private List<CakeReview> cakeReview;
+
+	@OneToMany(mappedBy="user") // name of the field inside of the child class
+	private List<BakeryReview> BakeryReviews;
 	
+	@OneToOne
+	@JoinColumn(name="address_id") //database fix required for foreign key 
+	private Address address;
 
 	public User() {
 		super();
@@ -134,6 +145,30 @@ public class User {
 
 	public void setAboutMe(String aboutMe) {
 		this.aboutMe = aboutMe;
+	}
+
+	public List<CakeReview> getCakeReview() {
+		return cakeReview;
+	}
+
+	public void setCakeReview(List<CakeReview> cakeReview) {
+		this.cakeReview = cakeReview;
+	}
+
+	public List<BakeryReview> getBakeryReviews() {
+		return BakeryReviews;
+	}
+
+	public void setBakeryReviews(List<BakeryReview> bakeryReviews) {
+		BakeryReviews = bakeryReviews;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override

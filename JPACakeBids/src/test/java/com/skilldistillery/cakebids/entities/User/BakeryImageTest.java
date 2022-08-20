@@ -2,7 +2,6 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,11 +13,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class BakeryImageTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private BakeryImage bakeryImage;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,38 +32,19 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		bakeryImage = em.find(BakeryImage.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		bakeryImage = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals("nyeGuy", user.getUsername());
-	}
-	@Test
-	void test_User_mapping_to_cake_review() {
-		assertNotNull(user);
-		assertNotNull(user.getCakeReview());
-		assertTrue(user.getCakeReview().size() > 0);
-	}
-	@Test
-	void test_User_mapping_to_bakery_review_table() {
-		assertNotNull(user);
-		assertNotNull(user.getBakeryReviews());
-		assertTrue(user.getBakeryReviews().size() > 0);
-	}
-	@Test
-	void test_User_mapping_to_address_table() {
-		Address address = user.getAddress();
-		assertNotNull(address);
-		assertNotNull(address.getAddress());
-		assertEquals("TX", user.getAddress().getState());
+	void test_Bakery_entity_mapping() {
+		assertNotNull(bakeryImage);
+		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Pj_6y9xzcpWxjzB4IckMZa_jGYLlWh7nNg&usqp=CAU", bakeryImage.getImageUrl());
 	}
 
 }

@@ -38,7 +38,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NULL,
   `enabled` TINYINT NULL,
@@ -67,23 +67,16 @@ DROP TABLE IF EXISTS `bakery` ;
 
 CREATE TABLE IF NOT EXISTS `bakery` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `owner_id` INT NOT NULL,
   `name` VARCHAR(45) NULL,
   `description` TEXT NULL,
   `image_url` VARCHAR(2000) NULL,
   `website_url` VARCHAR(2000) NULL,
   `hours_operation` VARCHAR(45) NULL,
-  `address_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_bakery_address1_idx` (`address_id` ASC),
-  INDEX `fk_bakery_user1_idx` (`user_id` ASC),
-  CONSTRAINT `fk_bakery_address1`
-    FOREIGN KEY (`address_id`)
-    REFERENCES `address` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_bakery_user1_idx` (`owner_id` ASC),
   CONSTRAINT `fk_bakery_user1`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`owner_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -347,7 +340,7 @@ DROP TABLE IF EXISTS `bakery_image` ;
 
 CREATE TABLE IF NOT EXISTS `bakery_image` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `image_url` VARCHAR(2000) NULL,
+  `image_url` VARCHAR(3000) NULL,
   `description` TEXT NULL,
   `bakery_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -417,7 +410,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `bakery` (`id`, `name`, `description`, `image_url`, `website_url`, `hours_operation`, `address_id`, `user_id`) VALUES (1, 'La Patisserie Chouquette', 'Chic French bakery', 'https://www.simonefaure.com/', 'https://www.simonefaure.com/', 'Wed-Sat 10am-2pm', 2, 2);
+INSERT INTO `bakery` (`id`, `owner_id`, `name`, `description`, `image_url`, `website_url`, `hours_operation`) VALUES (1, 1, 'La Patisserie Chouquette', 'Chic French bakery', 'https://www.simonefaure.com/', 'https://www.simonefaure.com/', 'Wed-Sat 10am-2pm');
 
 COMMIT;
 
@@ -503,16 +496,6 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `cake_review`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `cakebidsdb`;
-INSERT INTO `cake_review` (`id`, `rating`, `review_date`, `review_title`, `review`, `user_id`, `cake_bid_id`) VALUES (1, 2, '2022-08-19', 'yum', 'so delish', 1, 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `bakery_image`
 -- -----------------------------------------------------
 START TRANSACTION;
@@ -527,7 +510,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `cake_image` (`id`, `image_url`, `description`, `cake_id`) VALUES (1, NULL, 'chocolate cake', 1);
+INSERT INTO `cake_image` (`id`, `image_url`, `description`, `cake_id`) VALUES (1, 'https://thefirstyearblog.com/wp-content/uploads/2015/11/chocolate-chocolate-cake-1.png', 'chocolate cake', 1);
 
 COMMIT;
 

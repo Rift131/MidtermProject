@@ -6,26 +6,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int id;
+	private int id;
 	
-	public String address;
+	private String address;
 	
-	public String address2;
+	private String address2;
 	
-	public String city;
+	private String city;
 	
-	public String state;
+	private String state;
 	
-	public String zip;
+	private String zip;
 
-	public String phone;
+	private String phone;
 	
+//	@OneToOne
+//	@JoinColumn(name="user")
+//	private User user;
+//	
 	
 	public Address() {
 		super();
@@ -119,6 +125,16 @@ public class Address {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+
+//	public User getUser() {
+//		return user;
+//	}
+//
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 
 	@Override

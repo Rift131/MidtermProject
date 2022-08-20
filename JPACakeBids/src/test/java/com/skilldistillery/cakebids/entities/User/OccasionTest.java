@@ -1,8 +1,6 @@
 package com.skilldistillery.cakebids.entities.User;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,11 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class OccasionTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Occasion occasion;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,38 +31,21 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		occasion = em.find(Occasion.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		occasion = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals("nyeGuy", user.getUsername());
-	}
-	@Test
-	void test_User_mapping_to_cake_review() {
-		assertNotNull(user);
-		assertNotNull(user.getCakeReview());
-		assertTrue(user.getCakeReview().size() > 0);
-	}
-	@Test
-	void test_User_mapping_to_bakery_review_table() {
-		assertNotNull(user);
-		assertNotNull(user.getBakeryReviews());
-		assertTrue(user.getBakeryReviews().size() > 0);
-	}
-	@Test
-	void test_User_mapping_to_address_table() {
-		Address address = user.getAddress();
-		assertNotNull(address);
-		assertNotNull(address.getAddress());
-		assertEquals("TX", user.getAddress().getState());
+	void test_Occasion_entity_mapping() {
+		assertNotNull(occasion);
+		//assertEquals("wedding", occasion.getName());
+		//assertEquals(00, occasion.getDate().getSecond());
+		//assertEquals("3 tier watercolor cake", occasion.getDescription());
 	}
 
 }
