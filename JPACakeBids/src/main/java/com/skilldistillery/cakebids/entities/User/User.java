@@ -33,8 +33,8 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@Column(name = "address_id")
-	private int addressId;
+//	@Column(name = "address_id")
+//	private int addressId;
 	
 	@Column(name = "profile_picture")
 	private String profilePic;
@@ -115,13 +115,13 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
+//	public int getAddressId() {
+//		return addressId;
+//	}
+//
+//	public void setAddressId(int addressId) {
+//		this.addressId = addressId;
+//	}
 
 	public String getProfilePic() {
 		return profilePic;
@@ -174,8 +174,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + ", firstName=" + firstName + ", lastName=" + lastName + ", addressId=" + addressId
-				+ ", profilePic=" + profilePic + ", createDate=" + createDate + ", aboutMe=" + aboutMe + "]";
+				+ ", role=" + role + ", firstName=" + firstName + ", lastName=" + lastName + ", addressId=" + ", profilePic=" + profilePic + ", createDate=" + createDate + ", aboutMe=" + aboutMe + "]";
 	}
 
 	@Override

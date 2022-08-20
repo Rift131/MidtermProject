@@ -27,11 +27,11 @@ public class Address {
 	private String zip;
 
 	private String phone;
-	
+//	
 //	@OneToOne
 //	@JoinColumn(name="user")
 //	private User user;
-//	
+	
 	
 	public Address() {
 		super();
