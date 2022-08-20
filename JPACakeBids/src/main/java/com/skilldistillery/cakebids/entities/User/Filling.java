@@ -1,5 +1,6 @@
 package com.skilldistillery.cakebids.entities.User;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 @Entity
 public class Filling {
 	@Id
@@ -16,6 +20,14 @@ public class Filling {
 	@Column(name="filling_type")
 	private String fillingType;
 
+	@ManyToMany
+	@JoinTable(
+			name="cake_has_fillings",
+			joinColumns= @JoinColumn(name="fillings_filling_id"),
+			inverseJoinColumns = @JoinColumn(name="cake_id"))
+	private List<Cake> fillings;
+	
+	
 	public Filling() {
 		super();
 	}
@@ -51,6 +63,15 @@ public class Filling {
 
 	public void setFillingType(String fillingType) {
 		this.fillingType = fillingType;
+	}
+
+
+	public List<Cake> getFillings() {
+		return fillings;
+	}
+
+	public void setFillings(List<Cake> fillings) {
+		this.fillings = fillings;
 	}
 
 	@Override

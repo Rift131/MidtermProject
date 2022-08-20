@@ -1,5 +1,6 @@
 package com.skilldistillery.cakebids.entities.User;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="delivery_method")
@@ -18,6 +20,9 @@ public class DeliveryMethod {
 	
 	@Column(name="delivery_type")
 	private String deliveryType;
+	
+	@OneToMany(mappedBy="deliveryMethods")
+	private List<Cake> cakes;
 
 	public DeliveryMethod() {
 		super();
@@ -54,6 +59,14 @@ public class DeliveryMethod {
 
 	public void setDeliveryType(String deliveryType) {
 		this.deliveryType = deliveryType;
+	}
+
+	public List<Cake> getCakes() {
+		return cakes;
+	}
+
+	public void setCakes(List<Cake> cakes) {
+		this.cakes = cakes;
 	}
 
 	@Override

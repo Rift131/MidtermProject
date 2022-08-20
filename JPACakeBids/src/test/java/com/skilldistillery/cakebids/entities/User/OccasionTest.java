@@ -1,5 +1,6 @@
 package com.skilldistillery.cakebids.entities.User;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
@@ -43,9 +44,15 @@ class OccasionTest {
 	@Test
 	void test_Occasion_entity_mapping() {
 		assertNotNull(occasion);
-		//assertEquals("wedding", occasion.getName());
-		//assertEquals(00, occasion.getDate().getSecond());
-		//assertEquals("3 tier watercolor cake", occasion.getDescription());
+		assertEquals("wedding", occasion.getName());
+		assertEquals(00, occasion.getDate().getSecond());
+		assertEquals("3 tier watercolor cake", occasion.getDescription());
+	}
+	@Test
+	void test_Occasion_entity_mapping_ManyToOne_with_address_table() {
+		assertNotNull(occasion);
+		assertNotNull(occasion.getAddress());
+		assertEquals(1, occasion.getAddress().getId());
 	}
 
 }

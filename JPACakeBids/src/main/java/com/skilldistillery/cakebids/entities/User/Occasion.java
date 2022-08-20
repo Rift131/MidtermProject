@@ -1,6 +1,7 @@
 package com.skilldistillery.cakebids.entities.User;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 @Entity
 public class Occasion {
 	@Id
@@ -21,9 +24,11 @@ public class Occasion {
 	private int userId;
 	
 	private String description;
-	@Column(name="address_id")
-	private int addressId;
 
+	@ManyToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
 	public Occasion() {
 		super();
 	}
@@ -68,12 +73,13 @@ public class Occasion {
 		this.description = description;
 	}
 
-	public int getAddressId() {
-		return addressId;
+
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
@@ -96,7 +102,7 @@ public class Occasion {
 	@Override
 	public String toString() {
 		return "Occasion [id=" + id + ", name=" + name + ", date=" + date + ", userId=" + userId + ", description="
-				+ description + ", addressId=" + addressId + "]";
+				+ description + ", addressId=" + "]";
 	}
 	
 	

@@ -1,6 +1,7 @@
 package com.skilldistillery.cakebids.entities.User;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cake {
@@ -24,15 +28,26 @@ public class Cake {
 	private LocalDateTime dateAdded;
 	@Column(name = "occasion_id")
 	private int occasionId;
-	@Column(name = "cake_type_id")
-	private int cakeTypeId;
-	@Column(name = "delivery_id")
-	private int deliveryId;
+	
+	@ManyToOne
+	@JoinColumn(name="delivery_id")
+	private DeliveryMethod deliveryMethods;
+	
 	@Column(name = "cake_inspiration")
 	private String cakeInspiration;
 
 	private double budget;
 
+	@ManyToOne
+	@JoinColumn(name="cake_type_id")
+	private CakeType cakeType;
+	
+	@ManyToMany(mappedBy="fillings")
+	private List<Filling> fillings;
+	
+	
+	
+	
 	public Cake() {
 		super();
 	}
@@ -85,22 +100,6 @@ public class Cake {
 		this.occasionId = occasionId;
 	}
 
-	public int getCakeTypeId() {
-		return cakeTypeId;
-	}
-
-	public void setCakeTypeId(int cakeTypeId) {
-		this.cakeTypeId = cakeTypeId;
-	}
-
-	public int getDeliveryId() {
-		return deliveryId;
-	}
-
-	public void setDeliveryId(int deliveryId) {
-		this.deliveryId = deliveryId;
-	}
-
 	public String getCakeInspiration() {
 		return cakeInspiration;
 	}
@@ -115,6 +114,41 @@ public class Cake {
 
 	public void setBudget(double budget) {
 		this.budget = budget;
+	}
+
+
+
+	public void setDeliveryMethods(DeliveryMethod deliveryMethods) {
+		this.deliveryMethods = deliveryMethods;
+	}
+
+	public DeliveryMethod getDeliveryMethods() {
+		return deliveryMethods;
+	}
+
+	public CakeType getCaketype() {
+		return cakeType;
+	}
+
+	public void setCaketype(CakeType caketype) {
+		this.cakeType = caketype;
+	}
+
+	public CakeType getCakeType() {
+		return cakeType;
+	}
+
+	public void setCakeType(CakeType cakeType) {
+		this.cakeType = cakeType;
+	}
+
+
+	public List<Filling> getFillings() {
+		return fillings;
+	}
+
+	public void setFillings(List<Filling> fillings) {
+		this.fillings = fillings;
 	}
 
 	@Override
@@ -137,8 +171,8 @@ public class Cake {
 	@Override
 	public String toString() {
 		return "Cake [id=" + id + ", name=" + name + ", description=" + description + ", specialInstructions="
-				+ specialInstructions + ", dateAdded=" + dateAdded + ", occasionId=" + occasionId + ", cakeTypeId="
-				+ cakeTypeId + ", deliveryId=" + deliveryId + ", cakeInspiration=" + cakeInspiration + ", budget="
-				+ budget + "]";
+				+ specialInstructions + ", dateAdded=" + dateAdded + ", occasionId=" + occasionId + ", deliveryMethods="
+				+ deliveryMethods + ", cakeInspiration=" + cakeInspiration + ", budget=" + budget + ", cakeType="
+				+ cakeType + ", filling=" + "]";
 	}
 }

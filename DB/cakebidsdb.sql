@@ -233,9 +233,9 @@ DROP TABLE IF EXISTS `cake_has_fillings` ;
 
 CREATE TABLE IF NOT EXISTS `cake_has_fillings` (
   `cake_id` INT NOT NULL,
-  `fillings_filling_id` INT NOT NULL,
-  PRIMARY KEY (`cake_id`, `fillings_filling_id`),
-  INDEX `fk_cake_has_fillings_fillings1_idx` (`fillings_filling_id` ASC),
+  `fillings_type_id` INT NOT NULL,
+  PRIMARY KEY (`cake_id`, `fillings_type_id`),
+  INDEX `fk_cake_has_fillings_fillings1_idx` (`fillings_type_id` ASC),
   INDEX `fk_cake_has_fillings_cake1_idx` (`cake_id` ASC),
   CONSTRAINT `fk_cake_has_fillings_cake1`
     FOREIGN KEY (`cake_id`)
@@ -243,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `cake_has_fillings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_cake_has_fillings_fillings1`
-    FOREIGN KEY (`fillings_filling_id`)
+    FOREIGN KEY (`fillings_type_id`)
     REFERENCES `filling` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -481,6 +481,26 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `bakery_review` (`id`, `rating`, `review_date`, `review_title`, `review`, `user_id`, `bakery_id`) VALUES (1, 5, '2022-08-19', 'Flakey Croissants!!', 'Literally the most buttery and flakey croissants I have ever had! LEGIT!', 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `cake_has_fillings`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cakebidsdb`;
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `cake_has_flavor`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cakebidsdb`;
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (1, 1);
 
 COMMIT;
 

@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,6 +47,12 @@ class AddressTest {
 		assertNotNull(address);
 		assertEquals("234 Science Way", address.getAddress());
 		assertEquals("Apt. 5", address.getAddress2());
+	}
+	@Test
+	void test_Address_entity_mapping_OneToMany_with_occasion_table() {
+		assertNotNull(address);
+		assertNotNull(address.getOccasions());
+		assertTrue(address.getOccasions().size() > 0);
 	}
 	
 

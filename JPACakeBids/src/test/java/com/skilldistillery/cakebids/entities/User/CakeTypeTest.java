@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,6 +46,12 @@ class CakeTypeTest {
 	void test_CakeType_entity_mapping() {
 		assertNotNull(cakeType);
 		assertEquals("tiered", cakeType.getName());
+	}
+	@Test
+	void test_CakeType_entity_mapping_OneToMany_with_cake_table() {
+		assertNotNull(cakeType);
+		assertNotNull(cakeType.getCakes());
+		assertTrue(cakeType.getCakes().size() > 0);
 	}
 
 }

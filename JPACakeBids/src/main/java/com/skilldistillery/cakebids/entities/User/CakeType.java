@@ -1,11 +1,13 @@
 package com.skilldistillery.cakebids.entities.User;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="cake_type")
@@ -15,6 +17,9 @@ public class CakeType {
 	private int id;
 	
 	private String name;
+	
+	@OneToMany(mappedBy="cakeType")
+	private List<Cake> cakes;
 
 	public CakeType() {
 		super();
@@ -51,6 +56,14 @@ public class CakeType {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Cake> getCakes() {
+		return cakes;
+	}
+
+	public void setCakes(List<Cake> cakes) {
+		this.cakes = cakes;
 	}
 
 	@Override

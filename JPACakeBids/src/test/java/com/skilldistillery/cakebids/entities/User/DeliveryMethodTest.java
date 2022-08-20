@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,6 +46,12 @@ class DeliveryMethodTest {
 	void test_DeliveryMethod_entity_mapping() {
 		assertNotNull(deliveryMethod);
 		assertEquals("pick-up", deliveryMethod.getDeliveryType());
+	}
+	@Test
+	void test_DeliveryMethod_entity_mapping_OneToMany_with_cake_table() {
+		assertNotNull(deliveryMethod);
+		assertNotNull(deliveryMethod.getCakes());
+		assertTrue(deliveryMethod.getCakes().size() > 0);
 	}
 
 }

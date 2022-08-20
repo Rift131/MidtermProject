@@ -1,13 +1,13 @@
 package com.skilldistillery.cakebids.entities.User;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Address {
@@ -27,10 +27,9 @@ public class Address {
 	private String zip;
 
 	private String phone;
-//	
-//	@OneToOne
-//	@JoinColumn(name="user")
-//	private User user;
+	
+	@OneToMany(mappedBy="address")
+	private List <Occasion> occasions; 
 	
 	
 	public Address() {
@@ -127,14 +126,14 @@ public class Address {
 	}
 
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	public List<Occasion> getOccasions() {
+		return occasions;
+	}
+
+
+	public void setOccasions(List<Occasion> occasions) {
+		this.occasions = occasions;
+	}
 
 
 	@Override

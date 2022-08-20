@@ -19,8 +19,8 @@ public class CakeBid {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-//	@Column(name = "cake_id")
-//	private int cakeId;
+	@Column(name = "cake_id")
+	private int cakeId;
 	
 	private double price;
 	

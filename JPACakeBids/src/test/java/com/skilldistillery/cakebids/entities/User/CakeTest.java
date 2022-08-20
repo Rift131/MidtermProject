@@ -1,6 +1,7 @@
 package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
@@ -47,5 +48,26 @@ class CakeTest {
 		assertEquals("Bill Nye's birthday!", cake.getName());
 		assertEquals("2 tier science theme cake", cake.getDescription());
 	}
+	@Test
+	void test_Cake_entity_mapping_ManyToOne_with_delivery_method_table() {
+		DeliveryMethod deliveries = cake.getDeliveryMethods(); 
+		assertNotNull(deliveries);
+		assertNotNull(deliveries.getCakes());
+		assertEquals("pick-up", deliveries.getDeliveryType());
+	}
+	@Test
+	void test_Cake_entity_mapping_ManyToOne_with_cake_type_table() {
+		CakeType cakeType = cake.getCaketype(); 
+		assertNotNull(cakeType);
+		assertNotNull(cakeType.getCakes());
+		assertEquals("tiered", cakeType.getName());
+	}
+	@Test
+	void test_Cake_entity_mapping_OneToMany_join_table_with_filling_table() {
+		assertNotNull(cake);
+		assertNotNull(cake.getFillings());
+		assertFalse(cake.getFillings().size() > 0);
+	}
+	
 
 }

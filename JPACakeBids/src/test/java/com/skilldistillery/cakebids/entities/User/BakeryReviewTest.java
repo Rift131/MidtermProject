@@ -53,7 +53,7 @@ class BakeryReviewTest {
 		assertEquals("nyeGuy", bakeryReview.getUser().getUsername());
 	}
 	@Test
-	void test_BakeryReview_test_mapping_to_user_table() {
+	void test_BakeryReview_test_mapping_to_bakery_table() {
 		assertNotNull(bakeryReview);
 		assertEquals(1, bakeryReview.getBakery().getId());
 	}

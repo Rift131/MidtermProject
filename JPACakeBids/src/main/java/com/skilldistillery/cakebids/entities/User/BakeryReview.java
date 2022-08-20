@@ -29,9 +29,6 @@ public class BakeryReview {
 	
 	private String review;
 	
-//	@Column(name= "user_id")
-//	private int userId;
-	
 	@ManyToOne
 	@JoinColumn(name="user_id") // 
 	private User user;
