@@ -12,24 +12,56 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "bakery_image")
+@Table(name="bakery_image")
 public class BakeryImage {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name = "image_url")
 	private String imageUrl;
-	
-	@Column(name = "description")
-	private String imgDescription;
 
-	@ManyToOne
-	@JoinColumn(name = "bakery_id")
-	private BakeryImage bakery;
+	private String description;
+	
+	@Column(name = "bakery_id")
+	private int bakeryId;
+
+
 
 	public BakeryImage() {
 		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getBakeryId() {
+		return bakeryId;
+	}
+
+	public void setBakeryId(int bakeryId) {
+		this.bakeryId = bakeryId;
 	}
 
 	@Override
@@ -49,42 +81,11 @@ public class BakeryImage {
 		return id == other.id;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-	public String getImgDescription() {
-		return imgDescription;
-	}
-
-	public void setImgDescription(String imgDescription) {
-		this.imgDescription = imgDescription;
-	}
-
-	public BakeryImage getBakery() {
-		return bakery;
-	}
-
-	public void setBakery(BakeryImage bakery) {
-		this.bakery = bakery;
-	}
-
 	@Override
 	public String toString() {
-		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", imgDescription=" + imgDescription + ", bakeryId="
-				+ "]";
+		return "BakeryImage [id=" + id + "]";
 	}
+
+
 
 }

@@ -95,7 +95,7 @@ public class UserDAOImpl implements UserDAO {
 			updateBakery.setWebsiteUrl(bakery.getWebsiteUrl());
 			updateBakery.setHoursOfOperation(bakery.getHoursOfOperation());
 			updateBakery.setBakeryImages(bakery.getBakeryImages());
-			updateBakery.setBakeryImages(bakery.get);
+			
 		}
 
 		return updateBakery;

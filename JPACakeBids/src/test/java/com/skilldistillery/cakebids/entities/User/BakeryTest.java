@@ -7,29 +7,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 class BakeryTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Bakery bakery;
 
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPACakeBids");
 	}
-
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		emf.close();
 	}
-
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
@@ -46,6 +43,7 @@ class BakeryTest {
 	void test_Bakery_entity_mapping() {
 		assertNotNull(bakery);
 		assertEquals("La Patisserie Chouquette", bakery.getName());
+		//assertEquals("Apt. 5", Bakery.getBakery2());
 	}
 	@Test
 	void test_Bakery_entity_mapping_to_User_table() {
@@ -65,7 +63,7 @@ class BakeryTest {
 		assertNotNull(bakery.getBakeryImages());
 		assertTrue(bakery.getBakeryImages().size() > 0);
 	}
-	
+
 	@Test
 	void test_Bakery_entity_mapping_to_cake_bid_table() {
 		assertNotNull(bakery);

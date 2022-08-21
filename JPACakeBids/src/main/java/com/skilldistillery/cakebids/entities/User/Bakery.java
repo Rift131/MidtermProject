@@ -27,47 +27,23 @@ public class Bakery {
 	private String websiteUrl;
 	@Column (name = "hours_operation")
 	private String hoursOfOperation;
-	
+	@Column (name = "address_id")
+	private int addressId;
+	@Column (name = "user_id")
+	private int userId;
+
 	@OneToOne
 	@JoinColumn(name="owner_id")
 	private User owner;
-	
+
 	@OneToMany(mappedBy="bakery")
 	private List<BakeryReview> reviews;
-	
+
 	@OneToMany(mappedBy="bakery")
 	private List<BakeryImage> bakeryImages;
 
 	@OneToMany(mappedBy="bakery")
 	private List<CakeBid> cakeBids;
-	
-	@OneToOne
-	@JoinColumn(name= "description")
-	private BakeryImage imgDescription;
-	
-	
-	
-	public Bakery() {
-		super();
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Bakery other = (Bakery) obj;
-		return id == other.id;
-	}
-
 
 	public int getId() {
 		return id;
@@ -117,6 +93,21 @@ public class Bakery {
 		this.hoursOfOperation = hoursOfOperation;
 	}
 
+	public int getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public User getOwner() {
 		return owner;
@@ -151,9 +142,34 @@ public class Bakery {
 	}
 
 	@Override
-	public String toString() {
-		// TODO: ADD IN USER OBJECT to the toString
-		return "Bakery [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl=" + imageUrl
-				+ ", websiteUrl=" + websiteUrl + ", hoursOfOperation=" + hoursOfOperation + ", addressId=" +  ", owner=" + "]";
+	public int hashCode() {
+		return Objects.hash(id);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bakery other = (Bakery) obj;
+		return id == other.id;
+	}
+
+	public Bakery() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Bakery [id=" + id + ", name=" + name + ", description=" + description + "]";
+	}
+
+
+
+
+
+
 }
