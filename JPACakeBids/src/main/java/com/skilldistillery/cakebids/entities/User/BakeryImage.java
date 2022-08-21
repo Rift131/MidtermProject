@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="bakery_image")
+@Table(name = "bakery_image")
 public class BakeryImage {
 
 	@Id
@@ -20,11 +20,12 @@ public class BakeryImage {
 	private int id;
 	@Column(name = "image_url")
 	private String imageUrl;
-
-	private String description;
 	
+	@Column(name = "description")
+	private String imgDescription;
+
 	@ManyToOne
-	@JoinColumn(name="bakery_id")
+	@JoinColumn(name = "bakery_id")
 	private BakeryImage bakery;
 
 	public BakeryImage() {
@@ -64,14 +65,13 @@ public class BakeryImage {
 		this.imageUrl = imageUrl;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getImgDescription() {
+		return imgDescription;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setImgDescription(String imgDescription) {
+		this.imgDescription = imgDescription;
 	}
-
 
 	public BakeryImage getBakery() {
 		return bakery;
@@ -83,7 +83,7 @@ public class BakeryImage {
 
 	@Override
 	public String toString() {
-		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", description=" + description + ", bakeryId="
+		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", imgDescription=" + imgDescription + ", bakeryId="
 				+ "]";
 	}
 

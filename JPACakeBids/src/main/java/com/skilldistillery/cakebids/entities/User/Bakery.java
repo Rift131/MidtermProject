@@ -41,6 +41,9 @@ public class Bakery {
 	@OneToMany(mappedBy="bakery")
 	private List<CakeBid> cakeBids;
 	
+	@OneToOne
+	@JoinColumn(name= "description")
+	private BakeryImage imgDescription;
 	
 	
 	

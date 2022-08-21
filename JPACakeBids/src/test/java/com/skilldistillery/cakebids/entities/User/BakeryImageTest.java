@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,8 +50,8 @@ class BakeryImageTest {
 	@Test
 	void test_Bakery_image_entity_mapping_to_bakery_table() {
 		assertNotNull(bakeryImage);
-		assertNotNull(bakeryImage.getDescription());
-		assertEquals("drip cake ", bakeryImage.getDescription());
+		assertNotNull(bakeryImage.getImgDescription());
+		assertEquals("drip cake ", bakeryImage.getImgDescription());
 	}
 
 }
