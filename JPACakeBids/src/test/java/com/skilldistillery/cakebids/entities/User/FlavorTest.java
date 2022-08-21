@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities.User;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -47,4 +48,11 @@ class FlavorTest {
 		assertEquals("chocolate/chocolate", flavor.getName());
 	}
 
+	@Test
+	void test_Flavor_entity_mapping_ManyToMany_with_cake_table() {
+		assertNotNull(flavor);
+		assertNotNull(flavor.getFlavors());
+		assertTrue(flavor.getFlavors().size() > 0);
+	}
+	
 }

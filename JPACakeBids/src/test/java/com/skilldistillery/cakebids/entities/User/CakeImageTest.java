@@ -46,5 +46,12 @@ class CakeImageTest {
 		assertNotNull(cakeImage);
 		assertEquals("chocolate cake", cakeImage.getDescription());
 	}
+	
+	@Test
+	void test_CakeImage_entity_mapping_ManyToOne_with_Cake() {
+		assertNotNull(cakeImage);
+		assertNotNull(cakeImage.getCake().getCaketype());
+		assertEquals("Bill Nye's birthday!", cakeImage.getCake().getName());
+	}
 
 }

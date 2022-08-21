@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cake {
@@ -44,7 +45,12 @@ public class Cake {
 	
 	@ManyToMany(mappedBy="fillings")
 	private List<Filling> fillings;
+
+	@ManyToMany(mappedBy="flavors")
+	private List<Flavor> flavors;
 	
+	@OneToMany(mappedBy="cake")
+	private List<CakeImage> cakeImages;
 	
 	
 	
@@ -149,6 +155,22 @@ public class Cake {
 
 	public void setFillings(List<Filling> fillings) {
 		this.fillings = fillings;
+	}
+
+	public List<Flavor> getFlavors() {
+		return flavors;
+	}
+
+	public void setFlavors(List<Flavor> flavors) {
+		this.flavors = flavors;
+	}
+
+	public List<CakeImage> getCakeImages() {
+		return cakeImages;
+	}
+
+	public void setCakeImages(List<CakeImage> cakeImage) {
+		this.cakeImages = cakeImage;
 	}
 
 	@Override

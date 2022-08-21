@@ -23,7 +23,7 @@ public class Filling {
 	@ManyToMany
 	@JoinTable(
 			name="cake_has_fillings",
-			joinColumns= @JoinColumn(name="fillings_filling_id"),
+			joinColumns= @JoinColumn(name="fillings_type_id"),
 			inverseJoinColumns = @JoinColumn(name="cake_id"))
 	private List<Cake> fillings;
 	

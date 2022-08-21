@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +23,9 @@ public class CakeImage {
 	
 	private String description;
 	
-	@Column(name="cake_id")
-	private int cakeId;
+	@ManyToOne
+	@JoinColumn(name="cake_id")
+	private Cake cake;
 
 	public CakeImage() {
 		super();
@@ -69,18 +72,17 @@ public class CakeImage {
 		this.description = description;
 	}
 
-	public int getCakeId() {
-		return cakeId;
+	public Cake getCake() {
+		return cake;
 	}
 
-	public void setCakeId(int cakeId) {
-		this.cakeId = cakeId;
+	public void setCake(Cake cake) {
+		this.cake = cake;
 	}
 
 	@Override
 	public String toString() {
-		return "CakeImage [id=" + id + ", imageUrl=" + imageUrl + ", description=" + description + ", cakeId=" + cakeId
-				+ "]";
+		return "CakeImage [id=" + id + ", imageUrl=" + imageUrl + ", description=" + description + ", cakeId=" 			+ "]";
 	}
 	
 }
