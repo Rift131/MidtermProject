@@ -72,7 +72,7 @@ public class UserController {
 		return "accountCreated";
 	}
 	
-	@RequestMapping(path = {"accountUpdate.do"})
+	@RequestMapping(path = {"accountUpdate.do"}, method=RequestMethod.POST)
 	public String updateAccount(Integer id, Model model) {
 		User user = dao.findById(id);
 		model.addAttribute("user", user);

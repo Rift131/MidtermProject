@@ -13,7 +13,7 @@
 <body>
 
 	<h3>Create Account:</h3>
-	<form action="customerAccount.do" method="GET">
+	<form action="accountCreated.do" method="POST">
 		<label for="Username"><h4>Username: </h4> </label> <input type="text"
 			name="username"> <br>
 		<label for="firstname"><h4>First Name: </h4> </label> <input type="text"
