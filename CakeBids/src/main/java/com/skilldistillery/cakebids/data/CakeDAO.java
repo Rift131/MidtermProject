@@ -2,7 +2,7 @@ package com.skilldistillery.cakebids.data;
 
 import java.util.List;
 
-import com.skilldistillery.cakebids.entities.User.Cake;
+import com.skilldistillery.cakebids.entities.Cake;
 
 
 public interface CakeDAO {

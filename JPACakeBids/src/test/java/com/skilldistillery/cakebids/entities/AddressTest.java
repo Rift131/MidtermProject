@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -14,11 +14,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BakeryImageTest {
+import com.skilldistillery.cakebids.entities.Address;
+
+class AddressTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private BakeryImage bakeryImage;
+	private Address address;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,25 +35,27 @@ class BakeryImageTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		bakeryImage = em.find(BakeryImage.class, 1);
+		address = em.find(Address.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		bakeryImage = null;
+		address = null;
 	}
 
 	@Test
-	void test_Bakery_image_entity_mapping() {
-		assertNotNull(bakeryImage);
-		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Pj_6y9xzcpWxjzB4IckMZa_jGYLlWh7nNg&usqp=CAU", bakeryImage.getImageUrl());
+	void test_Address_entity_mapping() {
+		assertNotNull(address);
+		assertEquals("234 Science Way", address.getAddress());
+		assertEquals("Apt. 5", address.getAddress2());
 	}
 	@Test
-	void test_Bakery_image_entity_mapping_to_bakery_table() {
-		assertNotNull(bakeryImage);
-		assertNotNull(bakeryImage.getImgDescription());
-		assertEquals("drip cake ", bakeryImage.getImgDescription());
+	void test_Address_entity_mapping_OneToMany_with_occasion_table() {
+		assertNotNull(address);
+		assertNotNull(address.getOccasions());
+		assertTrue(address.getOccasions().size() > 0);
 	}
+	
 
 }

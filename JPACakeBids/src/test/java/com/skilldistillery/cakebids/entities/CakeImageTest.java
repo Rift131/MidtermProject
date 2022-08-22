@@ -1,8 +1,7 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,11 +13,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CakeBidTest {
+import com.skilldistillery.cakebids.entities.CakeImage;
+
+class CakeImageTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private CakeBid cakeBid;
+	private CakeImage cakeImage;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,27 +34,26 @@ class CakeBidTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		cakeBid = em.find(CakeBid.class, 1);
+		cakeImage = em.find(CakeImage.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		cakeBid = null;
+		cakeImage = null;
 	}
 
 	@Test
-	void test_CakeBid_entity_mapping() {
-		assertNotNull(cakeBid);
-		assertEquals(1, cakeBid.getId());
-		assertEquals(150.00, cakeBid.getPrice());
+	void test_CakeImage_entity_mapping() {
+		assertNotNull(cakeImage);
+		assertEquals("chocolate cake", cakeImage.getDescription());
 	}
+	
 	@Test
-	void test_CakeBid_entity_mapping_to_Bakery_table() {
-		assertNotNull(cakeBid);
-		assertNotNull(cakeBid.getBakery());
-		assertEquals(1, cakeBid.getBakery().getId());
-		assertTrue(cakeBid.getBakery().getCakeBids().size() > 0);
+	void test_CakeImage_entity_mapping_ManyToOne_with_Cake() {
+		assertNotNull(cakeImage);
+		assertNotNull(cakeImage.getCake().getCaketype());
+		assertEquals("Bill Nye's birthday!", cakeImage.getCake().getName());
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import java.util.List;
 import java.util.Objects;
@@ -104,6 +104,8 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
+	
+
 
 
 	public String getZip() {
@@ -136,10 +138,11 @@ public class Address {
 	}
 
 
+	
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", address=" + address + ", address2=" + address2 + ", city=" + city + ", state="
-				+ state + ", zip=" + zip + ", phone=" + phone + "]";
+				+ state + ", zip=" + zip + ", phone=" + phone;
 	}
 	
 }

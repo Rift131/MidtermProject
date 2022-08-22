@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import java.util.Objects;
 
@@ -26,7 +26,7 @@ public class BakeryImage {
 
 	@ManyToOne
 	@JoinColumn(name = "bakery_id")
-	private BakeryImage bakery;
+	private Bakery bakery;
 
 	public BakeryImage() {
 		super();
@@ -73,18 +73,19 @@ public class BakeryImage {
 		this.imgDescription = imgDescription;
 	}
 
-	public BakeryImage getBakery() {
+
+	public Bakery getBakery() {
 		return bakery;
 	}
 
-	public void setBakery(BakeryImage bakery) {
+	public void setBakery(Bakery bakery) {
 		this.bakery = bakery;
 	}
 
 	@Override
 	public String toString() {
-		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", imgDescription=" + imgDescription + ", bakeryId="
-				+ "]";
+		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", imgDescription=" + imgDescription + ", bakery="
+				+ bakery + "]";
 	}
 
 }

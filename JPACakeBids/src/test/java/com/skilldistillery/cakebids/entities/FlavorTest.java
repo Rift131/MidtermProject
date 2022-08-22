@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -14,11 +14,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CakeTypeTest {
+import com.skilldistillery.cakebids.entities.Flavor;
+
+class FlavorTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private CakeType cakeType;
+	private Flavor flavor;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,25 +35,26 @@ class CakeTypeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		cakeType = em.find(CakeType.class, 1);
+		flavor = em.find(Flavor.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		cakeType = null;
+		flavor = null;
 	}
 
 	@Test
-	void test_CakeType_entity_mapping() {
-		assertNotNull(cakeType);
-		assertEquals("tiered", cakeType.getName());
-	}
-	@Test
-	void test_CakeType_entity_mapping_OneToMany_with_cake_table() {
-		assertNotNull(cakeType);
-		assertNotNull(cakeType.getCakes());
-		assertTrue(cakeType.getCakes().size() > 0);
+	void test_Flavor_entity_mapping() {
+		assertNotNull(flavor);
+		assertEquals("chocolate/chocolate", flavor.getName());
 	}
 
+	@Test
+	void test_Flavor_entity_mapping_ManyToMany_with_cake_table() {
+		assertNotNull(flavor);
+		assertNotNull(flavor.getFlavors());
+		assertTrue(flavor.getFlavors().size() > 0);
+	}
+	
 }

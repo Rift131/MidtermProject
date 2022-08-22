@@ -1,7 +1,8 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,11 +14,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CakeImageTest {
+import com.skilldistillery.cakebids.entities.BakeryImage;
+
+class BakeryImageTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private CakeImage cakeImage;
+	private BakeryImage bakeryImage;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,26 +35,25 @@ class CakeImageTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		cakeImage = em.find(CakeImage.class, 1);
+		bakeryImage = em.find(BakeryImage.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		cakeImage = null;
+		bakeryImage = null;
 	}
 
 	@Test
-	void test_CakeImage_entity_mapping() {
-		assertNotNull(cakeImage);
-		assertEquals("chocolate cake", cakeImage.getDescription());
+	void test_Bakery_image_entity_mapping() {
+		assertNotNull(bakeryImage);
+		assertEquals("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Pj_6y9xzcpWxjzB4IckMZa_jGYLlWh7nNg&usqp=CAU", bakeryImage.getImageUrl());
 	}
-	
 	@Test
-	void test_CakeImage_entity_mapping_ManyToOne_with_Cake() {
-		assertNotNull(cakeImage);
-		assertNotNull(cakeImage.getCake().getCaketype());
-		assertEquals("Bill Nye's birthday!", cakeImage.getCake().getName());
+	void test_Bakery_image_entity_mapping_to_bakery_table() {
+		assertNotNull(bakeryImage);
+		assertNotNull(bakeryImage.getBakery());
+		assertEquals("Chic French bakery", bakeryImage.getBakery().getDescription());
 	}
 
 }

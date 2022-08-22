@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;

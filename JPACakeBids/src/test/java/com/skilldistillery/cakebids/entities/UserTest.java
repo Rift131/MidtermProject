@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -14,11 +14,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class AddressTest {
+import com.skilldistillery.cakebids.entities.Address;
+import com.skilldistillery.cakebids.entities.User;
+
+class UserTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Address address;
+	private User user;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,27 +36,39 @@ class AddressTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		address = em.find(Address.class, 1);
+		user = em.find(User.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		address = null;
+		user = null;
 	}
 
 	@Test
-	void test_Address_entity_mapping() {
-		assertNotNull(address);
-		assertEquals("234 Science Way", address.getAddress());
-		assertEquals("Apt. 5", address.getAddress2());
-	}
-	@Test
-	void test_Address_entity_mapping_OneToMany_with_occasion_table() {
-		assertNotNull(address);
-		assertNotNull(address.getOccasions());
-		assertTrue(address.getOccasions().size() > 0);
+	void test_User_entity_mapping() {
+		assertNotNull(user);
+		assertEquals("nyeGuy", user.getUsername());
 	}
 	
+	@Test
+	void test_User_mapping_to_cake_review() {
+		assertNotNull(user);
+		assertNotNull(user.getCakeReview());
+		assertTrue(user.getCakeReview().size() > 0);
+	}
+	@Test
+	void test_User_mapping_to_bakery_review_table() {
+		assertNotNull(user);
+		assertNotNull(user.getBakeryReviews());
+		assertTrue(user.getBakeryReviews().size() > 0);
+	}
+	@Test
+	void test_User_mapping_to_address_table() {
+		Address address = user.getAddress();
+		assertNotNull(address);
+		assertNotNull(address.getAddress());
+		assertEquals("TX", user.getAddress().getState());
+	}
 
 }

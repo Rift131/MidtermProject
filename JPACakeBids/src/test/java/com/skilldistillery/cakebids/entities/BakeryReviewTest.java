@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -13,11 +13,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CakeReviewTest {
+import com.skilldistillery.cakebids.entities.BakeryReview;
+
+class BakeryReviewTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private CakeReview cakeReview;
+	private BakeryReview bakeryReview;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,26 +34,30 @@ class CakeReviewTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		cakeReview = em.find(CakeReview.class, 1);
+		bakeryReview = em.find(BakeryReview.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		cakeReview = null;
+		bakeryReview = null;
 	}
 
 	@Test
-	void test_CakeReview_entity_mapping() {
-		assertNotNull(cakeReview);
-		assertEquals("so delish", cakeReview.getReview());
-		assertEquals(2, cakeReview.getRating());
+	void test_BakeryReview_entity_mapping() {
+		assertNotNull(bakeryReview);
+		assertEquals(5, bakeryReview.getRating());
+		assertEquals(2022, bakeryReview.getReviewDate().getYear());
 	}
-	
 	@Test
-	void test_CakeReview_entity_mapping_to_User_Table() {
-		assertNotNull(cakeReview);
-		assertEquals(1, cakeReview.getUser().getId());
+	void test_BakeryReview_mapping_to_user_table() {
+		assertNotNull(bakeryReview);
+		assertEquals("nyeGuy", bakeryReview.getUser().getUsername());
+	}
+	@Test
+	void test_BakeryReview_test_mapping_to_bakery_table() {
+		assertNotNull(bakeryReview);
+		assertEquals(1, bakeryReview.getBakery().getId());
 	}
 
 }

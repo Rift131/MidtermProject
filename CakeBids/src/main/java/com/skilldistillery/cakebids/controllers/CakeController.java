@@ -4,8 +4,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.cakebids.data.CakeDAO;
-import com.skilldistillery.cakebids.entities.User.Cake;
-import com.skilldistillery.cakebids.entities.User.User;
+import com.skilldistillery.cakebids.entities.Cake;
+import com.skilldistillery.cakebids.entities.User;
 
 public class CakeController {
 	

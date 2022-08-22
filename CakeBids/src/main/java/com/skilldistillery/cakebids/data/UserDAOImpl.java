@@ -6,9 +6,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.cakebids.entities.User.Bakery;
-import com.skilldistillery.cakebids.entities.User.BakeryImage;
-import com.skilldistillery.cakebids.entities.User.User;
+import com.skilldistillery.cakebids.entities.Bakery;
+import com.skilldistillery.cakebids.entities.BakeryImage;
+import com.skilldistillery.cakebids.entities.User;
 
 @Service
 @Transactional
@@ -95,7 +95,7 @@ public class UserDAOImpl implements UserDAO {
 			updateBakery.setWebsiteUrl(bakery.getWebsiteUrl());
 			updateBakery.setHoursOfOperation(bakery.getHoursOfOperation());
 			updateBakery.setBakeryImages(bakery.getBakeryImages());
-			updateBakery.setBakeryImages(bakery.get);
+			//updateBakery.setBakeryImages(bakery.get);
 		}
 
 		return updateBakery;

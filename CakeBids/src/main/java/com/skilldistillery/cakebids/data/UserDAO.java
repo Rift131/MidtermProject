@@ -1,7 +1,7 @@
 package com.skilldistillery.cakebids.data;
 
-import com.skilldistillery.cakebids.entities.User.Bakery;
-import com.skilldistillery.cakebids.entities.User.User;
+import com.skilldistillery.cakebids.entities.Bakery;
+import com.skilldistillery.cakebids.entities.User;
 
 public interface UserDAO {
 

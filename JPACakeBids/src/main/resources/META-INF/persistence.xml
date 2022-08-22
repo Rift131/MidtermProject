@@ -8,6 +8,19 @@
 <!--  Every entity must be represented in the persistence.xml file. Good practice: put these in alphabetical order -->
 
 
+<class>com.skilldistillery.cakebids.entities.Address</class>
+<class>com.skilldistillery.cakebids.entities.Bakery</class>
+<class>com.skilldistillery.cakebids.entities.BakeryImage</class>
+<class>com.skilldistillery.cakebids.entities.BakeryReview</class>
+<class>com.skilldistillery.cakebids.entities.Cake</class>
+<class>com.skilldistillery.cakebids.entities.CakeBid</class>
+<class>com.skilldistillery.cakebids.entities.CakeImage</class>
+<class>com.skilldistillery.cakebids.entities.CakeReview</class>
+<class>com.skilldistillery.cakebids.entities.CakeType</class>
+<class>com.skilldistillery.cakebids.entities.DeliveryMethod</class>
+<class>com.skilldistillery.cakebids.entities.Filling</class>
+<class>com.skilldistillery.cakebids.entities.Flavor</class>
+<class>com.skilldistillery.cakebids.entities.Occasion</class>
 <class>com.skilldistillery.cakebids.entities.User</class>
 
     <properties>

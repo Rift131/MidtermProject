@@ -1,4 +1,4 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import java.util.List;
 import java.util.Objects;
@@ -40,12 +40,6 @@ public class Bakery {
 
 	@OneToMany(mappedBy="bakery")
 	private List<CakeBid> cakeBids;
-	
-	@OneToOne
-	@JoinColumn(name= "description")
-	private BakeryImage imgDescription;
-	
-	
 	
 	public Bakery() {
 		super();

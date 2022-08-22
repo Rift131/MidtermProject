@@ -1,8 +1,9 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,22 +12,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 @Entity
-public class Flavor {
+public class Filling {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String name;
+	@Column(name="filling_type")
+	private String fillingType;
 
 	@ManyToMany
 	@JoinTable(
-			name="cake_has_flavor",
-			joinColumns= @JoinColumn(name="cake_flavor_id"),
+			name="cake_has_fillings",
+			joinColumns= @JoinColumn(name="fillings_type_id"),
 			inverseJoinColumns = @JoinColumn(name="cake_id"))
-	private List<Cake> flavors;
+	private List<Cake> fillings;
 	
 	
-	public Flavor() {
+	public Filling() {
 		super();
 	}
 
@@ -43,28 +45,38 @@ public class Flavor {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Flavor other = (Flavor) obj;
+		Filling other = (Filling) obj;
 		return id == other.id;
 	}
 
-	public String getName() {
-		return name;
+	public int getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public List<Cake> getFlavors() {
-		return flavors;
+	public String getFillingType() {
+		return fillingType;
 	}
 
-	public void setFlavors(List<Cake> flavors) {
-		this.flavors = flavors;
+	public void setFillingType(String fillingType) {
+		this.fillingType = fillingType;
+	}
+
+
+	public List<Cake> getFillings() {
+		return fillings;
+	}
+
+	public void setFillings(List<Cake> fillings) {
+		this.fillings = fillings;
 	}
 
 	@Override
 	public String toString() {
-		return "Flavor [id=" + id + ", name=" + name + "]";
+		return "Filling [id=" + id + ", fillingType=" + fillingType + "]";
 	}
+	
 }

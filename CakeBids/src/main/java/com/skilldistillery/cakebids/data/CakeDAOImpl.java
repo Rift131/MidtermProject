@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.skilldistillery.cakebids.entities.User.Cake;
+import com.skilldistillery.cakebids.entities.Cake;
 
 public class CakeDAOImpl implements CakeDAO{
 

@@ -1,9 +1,8 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,23 +11,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 @Entity
-public class Filling {
+public class Flavor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="filling_type")
-	private String fillingType;
+	private String name;
 
 	@ManyToMany
 	@JoinTable(
-			name="cake_has_fillings",
-			joinColumns= @JoinColumn(name="fillings_type_id"),
+			name="cake_has_flavor",
+			joinColumns= @JoinColumn(name="cake_flavor_id"),
 			inverseJoinColumns = @JoinColumn(name="cake_id"))
-	private List<Cake> fillings;
+	private List<Cake> flavors;
 	
 	
-	public Filling() {
+	public Flavor() {
 		super();
 	}
 
@@ -45,38 +43,28 @@ public class Filling {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Filling other = (Filling) obj;
+		Flavor other = (Flavor) obj;
 		return id == other.id;
 	}
 
-	public int getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getFillingType() {
-		return fillingType;
+	public List<Cake> getFlavors() {
+		return flavors;
 	}
 
-	public void setFillingType(String fillingType) {
-		this.fillingType = fillingType;
-	}
-
-
-	public List<Cake> getFillings() {
-		return fillings;
-	}
-
-	public void setFillings(List<Cake> fillings) {
-		this.fillings = fillings;
+	public void setFlavors(List<Cake> flavors) {
+		this.flavors = flavors;
 	}
 
 	@Override
 	public String toString() {
-		return "Filling [id=" + id + ", fillingType=" + fillingType + "]";
+		return "Flavor [id=" + id + ", name=" + name + "]";
 	}
-	
 }

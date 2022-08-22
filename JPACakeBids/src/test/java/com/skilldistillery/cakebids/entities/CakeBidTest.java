@@ -1,7 +1,8 @@
-package com.skilldistillery.cakebids.entities.User;
+package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,11 +14,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class OccasionTest {
+import com.skilldistillery.cakebids.entities.CakeBid;
+
+class CakeBidTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Occasion occasion;
+	private CakeBid cakeBid;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,27 +35,27 @@ class OccasionTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		occasion = em.find(Occasion.class, 1);
+		cakeBid = em.find(CakeBid.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		occasion = null;
+		cakeBid = null;
 	}
 
 	@Test
-	void test_Occasion_entity_mapping() {
-		assertNotNull(occasion);
-		assertEquals("wedding", occasion.getName());
-		assertEquals(00, occasion.getDate().getSecond());
-		assertEquals("3 tier watercolor cake", occasion.getDescription());
+	void test_CakeBid_entity_mapping() {
+		assertNotNull(cakeBid);
+		assertEquals(1, cakeBid.getId());
+		assertEquals(150.00, cakeBid.getPrice());
 	}
 	@Test
-	void test_Occasion_entity_mapping_ManyToOne_with_address_table() {
-		assertNotNull(occasion);
-		assertNotNull(occasion.getAddress());
-		assertEquals(1, occasion.getAddress().getId());
+	void test_CakeBid_entity_mapping_to_Bakery_table() {
+		assertNotNull(cakeBid);
+		assertNotNull(cakeBid.getBakery());
+		assertEquals(1, cakeBid.getBakery().getId());
+		assertTrue(cakeBid.getBakery().getCakeBids().size() > 0);
 	}
 
 }

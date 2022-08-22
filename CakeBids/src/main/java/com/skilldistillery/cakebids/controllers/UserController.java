@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.cakebids.data.UserDAO;
-import com.skilldistillery.cakebids.entities.User.Bakery;
-import com.skilldistillery.cakebids.entities.User.User;
+import com.skilldistillery.cakebids.entities.Bakery;
+import com.skilldistillery.cakebids.entities.User;
 
 @Controller
 public class UserController {
