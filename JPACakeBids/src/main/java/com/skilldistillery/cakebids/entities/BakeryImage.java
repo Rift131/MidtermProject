@@ -22,9 +22,6 @@ public class BakeryImage {
 	private String imageUrl;
 
 	private String description;
-	
-	@Column(name = "bakery_id")
-	private int bakeryId;
 
 	@ManyToOne
 	@JoinColumn(name = "bakery_id")
@@ -58,13 +55,6 @@ public class BakeryImage {
 		this.description = description;
 	}
 
-	public int getBakeryId() {
-		return bakeryId;
-	}
-
-	public void setBakeryId(int bakeryId) {
-		this.bakeryId = bakeryId;
-	}
 
 	public Bakery getBakery() {
 		return bakery;
@@ -94,7 +84,7 @@ public class BakeryImage {
 	@Override
 	public String toString() {
 		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", description=" + description + ", bakeryId="
-				+ bakeryId + ", bakery=" + bakery + "]";
+				 + ", bakery=" + bakery + "]";
 	}
 
 
