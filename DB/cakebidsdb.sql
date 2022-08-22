@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` VARCHAR(45) NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   `profile_picture` VARCHAR(2000) NULL,
   `create_date` DATETIME NULL,
   `about_me` TEXT NULL,
