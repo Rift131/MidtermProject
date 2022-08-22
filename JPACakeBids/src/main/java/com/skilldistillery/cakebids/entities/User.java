@@ -54,12 +54,19 @@ public class User {
 	@OneToOne
 	@JoinColumn(name="address_id") //database fix required for foreign key 
 	private Address address;
-//
-//	@OneToOne
-//	@JoinColumn(name="owner_id")
-//	private Bakery bakery;
+
+	@OneToOne(mappedBy="owner")
+	private Bakery bakery;
 	
 	
+	public Bakery getBakery() {
+		return bakery;
+	}
+
+	public void setBakery(Bakery bakery) {
+		this.bakery = bakery;
+	}
+
 	public User() {
 		super();
 	}

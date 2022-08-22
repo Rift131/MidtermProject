@@ -31,9 +31,26 @@ public class UserController {
 		user = dao.logIn(user.getUsername(), user.getPassword());
 		if (user != null) {
 			session.setAttribute("loggedIn", user);
-			return "accountPage";
+			return "customerAccount";
 		} else {
-			return "login";
+			return "failedlogin";
+		}
+	}
+	
+	@RequestMapping(path = { "login.do" }, method=RequestMethod.GET)
+	public String logIn() {
+		
+		return "login";
+		}
+	
+	@RequestMapping(path = { "bakerylogin.do" }, method=RequestMethod.POST)
+	public String logInBakery(HttpSession session, User user) {
+		user = dao.logIn(user.getUsername(), user.getPassword());
+		if (user != null) {
+			session.setAttribute("loggedIn", user);
+			return "bakeryAccount";
+		} else {
+			return "failedlogin";
 		}
 	}
 
