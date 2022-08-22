@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.cakebids.data.UserDAO;
 import com.skilldistillery.cakebids.entities.Bakery;
@@ -25,10 +26,11 @@ public class UserController {
 		return "home";
 	}
 
-	@RequestMapping(path = { "login.do" })
-	public String logIn(HttpSession session) {
-		User user = (User) session.getAttribute("loggedIn");
+	@RequestMapping(path = { "login.do" }, method=RequestMethod.POST)
+	public String logIn(HttpSession session, User user) {
+		user = dao.logIn(user.getUsername(), user.getPassword());
 		if (user != null) {
+			session.setAttribute("loggedIn", user);
 			return "accountPage";
 		} else {
 			return "login";

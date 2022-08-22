@@ -1,6 +1,8 @@
 package com.skilldistillery.cakebids.data;
 
 import com.skilldistillery.cakebids.entities.Bakery;
+import com.skilldistillery.cakebids.entities.BakeryReview;
+import com.skilldistillery.cakebids.entities.CakeReview;
 import com.skilldistillery.cakebids.entities.User;
 
 public interface UserDAO {
@@ -21,5 +23,15 @@ public interface UserDAO {
 
 	Bakery updateBakeryAccount(Bakery bakery, Integer id);
 	
+	User createBakeryReview(BakeryReview review, Integer id);
 	
+	User updateBakeryReview(BakeryReview review, Integer id);
+	
+	User createCakeReview(CakeReview review, Integer id);
+	
+	User updateCakeReview(CakeReview review, Integer id);
+	
+	User commentOnBakeryReview(BakeryReview review, Integer id);
+	
+	User commentOnCakeReview(CakeReview review, Integer id);
 }

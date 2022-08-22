@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.cakebids.entities.Bakery;
 import com.skilldistillery.cakebids.entities.BakeryImage;
+import com.skilldistillery.cakebids.entities.BakeryReview;
+import com.skilldistillery.cakebids.entities.CakeReview;
 import com.skilldistillery.cakebids.entities.User;
 
 @Service
@@ -98,6 +100,42 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 		return updateBakery;
+	}
+
+	@Override
+	public User createBakeryReview(BakeryReview review, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateBakeryReview(BakeryReview review, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User createCakeReview(CakeReview review, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateCakeReview(CakeReview review, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User commentOnBakeryReview(BakeryReview review, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User commentOnCakeReview(CakeReview review, Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
