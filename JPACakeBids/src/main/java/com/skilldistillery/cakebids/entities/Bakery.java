@@ -2,7 +2,7 @@ package com.skilldistillery.cakebids.entities;
 
 import java.util.List;
 import java.util.Objects;
-
+// persistence imports
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
