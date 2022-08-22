@@ -25,12 +25,9 @@ public class Bakery {
 	private String imageUrl;
 	@Column (name = "website_url")
 	private String websiteUrl;
+	
 	@Column (name = "hours_operation")
 	private String hoursOfOperation;
-	@Column (name = "address_id")
-	private int addressId;
-	@Column (name = "user_id")
-	private int userId;
 
 	@OneToOne
 	@JoinColumn(name="owner_id")
@@ -91,22 +88,6 @@ public class Bakery {
 
 	public void setHoursOfOperation(String hoursOfOperation) {
 		this.hoursOfOperation = hoursOfOperation;
-	}
-
-	public int getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public User getOwner() {
