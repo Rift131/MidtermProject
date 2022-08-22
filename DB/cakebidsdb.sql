@@ -388,8 +388,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (1, '234 Science Way', 'Apt. 5', 'Houston', 'TX', '77084', '(281)330-8004');
-INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (2, '1626 Tower Grove Ave', NULL, 'St. Louis', 'MO', '63110', '(314)932-7935');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (2, '234 Science Way', 'Apt. 5', 'Houston', 'TX', '77084', '(281)330-8004');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (1, '1626 Tower Grove Ave', NULL, 'St. Louis', 'MO', '63110', '(314)932-7935');
 
 COMMIT;
 
@@ -399,8 +399,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (1, 'nyeGuy', '1234', 1, 'customer', 'Bill', 'Nye', 1, 'https://images.squarespace-cdn.com/content/v1/5991dbfef43b5576c6ec7eda/1507513713189-2784HYO9WM9JDIEA7INP/bill_nye_mobile.jpg?format=2500w', '2022-08-19', 'I love cake!');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (2, 'La Patisserie Chouquette', '1234', 1, 'bakery', 'Simone', 'Faure', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrBtjb432W6-gQeeXnkjC-oJrvQIvxNMN-9w&usqp=CAU', '2022-08-19', 'Patisserie bakery owner');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (2, 'nyeGuy', '1234', 1, 'customer', 'Bill', 'Nye', 1, 'https://images.squarespace-cdn.com/content/v1/5991dbfef43b5576c6ec7eda/1507513713189-2784HYO9WM9JDIEA7INP/bill_nye_mobile.jpg?format=2500w', '2022-08-19', 'I love cake!');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (1, 'La Patisserie Chouquette', '1234', 1, 'bakery', 'Simone', 'Faure', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrBtjb432W6-gQeeXnkjC-oJrvQIvxNMN-9w&usqp=CAU', '2022-08-19', 'Patisserie bakery owner');
 
 COMMIT;
 
@@ -420,7 +420,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (1, 'wedding', '2022-08-25', 1, '3 tier watercolor cake', 1);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (1, 'wedding', '2022-08-25', 2, '3 tier watercolor cake', 2);
 
 COMMIT;
 
