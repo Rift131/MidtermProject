@@ -12,17 +12,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "bakery_image")
+@Table(name="bakery_image")
 public class BakeryImage {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name = "image_url")
 	private String imageUrl;
+
+	private String description;
 	
-	@Column(name = "description")
-	private String imgDescription;
+	@Column(name = "bakery_id")
+	private int bakeryId;
 
 	@ManyToOne
 	@JoinColumn(name = "bakery_id")
@@ -30,23 +32,6 @@ public class BakeryImage {
 
 	public BakeryImage() {
 		super();
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		BakeryImage other = (BakeryImage) obj;
-		return id == other.id;
 	}
 
 	public int getId() {
@@ -65,14 +50,21 @@ public class BakeryImage {
 		this.imageUrl = imageUrl;
 	}
 
-	public String getImgDescription() {
-		return imgDescription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setImgDescription(String imgDescription) {
-		this.imgDescription = imgDescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
+	public int getBakeryId() {
+		return bakeryId;
+	}
+
+	public void setBakeryId(int bakeryId) {
+		this.bakeryId = bakeryId;
+	}
 
 	public Bakery getBakery() {
 		return bakery;
@@ -81,11 +73,31 @@ public class BakeryImage {
 	public void setBakery(Bakery bakery) {
 		this.bakery = bakery;
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BakeryImage other = (BakeryImage) obj;
+		return id == other.id;
+	}
 
 	@Override
 	public String toString() {
-		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", imgDescription=" + imgDescription + ", bakery="
-				+ bakery + "]";
+		return "BakeryImage [id=" + id + ", imageUrl=" + imageUrl + ", description=" + description + ", bakeryId="
+				+ bakeryId + ", bakery=" + bakery + "]";
 	}
+
+
+
 
 }
