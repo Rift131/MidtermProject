@@ -1,7 +1,10 @@
 package com.skilldistillery.cakebids.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.cakebids.data.BakeryDAO;
 import com.skilldistillery.cakebids.entities.Bakery;
@@ -9,8 +12,10 @@ import com.skilldistillery.cakebids.entities.BakeryReview;
 import com.skilldistillery.cakebids.entities.Cake;
 import com.skilldistillery.cakebids.entities.CakeBid;
 
+@Controller
 public class BakeryController {
 
+	@Autowired
 	private BakeryDAO dao;
 
 	@RequestMapping(path = { "openRequests.do" })
@@ -54,10 +59,18 @@ public class BakeryController {
 		return "orderUpdated";
 	}
 
-	@RequestMapping(path = "orderDeleted.do")
+	@RequestMapping(path = {"orderDeleted.do"})
 	public String deleteOrder(Model model, Cake cakeId) {
 		Bakery order = dao.getOrders(cakeId);
 		dao.deleteOrder(cakeId);
 		return "orderDeleted";
+	}
+	
+	@RequestMapping(path = {"showBakeries.do"}, method = RequestMethod.GET)
+	public String showBakeries(Model model) {
+		System.out.println("before attribute");
+		model.addAttribute("bakery", dao.findAll());
+		System.out.println("after attribute");
+		return "showBakeries";
 	}
 }

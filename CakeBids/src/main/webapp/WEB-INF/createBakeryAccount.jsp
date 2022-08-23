@@ -24,8 +24,6 @@
 			name="owner.firstName"> <br>
 		<label for="owner.lastName"><h4>Owner Last Name: </h4> </label> <input type="text"
 			name="owner.lastName"> <br>
-		<label for="owner.email"><h4>Business Email: </h4> </label> <input type="text"
-		    name="owner.email"> <br>
 		    <label for="websiteUrl"><h4>Website URL: </h4> </label> <input type="text"
 		    name="websiteUrl"> <br>
 		    <label for="hoursOfOperation"><h4>Hours of Operation: </h4> </label> <input type="text"
