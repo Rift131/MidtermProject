@@ -388,8 +388,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (2, '234 Science Way', 'Apt. 5', 'Houston', 'TX', '77084', '(281)330-8004');
-INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (1, '1626 Tower Grove Ave', NULL, 'St. Louis', 'MO', '63110', '(314)932-7935');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (1, '234 Science Way', 'Apt. 5', 'Houston', 'TX', '77084', '(281)330-8004');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (2, '1626 Tower Grove Ave', NULL, 'St. Louis', 'MO', '63110', '(314)932-7935');
 
 COMMIT;
 
