@@ -45,6 +45,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User createAccount(User user) {
 		user.setEnabled(true);
+		user.setRole("customer");
 		em.persist(user.getAddress());
 		em.persist(user);
 		return user;
@@ -83,6 +84,11 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public Bakery createBakeryAccount(Bakery bakery) {
+		bakery.getOwner().setRole("bakery");
+		bakery.getOwner().setEnabled(true);
+		bakery.getOwner().setBakery(bakery);
+		em.persist(bakery.getOwner().getAddress());
+		em.persist(bakery.getOwner());
 		em.persist(bakery);		
 		return bakery;
 	}

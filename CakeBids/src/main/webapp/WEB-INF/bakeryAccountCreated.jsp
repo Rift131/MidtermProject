@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>Account Successfully Created!</h1>
-<a href="bakeryAccount.do">View Your Account</a>
+<a href="customerAccount.do">View Your Account</a>
 </body>
 </html>
