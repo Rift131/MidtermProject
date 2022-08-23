@@ -420,7 +420,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (1, 'wedding', '2022-08-25', 2, '3 tier watercolor cake', 2);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (1, 'wedding', '2022-08-25', 2, '3 tier watercolor cake', 1);
 
 COMMIT;
 
