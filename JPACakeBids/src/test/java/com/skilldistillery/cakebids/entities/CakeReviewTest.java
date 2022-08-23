@@ -53,7 +53,7 @@ class CakeReviewTest {
 	@Test
 	void test_CakeReview_entity_mapping_to_User_Table() {
 		assertNotNull(cakeReview);
-		assertEquals(1, cakeReview.getUser().getId());
+		assertEquals(2, cakeReview.getUser().getId());
 	}
 
 }

@@ -34,7 +34,7 @@ class BakeryReviewTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		bakeryReview = em.find(BakeryReview.class, 2);
+		bakeryReview = em.find(BakeryReview.class, 1);
 	}
 
 	@AfterEach
