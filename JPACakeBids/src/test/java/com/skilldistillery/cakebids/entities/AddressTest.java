@@ -35,7 +35,7 @@ class AddressTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		address = em.find(Address.class, 1);
+		address = em.find(Address.class, 2);
 	}
 
 	@AfterEach
