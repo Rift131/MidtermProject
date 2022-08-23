@@ -48,12 +48,23 @@ public class UserController {
 		user = dao.logIn(user.getUsername(), user.getPassword());
 		if (user != null) {
 			session.setAttribute("loggedIn", user);
-			return "bakeryAccount";
+			return "customerAccount";
 		} else {
 			return "failedlogin";
 		}
 	}
-
+	@RequestMapping(path = { "customerAccount.do" })
+	public String viewAcct(HttpSession session) {
+		if(session.getAttribute("loggedIn") != null) {
+			return "customerAccount";
+		}
+		else {
+			return "login";
+		}
+		
+	}
+	
+	
 	@RequestMapping(path = { "logout.do" })
 	public String logOut(HttpSession session) {
 		session.removeAttribute("loggedIn");
@@ -66,8 +77,9 @@ public class UserController {
 	}
 
 	@RequestMapping(path = { "accountCreated.do" })
-	public String createdAccount(User user, Model model) {
-		dao.createAccount(user);
+	public String createdAccount(User user, Model model, HttpSession session) {
+		user = dao.createAccount(user);
+		session.setAttribute("loggedIn", user);
 		model.addAttribute("user", user);
 		return "accountCreated";
 	}
@@ -98,9 +110,10 @@ public class UserController {
 		return "createBakeryAccount";
 	}
 
-	@RequestMapping(path = { "bakeryAccountCreated.do" })
-	public String createdBakeryAccount(Bakery bakery, Model model) {
-		dao.createBakeryAccount(bakery);
+	@RequestMapping(path = { "bakeryAccountCreated.do" }, method=RequestMethod.POST)
+	public String createdBakeryAccount(Bakery bakery, Model model, HttpSession session) {
+		bakery = dao.createBakeryAccount(bakery);
+		session.setAttribute("loggedIn", bakery.getOwner());
 		model.addAttribute("bakery", bakery);
 		return "bakeryAccountCreated";
 	}

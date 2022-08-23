@@ -10,7 +10,8 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
-
+<p>${loggedIn }</p>
+<p>${loggedIn.bakery }</p>
 
 <c:choose>
 <c:when test="${empty loggedIn.bakery }">
@@ -43,6 +44,10 @@
 		<form action="logout.do" method="GET">
 		<input class="btn btn-primary" type="submit" value="Logout" />
 	</form>
+	
+	<form action="accountDeactivated.do?id=${loggedIn.id }" method="GET">
+		<h4>Delete Account:</h4><input class="btn btn-warning" type="submit" value="delete" />
+		</form>
 	</c:when>
 	
 <c:when test="${not empty loggedIn.bakery }" >
@@ -56,7 +61,8 @@
 	<form action="logout.do" method="GET">
 		<input class="btn btn-primary" type="submit" value="Logout" />
 	</form>
-
+<form action="accountDeactivated.do" method="GET">
+		<h4>Delete Account:</h4><input class="btn btn-warning" type="submit" value="delete" />
 </c:when>
 
 
