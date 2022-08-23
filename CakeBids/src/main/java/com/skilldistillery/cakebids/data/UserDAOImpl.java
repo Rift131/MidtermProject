@@ -73,9 +73,10 @@ public class UserDAOImpl implements UserDAO {
 	public boolean deactivateAccount(Integer id) {
 		boolean successful = false;
 		User userDeactivated = em.find(User.class, id);
+		userDeactivated.setEnabled(false);
 		boolean user = userDeactivated.isEnabled();
 
-		if (user) {
+		if (!user ) {
 			user = false;
 			successful = true;
 		}
@@ -109,6 +110,7 @@ public class UserDAOImpl implements UserDAO {
 
 		return updateBakery;
 	}
+
 
 	@Override
 	public User createBakeryReview(BakeryReview review, Integer id) {

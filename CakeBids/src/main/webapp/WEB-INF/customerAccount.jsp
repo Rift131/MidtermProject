@@ -10,63 +10,67 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
-<p>${loggedIn }</p>
-<p>${loggedIn.bakery }</p>
+	<p>${loggedIn }</p>
+	<p>${loggedIn.bakery }</p>
 
-<c:choose>
-<c:when test="${empty loggedIn.bakery }">
-	<form action="results.do" method="GET">
-		<h4>Search Bakeries:</h4>
-		<input class="form-control" type="number" name="id" /> <input
-			class="btn btn-primary" type="submit" value="Search" />
-	</form>
+	<c:choose>
+		<c:when test="${empty loggedIn.bakery }">
+			<form action="results.do" method="GET">
+				<h4>Search Bakeries:</h4>
+				<input class="form-control" type="number" name="id" /> <input
+					class="btn btn-primary" type="submit" value="Search" />
+			</form>
 
-	<form action="showBakeries.do" method="POST">
-		<input class="btn btn-primary" type="submit" value="List Bakeries" />
-	</form>
+			<form action="showBakeries.do" method="POST">
+				<input class="btn btn-primary" type="submit" value="List Bakeries" />
+			</form>
 
-	<form action="cakeBid.do" method="GET">
-		<input class="btn btn-primary" type="submit"
-			value="Create Cake Request" />
-	</form>
-	<form action="openCakeRequests.do" method="GET">
-		<input class="btn btn-primary" type="submit"
-			value="My Open Cake Requests" />
-	</form>
-	<form action="showCustomerReviews.do" method="POST">
-		<input class="btn btn-primary" type="submit" value="My Reviews" />
-	</form>
+			<form action="cakeBid.do" method="GET">
+				<input class="btn btn-primary" type="submit"
+					value="Create Cake Request" />
+			</form>
+			<form action="openCakeRequests.do" method="GET">
+				<input class="btn btn-primary" type="submit"
+					value="My Open Cake Requests" />
+			</form>
+			<form action="showCustomerReviews.do" method="POST">
+				<input class="btn btn-primary" type="submit" value="My Reviews" />
+			</form>
 
-	<form action="accountUpdate.do" method="GET">
-		<input class="btn btn-primary" type="submit" value="Update My Account" />
-	</form>
-	
-		<form action="logout.do" method="GET">
-		<input class="btn btn-primary" type="submit" value="Logout" />
-	</form>
-	
-	<form action="accountDeactivated.do?id=${loggedIn.id }" method="GET">
-		<h4>Delete Account:</h4><input class="btn btn-warning" type="submit" value="delete" />
-		</form>
-	</c:when>
-	
-<c:when test="${not empty loggedIn.bakery }" >
-<!-- display bakery stuff -->
+			<form action="accountUpdate.do" method="GET">
+				<input class="btn btn-primary" type="submit"
+					value="Update My Account" />
+			</form>
 
-	<form action="reviews.do" method="GET">
-		<input class="form-control" type="number" name="id" /> <input
-			class="btn btn-primary" type="submit" value="All Bakery Reviews" />
-	</form>
+			<form action="logout.do" method="GET">
+				<input class="btn btn-primary" type="submit" value="Logout" />
+			</form>
 
-	<form action="logout.do" method="GET">
-		<input class="btn btn-primary" type="submit" value="Logout" />
-	</form>
-<form action="accountDeactivated.do" method="GET">
-		<h4>Delete Account:</h4><input class="btn btn-warning" type="submit" value="delete" />
-</c:when>
+			<form action="accountDeactivated.do" method="POST">
+				<h4>Delete Account:</h4>
+				<input class="btn btn-warning" type="submit" value="delete" />
+			</form>
+		</c:when>
+
+		<c:when test="${not empty loggedIn.bakery }">
+			<!-- display bakery stuff -->
+
+			<form action="reviews.do" method="GET">
+				<input class="form-control" type="number" name="id" /> <input
+					class="btn btn-primary" type="submit" value="All Bakery Reviews" />
+			</form>
+
+			<form action="logout.do" method="GET">
+				<input class="btn btn-primary" type="submit" value="Logout" />
+			</form>
+			<form action="accountDeactivated.do" method="POST">
+				<h4>Delete Account:</h4>
+				<input class="btn btn-warning" type="submit" value="delete" />
+			</form>
+		</c:when>
 
 
 
-</c:choose>
+	</c:choose>
 </body>
 </html>
