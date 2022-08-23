@@ -21,8 +21,8 @@
 					class="btn btn-primary" type="submit" value="Search" />
 			</form>
 
-			<form action="showBakeries.do" method="POST">
-				<input class="btn btn-primary" type="submit" value="List Bakeries" />
+			<form action="showBakeries.do" method="GET">
+				<input class="btn btn-primary" type="submit" value="Show Bakeries" />
 			</form>
 
 			<form action="cakeBid.do" method="GET">

@@ -22,8 +22,6 @@
 			name="firstName"> <br>
 		<label for="lastName"><h4>Last Name: </h4> </label> <input type="text"
 			name="lastName"> <br>
-		<label for="email"><h4>Email: </h4> </label> <input type="text"
-		    name="email"> <br>
 		 <label for="address.address"><h4>Home Address: </h4> </label> <input type="text"
 			name="address.address"> <br> 
 			<label for="address.address2"><h4>Home Address 2: </h4> </label> <input type="text"
