@@ -480,7 +480,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `bakery_review` (`id`, `rating`, `review_date`, `review_title`, `review`, `user_id`, `bakery_id`) VALUES (1, 5, '2022-08-19', 'Flakey Croissants!!', 'Literally the most buttery and flakey croissants I have ever had! LEGIT!', 1, 1);
+INSERT INTO `bakery_review` (`id`, `rating`, `review_date`, `review_title`, `review`, `user_id`, `bakery_id`) VALUES (1, 5, '2022-08-19', 'Flakey Croissants!!', 'Literally the most buttery and flakey croissants I have ever had! LEGIT!', 2, 1);
 
 COMMIT;
 
@@ -520,7 +520,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `cake_review` (`id`, `rating`, `review_date`, `review_title`, `review`, `user_id`, `cake_bid_id`) VALUES (1, 2, '2022-08-19 00:00:00', 'yum', 'so delish', 1, 1);
+INSERT INTO `cake_review` (`id`, `rating`, `review_date`, `review_title`, `review`, `user_id`, `cake_bid_id`) VALUES (1, 2, '2022-08-19 00:00:00', 'yum', 'so delish', 2, 1);
 
 COMMIT;
 
