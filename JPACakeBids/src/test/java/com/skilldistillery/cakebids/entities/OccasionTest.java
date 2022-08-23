@@ -54,7 +54,7 @@ class OccasionTest {
 	void test_Occasion_entity_mapping_ManyToOne_with_address_table() {
 		assertNotNull(occasion);
 		assertNotNull(occasion.getAddress());
-		assertEquals(2, occasion.getAddress().getId());
+		assertEquals(1, occasion.getAddress().getId());
 	}
 
 }
