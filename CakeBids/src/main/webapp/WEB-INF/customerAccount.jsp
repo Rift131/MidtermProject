@@ -24,15 +24,21 @@
 			<form action="showBakeries.do" method="GET">
 				<input class="btn btn-primary" type="submit" value="Show Bakeries" />
 			</form>
-
-			<form action="cakeBid.do" method="GET">
+			
+			<form action="createCake.do" method="GET">
+		<input class="btn btn-primary" type="submit" value="Order a Cake!"/> 
+	        </form>
+                      
+                      <!-- STRETCH GOALS -->
+                      
+			<!-- <form action="cakeBid.do" method="GET">
 				<input class="btn btn-primary" type="submit"
 					value="Create Cake Request" />
 			</form>
 			<form action="openCakeRequests.do" method="GET">
 				<input class="btn btn-primary" type="submit"
 					value="My Open Cake Requests" />
-			</form>
+			</form> -->
 			<form action="showCustomerReviews.do" method="POST">
 				<input class="btn btn-primary" type="submit" value="My Reviews" />
 			</form>
