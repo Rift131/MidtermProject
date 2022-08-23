@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,8 +13,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import com.skilldistillery.cakebids.entities.Occasion;
 
 class OccasionTest {
 
@@ -55,6 +54,13 @@ class OccasionTest {
 		assertNotNull(occasion);
 		assertNotNull(occasion.getAddress());
 		assertEquals(1, occasion.getAddress().getId());
+	}
+	
+	@Test
+	void test_Occasion_entity_mapping_OneToMany_with_cake_table() {
+		assertNotNull(occasion);
+		assertNotNull(occasion.getCakes());
+		assertTrue(occasion.getCakes().size() > 0);
 	}
 
 }

@@ -30,7 +30,7 @@ public class CakeDAOImpl implements CakeDAO{
 			cakeUpdate.setDescription(cake.getDescription());
 			cakeUpdate.setSpecialInstructions(cake.getSpecialInstructions());
 			cakeUpdate.setDateAdded(cake.getDateAdded());
-			cakeUpdate.setOccasionId(cake.getOccasionId());
+			cakeUpdate.setOccasion(cake.getOccasion());
 			cakeUpdate.setCakeType(cake.getCaketype());
 			cakeUpdate.setDeliveryMethods(cake.getDeliveryMethods());
 			cakeUpdate.setCakeInspiration(cake.getCakeInspiration());

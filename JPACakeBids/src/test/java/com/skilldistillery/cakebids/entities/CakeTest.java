@@ -84,5 +84,11 @@ class CakeTest {
 		assertNotNull(cake.getCakeImages());
 		assertTrue(cake.getCakeImages().size() > 0);
 	}
+	@Test
+	void test_Cake_entity_mapping_OneToMany_join_table_with_occasion_table() {
+		assertNotNull(cake);
+		assertNotNull(cake.getOccasion());
+		assertEquals("wedding", cake.getOccasion().getName());
+	}
 
 }

@@ -25,10 +25,9 @@ public class Cake {
 	private String description;
 	@Column(name = "special_instructions")
 	private String specialInstructions;
+	
 	@Column(name = "date_added")
 	private LocalDateTime dateAdded;
-	@Column(name = "occasion_id")
-	private int occasionId;
 	
 	@ManyToOne
 	@JoinColumn(name="delivery_id")
@@ -42,6 +41,10 @@ public class Cake {
 	@ManyToOne
 	@JoinColumn(name="cake_type_id")
 	private CakeType cakeType;
+	
+	@ManyToOne
+	@JoinColumn(name="occasion_id")
+	private Occasion occasion;
 	
 	@ManyToMany(mappedBy="fillings")
 	private List<Filling> fillings;
@@ -96,14 +99,6 @@ public class Cake {
 
 	public void setDateAdded(LocalDateTime dateAdded) {
 		this.dateAdded = dateAdded;
-	}
-
-	public int getOccasionId() {
-		return occasionId;
-	}
-
-	public void setOccasionId(int occasionId) {
-		this.occasionId = occasionId;
 	}
 
 	public String getCakeInspiration() {
@@ -173,6 +168,14 @@ public class Cake {
 		this.cakeImages = cakeImage;
 	}
 
+	public Occasion getOccasion() {
+		return occasion;
+	}
+
+	public void setOccasion(Occasion occasion) {
+		this.occasion = occasion;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -193,8 +196,8 @@ public class Cake {
 	@Override
 	public String toString() {
 		return "Cake [id=" + id + ", name=" + name + ", description=" + description + ", specialInstructions="
-				+ specialInstructions + ", dateAdded=" + dateAdded + ", occasionId=" + occasionId + ", deliveryMethods="
+				+ specialInstructions + ", dateAdded=" + dateAdded + ", occasionId="  + ", deliveryMethods="
 				+ deliveryMethods + ", cakeInspiration=" + cakeInspiration + ", budget=" + budget + ", cakeType="
-				+ cakeType + ", filling=" + "]";
+				+ cakeType + ", filling=" + "Occasion: " + occasion +  "]";
 	}
 }

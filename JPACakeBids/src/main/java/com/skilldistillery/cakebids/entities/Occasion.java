@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 @Entity
 public class Occasion {
 	@Id
@@ -28,6 +29,9 @@ public class Occasion {
 	@ManyToOne
 	@JoinColumn(name="address_id")
 	private Address address;
+	
+	@OneToMany(mappedBy="occasion")
+	private List<Cake> cakes;
 	
 	public Occasion() {
 		super();
@@ -80,6 +84,14 @@ public class Occasion {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public List<Cake> getCakes() {
+		return cakes;
+	}
+
+	public void setCakes(List<Cake> cakes) {
+		this.cakes = cakes;
 	}
 
 	@Override

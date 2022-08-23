@@ -14,12 +14,18 @@
 
 	<h3>Cake Order Form</h3>
 	<form action="createCake.do" method="GET">
-		<label for="username"><h4>Username: </h4> </label> <input type="text"
-			name="username"> <br>
-			<label for="password"><h4>Password: </h4> </label> <input type="password"
-			name="password"> <br>
-			<label for="bakery.name"><h4> Business Name: </h4> </label> <input type="text"
-			name="bakery.name"> <br>
+		<label for="name"><h4>Name your cake </h4> </label> <input type="text"
+			name="name"> <br>
+			
+			<label for="description"><h4>Describe your vision for this cake </h4> </label> <input type="text"
+			name="description"> <br>
+			
+			<select name="occasion.name">
+			<c:forEach items="${listOccasion}" var="occasion">
+			<option value="${occasion.id}">${occasion.name}</option>
+			</c:forEach>
+			</select>
+		
 		<label for="firstName"><h4>Owner First Name: </h4> </label> <input type="text"
 			name="firstName"> <br>
 		<label for="lastName"><h4>Owner Last Name: </h4> </label> <input type="text"
