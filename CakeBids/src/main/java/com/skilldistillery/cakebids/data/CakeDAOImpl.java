@@ -4,9 +4,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.cakebids.entities.Cake;
 
+@Service
+@Transactional
 public class CakeDAOImpl implements CakeDAO{
 
 	@PersistenceContext

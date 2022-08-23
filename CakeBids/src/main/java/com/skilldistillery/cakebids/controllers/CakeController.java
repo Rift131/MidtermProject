@@ -1,19 +1,17 @@
 package com.skilldistillery.cakebids.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.cakebids.data.CakeDAO;
 import com.skilldistillery.cakebids.entities.Cake;
-import com.skilldistillery.cakebids.entities.User;
 
+@Controller
 public class CakeController {
-	
+	@Autowired
 	private CakeDAO dao;
-	//Create cake(occasion, type, flavor, filling, delivery, budget)
-	//Update cake
-	//Find cake
-	//Delete cake
 	
 	@RequestMapping(path = { "createCake.do" })
 	public String createCake(Cake cake) {
