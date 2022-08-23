@@ -17,14 +17,13 @@
 	<h3>Cake Order Form</h3>
 	<form action="createCake.do" method="GET">
 		
-		    <h4><label for="name">Name your cake</label></h4>
-			<input type="text" id="name" name="Cakename">
+		    <h4><label for="name">Name your cake  <input type="text" id="name" name="Cakename"></label></h4>
 			<br>
 			
-			<h4><label for="description">Describe your vision for this cake</label></h4> 
-			<input type="text" id="description" name="cakeDescription">
+			<h4><label for="description">Describe your vision for this cake  <input type="text" id="description" name="cakeDescription"></label></h4> 
 			<br>
 			
+			 <label for="occasion.name">What's the occasion?</label>
 			<select name="occasion.name">
 			<c:forEach items="${listOccasion}" var="occasion.name">
 			<option value="${occasion.id}">${occasion.name}</option>
@@ -32,6 +31,7 @@
 			</select>
 			<br>
 			
+			<label for="cakeType.name">Select the type of cake you need</label>
 			<select name="cakeType.name">
 			<c:forEach items="${listCakeType}" var="cakeType.name">
 			<option value="${cakeType.id}">${cakeType.name}</option>
@@ -39,6 +39,7 @@
 			</select>
 			<br>
 			
+			<label for="flavors.name">Select your flavor</label>
 			<select name="flavors.name">
 			<c:forEach items="${listFlavor}" var="flavors.name">
 			<option value="${flavor.id}">${flavor.name}</option>
@@ -46,6 +47,7 @@
 			</select>
 			<br>
 			
+			<label for="fillings.fillingType">What filling would you like?</label>
 			<select name="fillings.fillingType">
 			<c:forEach items="${listFillings}" var="filling.fillingType">
 			<option value="${fillings.id}">${fillings.fillingType}</option>
@@ -53,10 +55,11 @@
 			</select>
 			<br>
 		
-		    <h4><label for="budget">What is your budget for this cake?</label></h4>  
-			<input type="number" id="cakeBudget" name="cakeBudget">
+		    <h4><label for="budget">What is your budget for this cake?  <input type="number" id="cakeBudget" name="cakeBudget"></label></h4>  
+			
 			<br>
-		
+		    
+		    <label for="cakeBid.bakery.name">Choose your favorite bakery</label>
 		    <select name="cakeBid.bakery.name">
 			<c:forEach items="${listBakery}" var="cakeBid.bakery.name">
 			<option value="${bakery.id}">${bakery.name}</option>
@@ -73,8 +76,9 @@
 			<input type="text" id="specialInstructions" name="specialInstructions">
 			<br>
 		   
+		   <label for="deliveryMethod.deliveryType">Choose your delivery method</label>
 		    <select name="deliveryMethod.deliveryType">
-			<c:forEach items="${listDeliveryMethod}" var="cakeBid.bakery.name">
+			<c:forEach items="${listDeliveryMethod}" var="deliveryMethod.deliveryType">
 			<option value="${deliveryMethod.id}">${deliveryMethod.deliveryType}</option>
 			</c:forEach>
 			</select>
@@ -89,7 +93,7 @@
 		    <label for="phoneNumber">${occasion.userId.user.addressId.address.phone }</label> <br>
 		    <br>
 		    
-		<input class="btn btn-success" type="submit" value="Create Account">
+		<input class="btn btn-success" type="submit" value="Submit Your Order!">
 	
 	</form>
 
