@@ -148,6 +148,12 @@ public class UserController {
 		model.addAttribute("bakery", bakery);
 		return "bakeryAccountCreated";
 	}
-
 	
+	@RequestMapping(path= {"bakeryStorefront.do"})
+	public String findBakeryById(Integer bakeryId, Model model) {
+		
+		Bakery bakery = dao.findBakeryById(bakeryId);
+		model.addAttribute("bakery", bakery);
+		return "bakeryStorefront";
+	}
 }
