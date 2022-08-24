@@ -13,19 +13,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name="cake_bid")
 public class CakeBid {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@OneToOne
-	@JoinColumn(name = "cake_id")
-	private Cake cake;
+    
+	@ManyToOne
+    @JoinColumn(name="cake_id")
+	private Cake cake;	
+
+//
+//	@OneToOne
+//	@JoinColumn(name = "cake_id")
+//	private Cake cake;
+
 	
 	private double price;
 	
+	@CreationTimestamp
 	@Column(name = "bid_date")
 	private LocalDateTime bidDate;
 	
@@ -128,13 +137,6 @@ public class CakeBid {
 		this.bakery = bakery;
 	}
 
-	@Override
-	public String toString() {
-		return "CakeBid [id=" + id + ", bakeryId=" + ", cakeId="  + ", price=" + price + ", bidDate="
-				+ bidDate + ", acceptedDate=" + acceptedDate + ", fulfilledDate=" + fulfilledDate + ", bakery=" + bakery
-				+ ", description=" + description + "]";
-	}
-
 	public Cake getCake() {
 		return cake;
 	}
@@ -142,5 +144,22 @@ public class CakeBid {
 	public void setCake(Cake cake) {
 		this.cake = cake;
 	}
+
+	@Override
+	public String toString() {
+		return "CakeBid [id=" + id + ", bakeryId=" + ", cakeId="  + ", price=" + price + ", bidDate="
+				+ bidDate + ", acceptedDate=" + acceptedDate + ", fulfilledDate=" + fulfilledDate + ", bakery=" + bakery
+				+ ", description=" + description + "]";
+	}
+
+
+//	public Cake getCake() {
+//		return cake;
+//	}
+//
+//	public void setCake(Cake cake) {
+//		this.cake = cake;
+//	}
+
 
 }

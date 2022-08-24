@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.cakebids.data.CakeDAO;
 import com.skilldistillery.cakebids.entities.Cake;
+import com.skilldistillery.cakebids.entities.User;
 
 @Controller
 public class CakeController {
@@ -17,45 +18,31 @@ public class CakeController {
 	
 	@RequestMapping(path = { "createCake.do" })
 	public String createCake(Cake cake, Model model) {
-		model.addAttribute("flavors", dao.getFlavors());
-		model.addAttribute("fillings", dao.getFillings());
-		model.addAttribute("bakeries", dao.getBakeries());
+		
 		model.addAttribute("deliveryMethods", dao.getDeliveryMethods());
 		model.addAttribute("cakeTypes", dao.getCakeTypes());
-		// need occasions to iterate over (and all other tables with choices)
-		
-		// dao, controller for each 
-		
-		// call a method from the DAOImpl that will call all the users occasions 
+		model.addAttribute("fillings", dao.getFillings());
+		model.addAttribute("flavors", dao.getFlavors());
+		model.addAttribute("bakeries", dao.getBakeries());
 		
 		return "createCake";
 	}
 
 	@RequestMapping(path = { "cakeCreated.do" })
-	public String createdCake(Cake cake, Model model) {
-		dao.createCake(cake);
+	public String createdCake(Cake cake, Model model, HttpSession session, Integer bakeryId) {
+		User user = (User)session.getAttribute("loggedIn");
+		if (user != null) {
+			cake = dao.createCake(cake, user, bakeryId);
+			
+		}
+		
 		model.addAttribute("cake", cake);
+		
 		return "cakeCreated";
 	}
-//	@RequestMapping(path = {"updateCake.do"})
-//	public String updateCake(Integer id, Model model, HttpSession session) {
-//		Cake cake = (Cake) session.getAttribute(id);
-//		if (cake != null) {
-//			int cakeId = cake.getId();
-//			Cake cake = dao.findById(id);
-//			model.addAttribute("cake", cake);
-//			return "updateCake";
-//		} else {
-//			return "login";
-//		}
-//	}
 	
-	@RequestMapping(path = {"cakeUpdated.do"} )
-	public String cakeUpdated(Cake cake, Integer id,  Model model) {
-	dao.updateCake(cake, id);
-	model.addAttribute("cake", cake);
-		return "cakeUpdated";
-	}
+	
+	
 	
 	@RequestMapping(path = "deleted.do")
 	public String deleteCake(Integer id) {

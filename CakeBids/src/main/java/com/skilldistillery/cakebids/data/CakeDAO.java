@@ -8,14 +8,13 @@ import com.skilldistillery.cakebids.entities.CakeType;
 import com.skilldistillery.cakebids.entities.DeliveryMethod;
 import com.skilldistillery.cakebids.entities.Filling;
 import com.skilldistillery.cakebids.entities.Flavor;
+import com.skilldistillery.cakebids.entities.User;
 
 
 public interface CakeDAO {
 	
 	Cake findById(Integer id);
 
-	Cake createCake(Cake cake);
-	
 	Cake updateCake(Cake cake, Integer id);
 	
 	boolean deleteCake(Integer id);
@@ -31,4 +30,6 @@ public interface CakeDAO {
 	List<DeliveryMethod> getDeliveryMethods();
 
 	List<CakeType> getCakeTypes();
+
+	Cake createCake(Cake cake, User user, Integer bakeryId);
 }
