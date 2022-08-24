@@ -47,7 +47,7 @@ class CakeTypeTest {
 	@Test
 	void test_CakeType_entity_mapping() {
 		assertNotNull(cakeType);
-		assertEquals("tiered", cakeType.getName());
+		assertEquals("Tiered Cake", cakeType.getName());
 	}
 	@Test
 	void test_CakeType_entity_mapping_OneToMany_with_cake_table() {
