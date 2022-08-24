@@ -23,7 +23,11 @@ public class UserDAOImpl implements UserDAO {
 	public User findById(int userId) {
 		return em.find(User.class, userId);
 	}
-
+	
+	@Override
+	public Bakery findBakeryById(int bakeryId) {
+		return em.find(Bakery.class, bakeryId);
+	}
 	@Override
 	public User logIn(String username, String password) {
 		String jpql = "SELECT u FROM User u WHERE u.username = :u AND u.password = :p AND u.enabled = 1";
@@ -56,10 +60,11 @@ public class UserDAOImpl implements UserDAO {
 		User updateUser = em.find(User.class, id);
 
 		if (updateUser != null) {
-			updateUser.setUsername(user.getUsername());
-			updateUser.setPassword(user.getPassword());
+//			updateUser.setUsername(user.getUsername());
+//			updateUser.setPassword(user.getPassword());
 			updateUser.setFirstName(user.getFirstName());
 			updateUser.setLastName(user.getLastName());
+			//em.persist(user.getAddress());
 			updateUser.setAddress(user.getAddress()); // Check for address line 2 being retrieved
 			updateUser.setProfilePic(user.getProfilePic());
 			updateUser.setAboutMe(user.getAboutMe());
@@ -99,13 +104,24 @@ public class UserDAOImpl implements UserDAO {
 		Bakery updateBakery = em.find(Bakery.class, id);
 
 		if (updateBakery != null) {
-			updateBakery.setOwner(bakery.getOwner());
+//			updateBakery.setOwner(bakery.getOwner());
 			updateBakery.setName(bakery.getName());
+			updateBakery.getOwner().setFirstName(bakery.getOwner().getFirstName());
+			updateBakery.getOwner().setLastName(bakery.getOwner().getLastName());
+			updateBakery.getOwner().getAddress().setAddress(bakery.getOwner().getAddress().getAddress());
+			updateBakery.getOwner().getAddress().setAddress2(bakery.getOwner().getAddress().getAddress2());
+			updateBakery.getOwner().getAddress().setCity(bakery.getOwner().getAddress().getCity());
+			updateBakery.getOwner().getAddress().setState(bakery.getOwner().getAddress().getState());
+			updateBakery.getOwner().getAddress().setZip(bakery.getOwner().getAddress().getZip());
+			updateBakery.getOwner().getAddress().setPhone(bakery.getOwner().getAddress().getPhone());
 			updateBakery.setDescription(bakery.getDescription());
 			updateBakery.setImageUrl(bakery.getImageUrl());
 			updateBakery.setWebsiteUrl(bakery.getWebsiteUrl());
 			updateBakery.setHoursOfOperation(bakery.getHoursOfOperation());
 			updateBakery.setBakeryImages(bakery.getBakeryImages());
+			System.out.println(updateBakery);
+			System.out.println(updateBakery.getOwner());
+			em.flush();
 		}
 
 		return updateBakery;
@@ -147,5 +163,7 @@ public class UserDAOImpl implements UserDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 	
 }

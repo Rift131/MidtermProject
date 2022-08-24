@@ -13,18 +13,18 @@
 <body>
  
        <h3>Update Account:</h3>
-	<form action="bakeryAccountCreated.do" method="POST">
+	<form action="updatedBakeryAccount.do" method="POST">
 		
 			<label for="name"><h4> Business Name: </h4> </label> <input type="text"
-			name="name"value="${owner.bakery.name }"> <br>
+			name="name" value="${owner.bakery.name }"> <br>
 		<label for="owner.firstName"><h4>Owner First Name: </h4> </label> <input type="text"
 			name="owner.firstName" value="${owner.firstName }"> <br>
 		<label for="owner.lastName"><h4>Owner Last Name: </h4> </label> <input type="text"
-			name="owner.lastName"value="${owner.lastName }"> <br>
+			name="owner.lastName" value="${owner.lastName }"> <br>
 		    <label for="websiteUrl"><h4>Website URL: </h4> </label> <input type="text"
 		    name="websiteUrl" value="${owner.bakery.websiteUrl }"> <br>
 		    <label for="hoursOfOperation"><h4>Hours of Operation: </h4> </label> <input type="text"
-		    name="hoursOfOperation"value="${owner.bakery.hoursOfOperation }"> <br>
+		    name="hoursOfOperation" value="${owner.bakery.hoursOfOperation }"> <br>
 		 <label for="owner.address.address"><h4>Business Address: </h4> </label> <input type="text"
 			name="owner.address.address" value="${owner.address.address }"> <br> 
 			<label for="owner.address.address2"><h4>Business Address 2: </h4> </label> <input type="text"
@@ -38,8 +38,9 @@
 		<label for="owner.address.phone"><h4>Phone: </h4> </label> <input type="text"
 			name="owner.address.phone" value="${owner.address.phone }"> <br>
        <label for="description"><h4>About Me: </h4> </label> <textarea  cols="30" rows="10" name="description" value="${owner.bakery.description }"></textarea> <br> 
-		
-		<input class="btn btn-success" type="submit" value="Update Account">
+		<input type="hidden" name="id" value="${owner.bakery.id }"/>
+		<input type="hidden" name="owner.address.id" value="${owner.address.id }"/>
+ 		<input class="btn btn-success" type="submit" value="Update Account">
 	
 	</form>
 

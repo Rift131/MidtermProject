@@ -89,7 +89,8 @@ public class UserController {
 		User u = (User) session.getAttribute("loggedIn");
 		if (u != null) {
 			int userId = u.getId();
-			model.addAttribute("user", u);
+			User user = dao.findById(userId);
+			model.addAttribute("user", user);
 			return "accountUpdate";
 		} else {
 			return "login";
@@ -97,17 +98,18 @@ public class UserController {
 	}
 
 	@RequestMapping(path = { "accountUpdated.do" }, method = RequestMethod.POST)
-	public String accountUpdated(User user, Integer id, Model model) {
+	public String accountUpdated(User user, Integer id, Model model, HttpSession session) {
 		dao.updateAccount(user, id);
-		model.addAttribute("user", user);
+		session.setAttribute("loggedIn", user);
 		return "accountUpdated";
 	}
 	@RequestMapping(path = { "bakeryAccountUpdate.do" }, method = RequestMethod.POST)
 	public String updateBakeryAccount(Integer id, Model model, HttpSession session) {
 		User b = (User) session.getAttribute("loggedIn");
 		if(b != null) {
-			int bakeryId = b.getId();
-		model.addAttribute("owner", b);
+			int userId = b.getId();
+			User user = dao.findById(userId);
+			model.addAttribute("owner", user);
 		return "bakeryAccountUpdate";
 		}
 		else {
@@ -115,9 +117,9 @@ public class UserController {
 		}
 	}
 	@RequestMapping(path = { "updatedBakeryAccount.do" }, method = RequestMethod.POST)
-	public String bakeryAccountUpdated(Bakery bakery, Integer id, Model model) {
+	public String bakeryAccountUpdated(Bakery bakery, Integer id, Model model, HttpSession session) {
 		dao.updateBakeryAccount(bakery, id);
-		model.addAttribute("user", bakery);
+		session.setAttribute("loggedIn", bakery.getOwner());
 		return "updatedBakeryAccount";
 	}
 	@RequestMapping(path = { "accountDeactivated.do" })
@@ -126,8 +128,6 @@ public class UserController {
 		if (u != null) {
 			int userId = u.getId();
 
-			System.out.println("************************************");
-			System.out.println(userId);
 			dao.deactivateAccount(userId);
 			session.removeAttribute("loggedIn");
 			return "home";

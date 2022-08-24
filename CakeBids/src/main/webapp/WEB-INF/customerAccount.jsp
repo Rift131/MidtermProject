@@ -10,8 +10,6 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
-	<p>${loggedIn }</p>
-	<p>${loggedIn.bakery }</p>
 
 	<c:choose>
 		<c:when test="${empty loggedIn.bakery }">

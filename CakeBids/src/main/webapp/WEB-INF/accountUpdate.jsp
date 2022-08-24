@@ -31,7 +31,8 @@
 		<label for="address.phone"><h4>Phone: </h4> </label> <input type="text"
 			name="address.phone"value="${user.address.phone }"> <br>
        <label for="aboutMe"><h4>About Me: </h4> </label> <textarea  cols="30" rows="10" name="aboutMe" value="${user.aboutMe }"></textarea> <br> 
-			
+			<input type="hidden" name="id" value="${user.id }"/>
+			<input type="hidden" name="address.id" value="${user.address.id }"/>
 		<input class="btn btn-success" type="submit" value="Update Account">
 	
 	</form>

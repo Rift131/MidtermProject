@@ -20,6 +20,8 @@ public interface UserDAO {
 	boolean deactivateAccount(Integer id);
 	
 	Bakery createBakeryAccount(Bakery bakery);
+	
+	Bakery findBakeryById(int bakeryId);
 
 	Bakery updateBakeryAccount(Bakery bakery, Integer id);
 	
