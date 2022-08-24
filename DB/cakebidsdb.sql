@@ -390,6 +390,10 @@ START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (1, '234 Science Way', 'Apt. 5', 'Houston', 'TX', '77084', '(281)330-8004');
 INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (2, '1626 Tower Grove Ave', NULL, 'St. Louis', 'MO', '63110', '(314)932-7935');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (3, '1234 Good Eats Ave', NULL, 'Marietta', 'GA', '30008', '(770)234-5678');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (4, '8956 Dog Way', NULL, 'Mill Neck', 'NY', '11560', '(516)654-8923');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (5, '247 W 38th Street', 'Floor Thirteen', 'New York', 'NY', '10018', '(212)625-3369');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (6, '123 Cake Way', NULL, 'Littleton', 'CO', '80120', '(575)222-3333');
 
 COMMIT;
 
@@ -401,6 +405,10 @@ START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (2, 'nyeGuy', '1234', 1, 'customer', 'Bill', 'Nye', 1, 'https://images.squarespace-cdn.com/content/v1/5991dbfef43b5576c6ec7eda/1507513713189-2784HYO9WM9JDIEA7INP/bill_nye_mobile.jpg?format=2500w', '2022-08-19', 'I love cake!');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (1, 'La Patisserie Chouquette', '1234', 1, 'bakery', 'Simone', 'Faure', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrBtjb432W6-gQeeXnkjC-oJrvQIvxNMN-9w&usqp=CAU', '2022-08-19', 'Patisserie bakery owner');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (3, 'altonEats', '1234', 1, 'customer', 'Alton', 'Brown', 3, NULL, '2022-08-23', 'television personality! ');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (4, 'WickJ', '4567', 1, 'customer', 'John', 'Wick', 4, '', '2022-08-24', 'Everything\'s got a price');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (5, 'IsrealNYC', '4567', 1, 'bakery', 'Ron-Ben', 'Isreal', 5, NULL, '2022-08-24', 'Israeli-American Pastry Chef');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (6, 'cakeCO', '912', 1, 'bakery', 'Samantha', 'Heisterkamp-Reno', 6, NULL, '2022-08-24', 'Cake Artist');
 
 COMMIT;
 
@@ -411,6 +419,8 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `bakery` (`id`, `owner_id`, `name`, `description`, `image_url`, `website_url`, `hours_operation`) VALUES (1, 1, 'La Patisserie Chouquette', 'Chic French bakery', 'https://www.simonefaure.com/', 'https://www.simonefaure.com/', 'Wed-Sat 10am-2pm');
+INSERT INTO `bakery` (`id`, `owner_id`, `name`, `description`, `image_url`, `website_url`, `hours_operation`) VALUES (2, 5, 'Ron Ben-Israel Cakes', 'Bespoke cakes for special occassions', NULL, 'https://www.instagram.com/rbicakes/?hl=en', 'by appointment only');
+INSERT INTO `bakery` (`id`, `owner_id`, `name`, `description`, `image_url`, `website_url`, `hours_operation`) VALUES (3, 6, 'Cake. By Samantha', 'Custom Desgined Cakes', NULL, 'https://www.instagram.com/cake.bysamantha/', 'by appointment only');
 
 COMMIT;
 
@@ -421,6 +431,8 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (1, 'wedding', '2022-08-25', 2, '3 tier watercolor cake', 1);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (2, 'birthday', '2022-09-15', 3, 'chocolate birthday cake ', 3);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (3, 'graduation', '2022-10-23', 4, 'cake with a grad hat on top! ', 4);
 
 COMMIT;
 
@@ -430,7 +442,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `cake_type` (`id`, `name`) VALUES (1, 'tiered');
+INSERT INTO `cake_type` (`id`, `name`) VALUES (1, 'Tiered Cake');
+INSERT INTO `cake_type` (`id`, `name`) VALUES (2, 'Kitchen Cake');
+INSERT INTO `cake_type` (`id`, `name`) VALUES (3, 'Sculpture Cake');
+INSERT INTO `cake_type` (`id`, `name`) VALUES (4, 'Double Barrell');
+INSERT INTO `cake_type` (`id`, `name`) VALUES (5, '6 inch Smash Cake');
 
 COMMIT;
 
@@ -441,6 +457,7 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `delivery_method` (`id`, `delivery_type`) VALUES (1, 'pick-up');
+INSERT INTO `delivery_method` (`id`, `delivery_type`) VALUES (2, 'delivery');
 
 COMMIT;
 
@@ -461,6 +478,13 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `flavor` (`id`, `name`) VALUES (1, 'chocolate/chocolate');
+INSERT INTO `flavor` (`id`, `name`) VALUES (2, 'vanilla/vanilla');
+INSERT INTO `flavor` (`id`, `name`) VALUES (3, 'almond/raspberry');
+INSERT INTO `flavor` (`id`, `name`) VALUES (4, 'vanilla/strawberry');
+INSERT INTO `flavor` (`id`, `name`) VALUES (5, 'chocolate/dulce');
+INSERT INTO `flavor` (`id`, `name`) VALUES (6, 'red velvet/cream cheese');
+INSERT INTO `flavor` (`id`, `name`) VALUES (7, 'pumpkin/cream cheese');
+INSERT INTO `flavor` (`id`, `name`) VALUES (8, 'king cake');
 
 COMMIT;
 
@@ -471,6 +495,11 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `filling` (`id`, `filling_type`) VALUES (1, 'lemon-curd');
+INSERT INTO `filling` (`id`, `filling_type`) VALUES (2, 'dulce ribbons');
+INSERT INTO `filling` (`id`, `filling_type`) VALUES (3, 'ganache');
+INSERT INTO `filling` (`id`, `filling_type`) VALUES (4, 'raspberry compote');
+INSERT INTO `filling` (`id`, `filling_type`) VALUES (5, 'chessecake bites');
+INSERT INTO `filling` (`id`, `filling_type`) VALUES (6, 'cookie dough');
 
 COMMIT;
 
