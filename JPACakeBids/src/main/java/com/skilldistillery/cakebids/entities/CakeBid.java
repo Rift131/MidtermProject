@@ -12,18 +12,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name="cake_bid")
 public class CakeBid {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+    
+	@ManyToOne
+    @JoinColumn(name="cake_id")
+	private Cake cake;	
 	
-	@Column(name = "cake_id")
-	private int cakeId;
 	
 	private double price;
 	
+	@CreationTimestamp
 	@Column(name = "bid_date")
 	private LocalDateTime bidDate;
 	
@@ -126,11 +131,20 @@ public class CakeBid {
 		this.bakery = bakery;
 	}
 
+	public Cake getCake() {
+		return cake;
+	}
+
+	public void setCake(Cake cake) {
+		this.cake = cake;
+	}
+
 	@Override
 	public String toString() {
 		return "CakeBid [id=" + id + ", bakeryId=" + ", cakeId="  + ", price=" + price + ", bidDate="
 				+ bidDate + ", acceptedDate=" + acceptedDate + ", fulfilledDate=" + fulfilledDate + ", bakery=" + bakery
 				+ ", description=" + description + "]";
 	}
+
 
 }
