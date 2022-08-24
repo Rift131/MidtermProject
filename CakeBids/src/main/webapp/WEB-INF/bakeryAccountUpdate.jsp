@@ -22,22 +22,22 @@
 		<label for="owner.lastName"><h4>Owner Last Name: </h4> </label> <input type="text"
 			name="owner.lastName"value="${owner.lastName }"> <br>
 		    <label for="websiteUrl"><h4>Website URL: </h4> </label> <input type="text"
-		    name="websiteUrl"> <br>
+		    name="websiteUrl" value="${owner.bakery.websiteUrl }"> <br>
 		    <label for="hoursOfOperation"><h4>Hours of Operation: </h4> </label> <input type="text"
-		    name="hoursOfOperation"> <br>
+		    name="hoursOfOperation"value="${owner.bakery.hoursOfOperation }"> <br>
 		 <label for="owner.address.address"><h4>Business Address: </h4> </label> <input type="text"
-			name="owner.address.address"> <br> 
+			name="owner.address.address" value="${owner.address.address }"> <br> 
 			<label for="owner.address.address2"><h4>Business Address 2: </h4> </label> <input type="text"
-			name="owner.address.address2"> <br> 
+			name="owner.address.address2" value="${owner.address.address2 }"> <br> 
 			<label for="owner.address.city"><h4>City: </h4> </label> <input type="text"
-			name="owner.address.city"> <br> 
+			name="owner.address.city" value="${owner.address.city }"> <br> 
 			<label for="owner.address.state"><h4>State: </h4> </label> <input type="text"
-			name="owner.address.state"> <br> 
+			name="owner.address.state" value="${owner.address.state }"> <br> 
 			<label for="owner.address.zip"><h4>Postal Code/Zip: </h4> </label> <input type="text"
-			name="owner.address.zip"> <br> 
+			name="owner.address.zip"value="${owner.address.zip }"> <br> 
 		<label for="owner.address.phone"><h4>Phone: </h4> </label> <input type="text"
-			name="owner.address.phone"> <br>
-       <label for="description"><h4>About Me: </h4> </label> <textarea  cols="30" rows="10" name="description"></textarea> <br> 
+			name="owner.address.phone" value="${owner.address.phone }"> <br>
+       <label for="description"><h4>About Me: </h4> </label> <textarea  cols="30" rows="10" name="description" value="${owner.bakery.description }"></textarea> <br> 
 		
 		<input class="btn btn-success" type="submit" value="Update Account">
 	
