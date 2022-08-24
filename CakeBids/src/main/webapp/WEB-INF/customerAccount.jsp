@@ -92,12 +92,14 @@
             <tr>
               <th>${user.firstName}</th>
               <td>${user.lastName}</td>
-              <td>${bakery.hoursOfOperation}</td>
-              <td>${bakery.owner.address.address}</td>
-              <td>${bakery.owner.address.address2}</td>
-              <td>${bakery.owner.address.city}</td>
-              <td>${bakery.owner.address.state}</td>
-              <td>${bakery.owner.address.phone}</td>
+              <td>${user.address.phone}</td>
+              <td>${occasion.name}</td>
+              <td>${cake.cakeType.name}</td>
+              <td>${cake.flavor.name}</td>
+              <td>${cake.filling.fillingType}</td>
+              <td>${cake.budget}</td>
+              <td>${cake.dateAdded}</td>
+              <td>${cake.specialInstructions}</td>
               
               
             </tr>
@@ -108,19 +110,19 @@
 
 			<form action="reviews.do" method="GET">
 				<input class="form-control" type="number" name="id" /> <input
-					class="btn btn-primary" type="submit" value="All Bakery Reviews" />
+					class="btn btn-light" type="submit" value="All Bakery Reviews" />
 			</form>
 
 			<form action="logout.do" method="GET">
-				<input class="btn btn-primary" type="submit" value="Logout" />
+				<input class="btn btn-light" type="submit" value="Logout" />
 			</form>
 			<form action="bakeryAccountUpdate.do" method="POST">
-				<input class="btn btn-primary" type="submit"
+				<input class="btn btn-light" type="submit"
 					value="Update My Account" />
 			</form>
 			<form action="accountDeactivated.do" method="POST">
 				<h4>Delete Account:</h4>
-				<input class="btn btn-warning" type="submit" value="delete" />
+				<input class="btn btn-info" type="submit" value="delete" />
 			</form>
 		</c:when>
 

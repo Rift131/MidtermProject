@@ -14,7 +14,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">
 <jsp:include page="bootstraphead.jsp" />
-
+<jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
 <main class="container-fluid">
