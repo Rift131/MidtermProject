@@ -468,6 +468,8 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`) VALUES (1, 'Bill Nye\'s birthday!', '2 tier science theme cake', 'put a giant atom on the top!', '2022-06-23', 1, 1, 1, 'https://images.squarespace-cdn.com/content/v1/5c4b6b663c3a5399055adb5f/1599371701267-GW1ZKK9N8HH8GF9GQCVZ/10bd2e1ed5f7a58d40345af8070b1a4d.jpg', 200.00);
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`) VALUES (2, 'birthday cake ', '3 tier cake ', NULL, '2022-08-15', 2, 1, 2, NULL, 300.00);
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`) VALUES (3, 'graduation cake', 'sculpted cake like dog', '', '2022-08-13', 1, 3, 2, NULL, 200.00);
 
 COMMIT;
 
@@ -540,6 +542,8 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (1, 1, 1, 150.00, '2022-08-19', '2022-08-20', '2022-08-23', 'need a drip cake yo!');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (2, 3, 2, 300.00, '2022-08-15', '2022-08-23', '2022-08-24', '3 tier cake');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (3, 3, 3, 200.00, '2022-08-13', '2022-08-15', '2022-08-22', 'sculpted dog cake');
 
 COMMIT;
 
