@@ -37,8 +37,6 @@ public class CakeBid {
 	@JoinColumn(name="bakery_id")
 	private Bakery bakery;
 	
-	
-
 	private String description;
 
 	public CakeBid() {
