@@ -564,6 +564,17 @@ COMMIT;
 START TRANSACTION;
 USE `cakebidsdb`;
 INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Pj_6y9xzcpWxjzB4IckMZa_jGYLlWh7nNg&usqp=CAU', 'drip cake ', 1);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrWpm_FlhUvrPbHcGWGaP0uGEff_SW_UBrVQ&usqp=CAU', 'pancake cake', 1);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (3, 'https://i.pinimg.com/736x/78/54/15/7854150ecfbe56ae1f10b7f86b398144.jpg', 'wedding cake', 1);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLZrWxqSm89RtI_FJtmSYDdCwiNljXDI8UYQ&usqp=CAU', 'caramel cake ', 1);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr16-pkI2JEoMM2JL3UBgmms7uJr4e9NU4yw&usqp=CAU', 'rainbow cake', 2);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IRb8BVuk7XMiVzj-YD13AqWM-fOzohu-CA&usqp=CAU', 'whimsical cake', 2);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (7, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpMfXZVafgWwuIZKdYtNzAwfnmQYrpuQge8A&usqp=CAU', 'gold ribbon cake', 2);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (8, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw4PsE2Mic9pH6R6iUeKZW0FL3xT9hnoUjGw&usqp=CAU', 'tiered wedding cake', 2);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (9, 'https://i.pinimg.com/236x/00/b1/7e/00b17ef716e32930fab7976d42f74303.jpg', 'sunshine cake', 3);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (10, 'https://i.pinimg.com/236x/cb/50/ab/cb50abfe7e7017bba797b23eb5c6e606.jpg', 'black', 3);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (11, 'https://i.pinimg.com/236x/8a/e2/a4/8ae2a4db2581f71a931f4c1ab2fa8219.jpg', 'wedding', 3);
+INSERT INTO `bakery_image` (`id`, `image_url`, `description`, `bakery_id`) VALUES (12, 'https://i.pinimg.com/236x/f6/da/29/f6da291452bd127e557b498ab25a009a.jpg', 'boho cake ', 3);
 
 COMMIT;
 
