@@ -26,12 +26,7 @@ public class CakeBid {
     @JoinColumn(name="cake_id")
 	private Cake cake;	
 
-//
-//	@OneToOne
-//	@JoinColumn(name = "cake_id")
-//	private Cake cake;
 
-	
 	private double price;
 	
 	@CreationTimestamp
@@ -150,14 +145,6 @@ public class CakeBid {
 				+ ", description=" + description + "]";
 	}
 
-
-//	public Cake getCake() {
-//		return cake;
-//	}
-//
-//	public void setCake(Cake cake) {
-//		this.cake = cake;
-//	}
 
 
 }
