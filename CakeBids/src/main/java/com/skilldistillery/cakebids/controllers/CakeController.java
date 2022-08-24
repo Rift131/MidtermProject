@@ -1,5 +1,7 @@
 package com.skilldistillery.cakebids.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,18 @@ public class CakeController {
 	private CakeDAO dao;
 	
 	@RequestMapping(path = { "createCake.do" })
-	public String createCake(Cake cake) {
+	public String createCake(Cake cake, Model model) {
+		model.addAttribute("flavors", dao.getFlavors());
+		model.addAttribute("fillings", dao.getFillings());
+		model.addAttribute("bakeries", dao.getBakeries());
+		model.addAttribute("deliveryMethods", dao.getDeliveryMethods());
+		model.addAttribute("cakeTypes", dao.getCakeTypes());
+		// need occasions to iterate over (and all other tables with choices)
+		
+		// dao, controller for each 
+		
+		// call a method from the DAOImpl that will call all the users occasions 
+		
 		return "createCake";
 	}
 
@@ -24,12 +37,18 @@ public class CakeController {
 		model.addAttribute("cake", cake);
 		return "cakeCreated";
 	}
-	@RequestMapping(path = {"updateCake.do"})
-	public String updateCake(Integer id, Model model) {
-		Cake cake = dao.findById(id);
-		model.addAttribute("cake", cake);
-		return "updateCake";
-	}
+//	@RequestMapping(path = {"updateCake.do"})
+//	public String updateCake(Integer id, Model model, HttpSession session) {
+//		Cake cake = (Cake) session.getAttribute(id);
+//		if (cake != null) {
+//			int cakeId = cake.getId();
+//			Cake cake = dao.findById(id);
+//			model.addAttribute("cake", cake);
+//			return "updateCake";
+//		} else {
+//			return "login";
+//		}
+//	}
 	
 	@RequestMapping(path = {"cakeUpdated.do"} )
 	public String cakeUpdated(Cake cake, Integer id,  Model model) {

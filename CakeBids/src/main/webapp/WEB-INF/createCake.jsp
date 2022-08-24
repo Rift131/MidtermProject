@@ -16,55 +16,56 @@
 
 	<h3>Cake Order Form</h3>
 	<form action="createCake.do" method="GET">
-		
+		    <br>
 		    <h4><label for="name">Name your cake  <input type="text" id="name" name="Cakename"></label></h4>
 			<br>
-			
 			<h4><label for="description">Describe your vision for this cake  <input type="text" id="description" name="cakeDescription"></label></h4> 
 			<br>
-			
-			 <label for="occasion.name">What's the occasion?</label>
-			<select name="occasion.name">
-			<c:forEach items="${listOccasion}" var="occasion.name">
-			<option value="${occasion.id}">${occasion.name}</option>
-			</c:forEach>
-			</select>
+			 <label for="cake.occasion.name">Describe the occasion for this cake</label>
+			<input type="text" id="id" name="cake.occasion.name"/>
 			<br>
-			
-			<label for="cakeType.name">Select the type of cake you need</label>
-			<select name="cakeType.name">
-			<c:forEach items="${listCakeType}" var="cakeType.name">
+			<br>
+			<label for="cake.cakeType.id">Select the type of cake you would like</label>
+			<select name="cake.cakeType.id">
+			<c:forEach items="${cakeTypes}" var="cakeType">
 			<option value="${cakeType.id}">${cakeType.name}</option>
 			</c:forEach>
 			</select>
 			<br>
-			
-			<label for="flavors.name">Select your flavor</label>
-			<select name="flavors.name">
-			<c:forEach items="${listFlavor}" var="flavors.name">
-			<option value="${flavor.id}">${flavor.name}</option>
+			<br>
+			<label for="cake.flavor.id">Select your flavor</label> <!-- label for matches the select name -->
+			<select name="cake.flavor.id"> <!-- path to get to each flavor through its primary key -->
+			<c:forEach items="${flavors}" var="flavor"> <!-- flavors is the controller calls this element. Flavor is the name of the ENTITY, lowercase first letter -->
+			<option value="${flavor.id}">${flavor.name}</option> <!-- value is the primary key, after that is the path to the value in the table you want to appear -->
 			</c:forEach>
 			</select>
 			<br>
-			
-			<label for="fillings.fillingType">What filling would you like?</label>
-			<select name="fillings.fillingType">
-			<c:forEach items="${listFillings}" var="filling.fillingType">
-			<option value="${fillings.id}">${fillings.fillingType}</option>
+			<br>
+			<label for="cake.filling.id">What filling would you like?</label>
+			<select name="cake.filling.id">
+			<c:forEach items="${fillings}" var="filling">
+			<option value="${filling.id}">${filling.fillingType}</option>
 			</c:forEach>
 			</select>
 			<br>
-		
-		    <h4><label for="budget">What is your budget for this cake?  <input type="number" id="cakeBudget" name="cakeBudget"></label></h4>  
-			
-			<br>
-		    
-		    <label for="cakeBid.bakery.name">Choose your favorite bakery</label>
-		    <select name="cakeBid.bakery.name">
-			<c:forEach items="${listBakery}" var="cakeBid.bakery.name">
+		    <br>
+		    <label for="cake.cakeBid.bakery.id">Choose your favorite bakery</label>
+		    <select name="cake.cakeBid.bakery.id">
+			<c:forEach items="${bakeries}" var="bakery">
 			<option value="${bakery.id}">${bakery.name}</option>
 			</c:forEach>
 			</select>
+			<br>
+			<br>
+		    <label for="cake.deliveryMethod.id">Choose your delivery method</label>
+		    <select name="cake.deliveryMethod.id">
+			<c:forEach items="${deliveryMethods}" var="deliveryMethod">
+			<option value="${deliveryMethod.id}">${deliveryMethod.deliveryType}</option>
+			</c:forEach>
+			</select>
+			<br>
+		    <br>
+		    <h4><label for="budget">What is your budget for this cake?  <input type="number" id="cakeBudget" name="cakeBudget"></label></h4>  
 			<br>
 			
 			<!-- This is a departure from original design. Repurposing "date_added" column for required date -->	
@@ -76,34 +77,32 @@
 			<input type="text" id="specialInstructions" name="specialInstructions">
 			<br>
 		   
-		   <label for="deliveryMethod.deliveryType">Choose your delivery method</label>
-		    <select name="deliveryMethod.deliveryType">
-			<c:forEach items="${listDeliveryMethod}" var="deliveryMethod.deliveryType">
-			<option value="${deliveryMethod.id}">${deliveryMethod.deliveryType}</option>
-			</c:forEach>
-			</select>
-			<br>
 		    
 		    <!-- Not utilizing the cakeimages field intentionally -->
 		    
 		    <!-- Attempting to route through foreign keys -->
-		    <h4><label for="occasion.userId.user">Your contact information</label></h4> 
-		    <label for="firstName">${occasion.userId.user.firstName } </label><br>
-		    <label for="lastName">${occasion.userId.user.lastName } </label><br>
-		    <label for="phoneNumber">${occasion.userId.user.addressId.address.phone }</label> <br>
+		    <h4><label for="userContact">Your contact information</label></h4> 
+		    <label for="firstName">First Name</label>
+		    <input type="text" name="occasion.user.firstName" value="${loggedIn.firstName}"/>
+		    <label for="lastName">Last Name</label>
+		    <input type="text" name="occasion.user.lastName" value="${loggedIn.lastName}"/>
+		    <label for="phone">Phone</label>
+		    <input type="text" name="occasion.address.phone" value="${loggedIn.address.phone}"/>
 		    <br>
-		    
-		<input class="btn btn-success" type="submit" value="Submit Your Order!">
+		    <!-- Account for all the tables and their primary keys -->
+			<input type="hidden" name="id" value="${address.id}">
+			<input type="hidden" name="id" value="${bakery.id}">
+			<input type="hidden" name="id" value="${cake.id}">
+			<input type="hidden" name="id" value="${cakeImage.id}">
+			<input type="hidden" name="id" value="${cakeType.id}">
+			<input type="hidden" name="id" value="${deliveryMethod.id}">
+			<input type="hidden" name="id" value="${filling.id}">
+			<input type="hidden" name="id" value="${flavor.id}">
+			<input type="hidden" name="id" value="${occasion.id}">
+			<input type="hidden" name="id" value="${user.id}">
+		    <input class="btn btn-success" type="submit" value="Submit Your Order!">
 	
-	</form>
-
-	
-    
-
-
-
-
-
+	</form> 
 
 </body>
 </html>

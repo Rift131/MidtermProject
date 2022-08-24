@@ -8,7 +8,12 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.cakebids.entities.Bakery;
 import com.skilldistillery.cakebids.entities.Cake;
+import com.skilldistillery.cakebids.entities.CakeType;
+import com.skilldistillery.cakebids.entities.DeliveryMethod;
+import com.skilldistillery.cakebids.entities.Filling;
+import com.skilldistillery.cakebids.entities.Flavor;
 
 @Service
 @Transactional
@@ -31,6 +36,7 @@ public class CakeDAOImpl implements CakeDAO{
 		Cake cakeUpdate = em.find(Cake.class, id);
 		
 		if(cakeUpdate != null) {
+//			Remove anything not getting updated
 			cakeUpdate.setName(cake.getName());
 			cakeUpdate.setDescription(cake.getDescription());
 			cakeUpdate.setSpecialInstructions(cake.getSpecialInstructions());
@@ -47,6 +53,33 @@ public class CakeDAOImpl implements CakeDAO{
 		
 		return cakeUpdate;
 	}
+	
+	@Override
+	public List<Flavor> getFlavors(){
+		String jpql = "SELECT f FROM Flavor f ORDER BY f.name";
+		return em.createQuery(jpql, Flavor.class).getResultList();
+	}
+	@Override
+	public List<Filling> getFillings() {
+		String jpql = "SELECT f FROM Filling f ORDER BY f.fillingType";
+		return em.createQuery(jpql, Filling.class).getResultList();
+	}
+	@Override
+	public List<Bakery> getBakeries(){
+		String jpql = "SELECT b FROM Bakery b ORDER BY b.name";
+		return em.createQuery(jpql, Bakery.class).getResultList();
+	}
+	@Override
+	public List<DeliveryMethod> getDeliveryMethods() {
+		String jpql = "SELECT dm FROM DeliveryMethod dm ORDER BY dm.deliveryType";
+		return em.createQuery(jpql, DeliveryMethod.class).getResultList();
+	}
+	@Override
+	public List<CakeType> getCakeTypes() {
+		String jpql = "SELECT ct FROM CakeType ct ORDER BY ct.name";
+		return em.createQuery(jpql, CakeType.class).getResultList();
+	}
+	
 	@Override
 	public boolean deleteCake(Integer id) {
 		Cake cake = em.find(Cake.class, id);

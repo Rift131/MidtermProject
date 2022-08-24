@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
 public class Occasion {
 	@Id
@@ -21,8 +21,10 @@ public class Occasion {
 	private String name;
 	
 	private LocalDateTime date;
-	@Column(name="user_id")
-	private int userId;
+
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	private String description;
 
@@ -61,14 +63,6 @@ public class Occasion {
 		this.date = date;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -94,6 +88,14 @@ public class Occasion {
 		this.cakes = cakes;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -113,7 +115,7 @@ public class Occasion {
 
 	@Override
 	public String toString() {
-		return "Occasion [id=" + id + ", name=" + name + ", date=" + date + ", userId=" + userId + ", description="
+		return "Occasion [id=" + id + ", name=" + name + ", date=" + date + ", userId=" + ", description="
 				+ description + ", addressId=" + "]";
 	}
 	
