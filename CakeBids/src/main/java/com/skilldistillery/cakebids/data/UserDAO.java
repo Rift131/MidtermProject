@@ -34,4 +34,6 @@ public interface UserDAO {
 	User commentOnBakeryReview(BakeryReview review, Integer id);
 	
 	User commentOnCakeReview(CakeReview review, Integer id);
+
+	
 }

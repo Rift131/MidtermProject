@@ -43,7 +43,7 @@
 				<input class="btn btn-primary" type="submit" value="My Reviews" />
 			</form>
 
-			<form action="accountUpdate.do" method="GET">
+			<form action="accountUpdate.do" method="POST">
 				<input class="btn btn-primary" type="submit"
 					value="Update My Account" />
 			</form>
@@ -68,6 +68,10 @@
 
 			<form action="logout.do" method="GET">
 				<input class="btn btn-primary" type="submit" value="Logout" />
+			</form>
+			<form action="bakeryAccountUpdate.do" method="POST">
+				<input class="btn btn-primary" type="submit"
+					value="Update My Account" />
 			</form>
 			<form action="accountDeactivated.do" method="POST">
 				<h4>Delete Account:</h4>

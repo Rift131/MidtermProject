@@ -85,19 +85,41 @@ public class UserController {
 	}
 
 	@RequestMapping(path = { "accountUpdate.do" }, method = RequestMethod.POST)
-	public String updateAccount(Integer id, Model model) {
-		User user = dao.findById(id);
-		model.addAttribute("user", user);
-		return "accountUpdate";
+	public String updateAccount(Integer id, Model model, HttpSession session) {
+		User u = (User) session.getAttribute("loggedIn");
+		if (u != null) {
+			int userId = u.getId();
+			model.addAttribute("user", u);
+			return "accountUpdate";
+		} else {
+			return "login";
+		}
 	}
 
-	@RequestMapping(path = { "accountUpdated.do" })
+	@RequestMapping(path = { "accountUpdated.do" }, method = RequestMethod.POST)
 	public String accountUpdated(User user, Integer id, Model model) {
 		dao.updateAccount(user, id);
 		model.addAttribute("user", user);
 		return "accountUpdated";
 	}
-
+	@RequestMapping(path = { "bakeryAccountUpdate.do" }, method = RequestMethod.POST)
+	public String updateBakeryAccount(Integer id, Model model, HttpSession session) {
+		User b = (User) session.getAttribute("loggedIn");
+		if(b != null) {
+			int bakeryId = b.getId();
+		model.addAttribute("owner", b);
+		return "bakeryAccountUpdate";
+		}
+		else {
+			return "login";
+		}
+	}
+	@RequestMapping(path = { "updatedBakeryAccount.do" }, method = RequestMethod.POST)
+	public String bakeryAccountUpdated(Bakery bakery, Integer id, Model model) {
+		dao.updateBakeryAccount(bakery, id);
+		model.addAttribute("user", bakery);
+		return "updatedBakeryAccount";
+	}
 	@RequestMapping(path = { "accountDeactivated.do" })
 	public String deactivateAccount(Model model, HttpSession session) {
 		User u = (User) session.getAttribute("loggedIn");
@@ -127,10 +149,5 @@ public class UserController {
 		return "bakeryAccountCreated";
 	}
 
-	@RequestMapping(path = { "bakeryAccountUpdate.do" })
-	public String updateBakeryAccount(Integer id, Model model) {
-		User bakery = dao.findById(id);
-		model.addAttribute("bakery", bakery);
-		return "bakeryAccountUpdate";
-	}
+	
 }
