@@ -19,22 +19,22 @@
 	<h1>Welcome to CakeBids</h1>
 
 	<form action="login.do">
-		<input class="btn btn-primary" type="submit" value="Login" />
+		<input class="btn btn-light" type="submit" value="Login" />
 	</form>
 
 	<form action="createAccount.do" method="GET">
-		<input class="btn btn-primary" type="submit"
+		<input class="btn btn-light" type="submit"
 			value="Create Customer Account" />
 	</form>
 	<form action="createBakeryAccount.do" method="GET">
-		<input class="btn btn-primary" type="submit"
+		<input class="btn btn-light" type="submit"
 			value="Create Bakery Account" />
 	</form>
 
-	<form action="results.do" method="GET">
-		<h4>Search Bakeries and Cakes:</h4>
-		<input class="form-control" type="number" name="id" /> <input
-			class="btn btn-primary" type="submit" value="Search" />
+	<form action="searchKeyword.do" method="GET">
+		<h4>Search Bakeries:</h4>
+		<input class="form-control" type="text" name="keyword" /> <input
+			class="btn btn-success" type="submit" value="Search" />
 	</form>
 	<br>
 

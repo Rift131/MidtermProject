@@ -1,7 +1,10 @@
 package com.skilldistillery.cakebids.data;
 
+import java.util.List;
+
 import com.skilldistillery.cakebids.entities.Bakery;
 import com.skilldistillery.cakebids.entities.BakeryReview;
+import com.skilldistillery.cakebids.entities.Cake;
 import com.skilldistillery.cakebids.entities.CakeReview;
 import com.skilldistillery.cakebids.entities.User;
 
@@ -37,5 +40,8 @@ public interface UserDAO {
 	
 	User commentOnCakeReview(CakeReview review, Integer id);
 
+	List<Bakery> getOrders(Bakery cakeBids);
+	
+	List<Bakery> findBakery(String keyword);
 	
 }

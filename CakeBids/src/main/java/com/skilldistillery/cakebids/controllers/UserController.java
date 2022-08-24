@@ -1,5 +1,7 @@
 package com.skilldistillery.cakebids.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.cakebids.data.UserDAO;
 import com.skilldistillery.cakebids.entities.Bakery;
@@ -156,4 +157,15 @@ public class UserController {
 		model.addAttribute("bakery", bakery);
 		return "bakeryStorefront";
 	}
+	
+	@RequestMapping("searchKeyword.do")
+    public String searchByKeyword(Model model, String keyword) {
+        List<Bakery> bakery = dao.findBakery(keyword);
+        if(bakery.size() > 0) {
+        model.addAttribute("bakery", bakery);
+        return "showBakeries";
+        }else {
+            return "home";
+        }
+    }
 }

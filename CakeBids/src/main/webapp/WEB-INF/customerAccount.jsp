@@ -88,18 +88,22 @@
           </thead>
         
           <tbody>
-        <c:forEach var="bakery" items="${cake}">
+        <c:forEach var="order" items="${loggedIn.bakery.cakeBids}">
             <tr>
-              <th>${user.firstName}</th>
-              <td>${user.lastName}</td>
-              <td>${user.address.phone}</td>
-              <td>${occasion.name}</td>
-              <td>${cake.cakeType.name}</td>
-              <td>${cake.flavor.name}</td>
-              <td>${cake.filling.fillingType}</td>
-              <td>${cake.budget}</td>
-              <td>${cake.dateAdded}</td>
-              <td>${cake.specialInstructions}</td>
+              <th>${order.bakery.owner.firstName}</th>
+              <td>${order.bakery.owner.lastName}</td>
+              <td>${order.bakery.owner.address.phone}</td>
+              <td>${order.cake.occasion.name}</td>
+              <td>${order.cake.cakeType.name}</td>
+              <c:forEach var="flavor" items="${order.cake.flavors}">
+              <td>${flavor.name}</td>
+              </c:forEach>
+			  <c:forEach var="filling" items="${order.cake.fillings}">
+              <td>${filling.fillingType}</td>
+              </c:forEach>              
+              <td>${order.cake.budget}</td>
+              <td>${order.cake.dateAdded}</td>
+              <td>${order.cake.specialInstructions}</td>
               
               
             </tr>
