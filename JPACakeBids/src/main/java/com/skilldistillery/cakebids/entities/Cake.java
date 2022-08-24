@@ -1,5 +1,6 @@
 package com.skilldistillery.cakebids.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Cake {
 	@Id
@@ -26,8 +29,12 @@ public class Cake {
 	@Column(name = "special_instructions")
 	private String specialInstructions;
 	
+	@CreationTimestamp
 	@Column(name = "date_added")
 	private LocalDateTime dateAdded;
+	
+	@Column(name="needed_by_date")
+	private LocalDate neededByDate;
 	
 	@ManyToOne
 	@JoinColumn(name="delivery_id")
@@ -174,6 +181,14 @@ public class Cake {
 
 	public void setOccasion(Occasion occasion) {
 		this.occasion = occasion;
+	}
+
+	public LocalDate getNeededByDate() {
+		return neededByDate;
+	}
+
+	public void setNeededByDate(LocalDate neededByDate) {
+		this.neededByDate = neededByDate;
 	}
 
 	@Override

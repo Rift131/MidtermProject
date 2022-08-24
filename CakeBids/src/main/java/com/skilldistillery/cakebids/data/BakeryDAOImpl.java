@@ -31,11 +31,7 @@ public class BakeryDAOImpl implements BakeryDAO {
 		return null;
 	}
 
-	@Override
-	public Bakery getOrders(Cake cakeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public Bakery updateOrders(Cake cakeId) {

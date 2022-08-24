@@ -1,5 +1,6 @@
 package com.skilldistillery.cakebids.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,10 +11,12 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.cakebids.entities.Bakery;
 import com.skilldistillery.cakebids.entities.Cake;
+import com.skilldistillery.cakebids.entities.CakeBid;
 import com.skilldistillery.cakebids.entities.CakeType;
 import com.skilldistillery.cakebids.entities.DeliveryMethod;
 import com.skilldistillery.cakebids.entities.Filling;
 import com.skilldistillery.cakebids.entities.Flavor;
+import com.skilldistillery.cakebids.entities.User;
 
 @Service
 @Transactional
@@ -27,10 +30,36 @@ public class CakeDAOImpl implements CakeDAO{
 		return em.find(Cake.class, id);
 	}
 	@Override
-	public Cake createCake(Cake cake) {
+	public Cake createCake(Cake cake, User user, Integer bakeryId) {
+		User updateUser = em.find(User.class, user.getId());
+		updateUser.setFirstName(user.getFirstName());
+		updateUser.setLastName(user.getLastName());
+		updateUser.getAddress().setPhone(user.getAddress().getPhone());
+		cake.getOccasion().setUser(updateUser);
+		
+		
+		
+		em.persist(cake.getOccasion().getAddress());
+		em.persist(cake.getOccasion());
 		em.persist(cake);
+
+		if(bakeryId != null && bakeryId > 0) {
+			Bakery bakery = em.find(Bakery.class, bakeryId);
+			if(bakery != null) {
+				CakeBid cakeBid = new CakeBid();
+				cakeBid.setCake(cake);
+				cakeBid.setBakery(bakery);
+				cakeBid.setAcceptedDate(LocalDateTime.now());
+				em.persist(cakeBid);
+			}
+		}
+		
 		return cake;
 	}
+	
+	
+	
+	
 	@Override
 	public Cake updateCake(Cake cake, Integer id) {
 		Cake cakeUpdate = em.find(Cake.class, id);
@@ -79,6 +108,10 @@ public class CakeDAOImpl implements CakeDAO{
 		String jpql = "SELECT ct FROM CakeType ct ORDER BY ct.name";
 		return em.createQuery(jpql, CakeType.class).getResultList();
 	}
+//	@Override
+//	public Address getPhone() {
+//		String jpql = "SELECT adr.phone FROM Address adr JOIN Occasion oc ON adr.id = oc.address JOIN Cake ck ON oc.id = ck.occasion WHERE ";
+//	}
 	
 	@Override
 	public boolean deleteCake(Integer id) {

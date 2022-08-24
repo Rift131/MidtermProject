@@ -64,7 +64,7 @@ class CakeTest {
 		CakeType cakeType = cake.getCaketype(); 
 		assertNotNull(cakeType);
 		assertNotNull(cakeType.getCakes());
-		assertEquals("tiered", cakeType.getName());
+		assertEquals("Tiered Cake", cakeType.getName());
 	}
 	@Test
 	void test_Cake_entity_mapping_OneToMany_join_table_with_filling_table() {

@@ -1,5 +1,8 @@
 package com.skilldistillery.cakebids.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -7,7 +10,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.cakebids.entities.Bakery;
-import com.skilldistillery.cakebids.entities.BakeryImage;
 import com.skilldistillery.cakebids.entities.BakeryReview;
 import com.skilldistillery.cakebids.entities.CakeReview;
 import com.skilldistillery.cakebids.entities.User;
@@ -126,8 +128,23 @@ public class UserDAOImpl implements UserDAO {
 
 		return updateBakery;
 	}
-
-
+	
+	@Override
+	public List<Bakery> getOrders(Bakery cakeBids) {
+		String jpql = "Select c From Cake c";
+		return em.createQuery(jpql, Bakery.class).getResultList();
+	}
+	
+	@Override
+	public List<Bakery> findBakery(String keyword) {
+		String jpql = "Select b From Bakery b WHERE b.name LIKE :k OR b.description LIKE :k";
+		
+		return em.createQuery(jpql, Bakery.class).setParameter("k", "%" + keyword + "%").getResultList();
+	
+		
+				
+	}
+	
 	@Override
 	public User createBakeryReview(BakeryReview review, Integer id) {
 		// TODO Auto-generated method stub
@@ -163,6 +180,12 @@ public class UserDAOImpl implements UserDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+
+	
+
+	
 
 	
 	

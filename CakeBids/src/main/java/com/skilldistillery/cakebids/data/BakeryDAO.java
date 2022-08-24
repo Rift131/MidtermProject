@@ -13,7 +13,7 @@ public interface BakeryDAO {
 		
 		Bakery findReviews(BakeryReview review, Integer id);
 		
-		Bakery getOrders(Cake cakeId);
+		
 
 		Bakery updateOrders(Cake cakeId);
 		

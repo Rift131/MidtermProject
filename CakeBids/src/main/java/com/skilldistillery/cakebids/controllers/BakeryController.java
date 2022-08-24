@@ -34,23 +34,7 @@ public class BakeryController {
 		return "findReviews";
 	}
 
-	@RequestMapping(path = { "findOrders.do" })
-	public String getOrders(Model model, Cake cakeId) {
 
-		model.addAttribute("orders", dao.getOrders(cakeId));
-
-		return "findOrders";
-	}
-
-	@RequestMapping(path = { "updateOrder.do" })
-	public String updateOrders(Model model, Cake cakeId) {
-		Bakery order = dao.getOrders(cakeId);
-
-		model.addAttribute("order", order);
-
-		return "updateOrder";
-
-	}
 
 	@RequestMapping(path = { "orderUpdated.do" })
 	public String orderUpdated(Model model, Cake cakeId) {
@@ -59,12 +43,6 @@ public class BakeryController {
 		return "orderUpdated";
 	}
 
-	@RequestMapping(path = {"orderDeleted.do"})
-	public String deleteOrder(Model model, Cake cakeId) {
-		Bakery order = dao.getOrders(cakeId);
-		dao.deleteOrder(cakeId);
-		return "orderDeleted";
-	}
 	
 	@RequestMapping(path = {"showBakeries.do"}, method = RequestMethod.GET)
 	public String showBakeries(Model model) {

@@ -151,6 +151,7 @@ CREATE TABLE IF NOT EXISTS `cake` (
   `delivery_id` INT NOT NULL,
   `cake_inspiration` VARCHAR(2000) NULL,
   `budget` DECIMAL(8,2) NULL,
+  `needed_by_date` DATE NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_cake_occassion1_idx` (`occasion_id` ASC),
   INDEX `fk_cake_cake_type1_idx` (`cake_type_id` ASC),
@@ -467,9 +468,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`) VALUES (1, 'Bill Nye\'s birthday!', '2 tier science theme cake', 'put a giant atom on the top!', '2022-06-23', 1, 1, 1, 'https://images.squarespace-cdn.com/content/v1/5c4b6b663c3a5399055adb5f/1599371701267-GW1ZKK9N8HH8GF9GQCVZ/10bd2e1ed5f7a58d40345af8070b1a4d.jpg', 200.00);
-INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`) VALUES (2, 'birthday cake ', '3 tier cake ', NULL, '2022-08-15', 2, 1, 2, NULL, 300.00);
-INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`) VALUES (3, 'graduation cake', 'sculpted cake like dog', '', '2022-08-13', 1, 3, 2, NULL, 200.00);
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (1, 'Bill Nye\'s birthday!', '2 tier science theme cake', 'put a giant atom on the top!', '2022-06-23', 1, 1, 1, 'https://images.squarespace-cdn.com/content/v1/5c4b6b663c3a5399055adb5f/1599371701267-GW1ZKK9N8HH8GF9GQCVZ/10bd2e1ed5f7a58d40345af8070b1a4d.jpg', 200.00, NULL);
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (2, 'birthday cake ', '3 tier cake ', NULL, '2022-08-15', 2, 1, 2, NULL, 300.00, NULL);
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (3, 'graduation cake', 'sculpted cake like dog', '', '2022-08-13', 1, 3, 2, NULL, 200.00, NULL);
 
 COMMIT;
 
