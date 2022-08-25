@@ -58,7 +58,9 @@ public class UserController {
 
 	@RequestMapping(path = { "customerAccount.do" })
 	public String viewAcct(HttpSession session) {
-		if (session.getAttribute("loggedIn") != null) {
+		User user = (User) session.getAttribute("loggedIn");
+		if (user != null) {
+			session.setAttribute("loggedIn", dao.findById(user.getId()));
 			return "customerAccount";
 		} else {
 			return "login";

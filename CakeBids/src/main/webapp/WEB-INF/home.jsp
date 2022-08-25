@@ -37,7 +37,7 @@ body {
 </head>
 <body>
 <main class="container-fluid">
-	<h7>Cake Network</h7>
+	<h1>Cake Network</h1>
 
 	<form action="login.do">
 		<input class="btn btn-dark" type="submit" value="Login" />
@@ -54,7 +54,7 @@ body {
 
 	<form action="searchKeyword.do" method="GET">
 		 <div class="input-group">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <input type="text" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
   <button type="button" class="btn btn-outline-dark">search</button>
 </div>
 		
