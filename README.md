@@ -26,7 +26,7 @@ The why: Our intent for our mid-term project was to build an application that wo
 
 * URL to the programs site
 
-<a href="http://34.206.35.233:8080/CakeBids/home.do">Our Midterm Project</a>
+<a href="http://34.206.35.233:8080/CakeBids/home.do" target="_blank">Click Here to Visit Our Midterm Project Site</a>
 
 * Screen shots <img src+"URL HERE" width=300>
 
