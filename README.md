@@ -32,7 +32,8 @@ Our intent for our mid-term project was to build an application that would allow
 
 ## Screen shots taken during our application creation journey
 
-* Swarming with the Skill Distillery Staff <p align="center"><img src="Images/HelpFromInstructors.png" width="65"></p>
+* Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="center"><img src="Images/HelpFromInstructors.png" width="65"></p>
+* Finally implementing CSS!  <p align="center"><img src="Images/SSCssWork.png" width="65"></p>
 
 
 ## Implementation
@@ -49,7 +50,7 @@ The structure of this application began with Trello. Each user story was created
 <img src="Images/WireFrame.png" width="450">
 </p>
 
-With our first-draft Trello board and wire frame in hand we built a database to reflect our needs to make our user stories a reality. Starting with the User, we begin a "HAS-A" chain of events completing a full circle...
+With our first-draft Trello board and wire frame in hand we built a database to reflect our needs to make our user stories a reality. Starting with the User (orange table, top-left in the image), we begin a "HAS-A" chain of events completing a full circle...
 1. A user has an occasion
 2. An occasion has a cake
 3. A cake has a delivery method, a type, a filling, a flavor and an image.
