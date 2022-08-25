@@ -33,17 +33,27 @@ Our intent for the mid-term project was to build an application that would allow
 
 ## Implementation
 
-* Description of the project structure
+The structure of this application began with Trello. Each user story was created, color-coded and given a description. Simultaneously, our team used a web site, Blasamiq, to build our wire frame. Trello and Balsamiq both worked pricelessly to inform the next Trello card we needed to create, feature to add to the wire frame or adjustments we might need to implement in our database to achieve the desired result. Most importantly, Trello and the wire frame kept us grounded with where we were and the work ahead of us. With this frame of reference, we were able to make decisions very early on for what user stories would need to be recategorized as a stretch goal and which user stories were critical given our limited time frame to produce the application. 
 
-* image of the wire frame
-<p align="center">
-<img src="Images/WireFrame.png" width="450">
-</p>
-* image of Trello
+* Our Trello Board As We Transitioned To CSS and Bootstrap Implementation
 <p align="center">
 <img src="Images/Trello.png" width="450">
 </p>
-* image of the ERDIagram
+
+* Our Final Wire Frame After Many AdjustMents To Our User Stories Were Made
+<p align="center">
+<img src="Images/WireFrame.png" width="450">
+</p>
+
+With our first-draft Trello board and wire frame in hand we built a database to reflect our needs to make our user stories a reality. Starting with the User, we begin a "HAS-A" chain of events completing a full circle...
+1. A user has an occasion
+2. An occasion has a cake
+3. A cake has a delivery method, a type, a filling, a flavor and an image.
+4. A cake has an agreement with the bakery through a "cake bid" which serves to fulfill direct orders (current implementation) and bids by bakeries (not implemented at this time).
+5. Finally, a cake has a Bakery that creates it.
+6. A Bakery is a user. 
+
+* Our Database Schema
 <p align="center">
 <img src="DB/CakeBids_ERDiagram.png" width="450">
 </p>
@@ -51,6 +61,8 @@ Our intent for the mid-term project was to build an application that would allow
 ## Lessons Learned
 
 Trello- Keep highest level on the User Story and write out sub cards that get you to the User Story completion.
+
+Keeping the path clear: A morning routine of organizing the Trello board kept the team on the same page and focused on the right priorities. The first iteration of the Trello board featured every possible facet of the application we could imagine. Howe Refactoring of the user stories was especially important as time for completing the project on time and achieving an MVP (minimum viable product)
 
 * MileStone 3 LL: Troubleshooting became second nature to recognize problems with our database values versus our mappings of the entities with each other. As we progressed with establishing relationships between the tables,  we learned to adjust initial variables to the corresponding data type being linked with the table. If we omitted this change, the JUnit tests would result in an immediate termination and no test results. We quickly learned the error most likely was due to omitting a change of the variable to the object being linked. After pair programming for several hours, writing code and troubleshooting became more and more challenging. They key to pressing forward through blockers was to find different ways to view the problem, either through the ERDiagram or previous code that tackled the same problem. Changing perspective is key.  
 
