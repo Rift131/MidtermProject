@@ -1,14 +1,16 @@
 # CakeBids
 
 ## Authors
-* Samantha Heisterkamp (Developer, DBA)
+
+* Samantha Heisterkamp (Developer, DBA) <p align="center"><img src="Images/SamanthaProf.png" width="100"></p>
 * Chad Rousseau (Developer, Scrum Master)
 * Ken Pederson (Developer, Repo Owner)
 
 ## Overview
+
 The CakeBids application, in its current state, is designed to interlink customers with artisan cake bakery's. A customer is able to fill out a cake order form and submit it to their desired bakery. The Bakery is then able to track its orders, the customers contact information and the details of the venue for the occasion the cake is for.
 
-
+The CakeBids application, as originally envisioned, would also allow a user to post a cake request, allowing bakery's to bid on their requests which the customer could then select the winning bid. The customer would also be able to leave a review for a bakery and later be able to either update their review or delete it. The Bakery would have a list of all their customer reviews and be able to post their own response to individual reviews. Finally, these reviews would be listed for potential customers to read on the bakery web site. Evidence of our intent for these features can be found in our database schema below. Our time-constraint for this mid-term project proved to be an excellent exercise in constant re-evaluation of priorities and maintaining constant communication amongst team members as we selected user stories to become stretch goals as time grew short.
 
 ## Description
 
@@ -28,8 +30,6 @@ Our intent for the mid-term project was to build an application that would allow
 * Screen shots <img src+"URL HERE" width=300>
 
 * instructions on how to log in to the site
-
-
 
 ## Implementation
 
@@ -64,7 +64,9 @@ Trello- Keep highest level on the User Story and write out sub cards that get yo
 
 Keeping the path clear: A morning routine of organizing the Trello board kept the team on the same page and focused on the right priorities. The first iteration of the Trello board featured every possible facet of the application we could imagine. Howe Refactoring of the user stories was especially important as time for completing the project on time and achieving an MVP (minimum viable product)
 
-* MileStone 3 LL: Troubleshooting became second nature to recognize problems with our database values versus our mappings of the entities with each other. As we progressed with establishing relationships between the tables,  we learned to adjust initial variables to the corresponding data type being linked with the table. If we omitted this change, the JUnit tests would result in an immediate termination and no test results. We quickly learned the error most likely was due to omitting a change of the variable to the object being linked. After pair programming for several hours, writing code and troubleshooting became more and more challenging. They key to pressing forward through blockers was to find different ways to view the problem, either through the ERDiagram or previous code that tackled the same problem. Changing perspective is key.  
+* MileStone 3 LL: Troubleshooting became second nature to recognize problems with our database values versus our mappings of the entities with each other. As we progressed with establishing relationships between the tables,  we learned to adjust initial variables to the corresponding data type being linked with the table. If we omitted this change, the JUnit tests would result in an immediate termination and no test results. We quickly learned the error most likely was due to omitting a change of the variable to the object being linked. After pair programming for several hours, writing code and troubleshooting became more and more challenging. They key to pressing forward through blockers was to find different ways to view the problem, either through the ERDiagram or previous code that tackled the same problem. Changing perspective is key.
+
+*   
 
 ## Technologies 
 
@@ -78,14 +80,6 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 ## Methodologies
 
 *scrum, agile, Trello, Balsamic wire frame, etc. 
-
-## Stretch Goals
-
-* Display bakers images with a carousel
-* List bakers by nearest geographical proximity to customer 
-* A bakery can can search bid requests by the occasion type (requires drop-down selection for occasions in the cake bid form)
-* README incorporates images
-* README incorporates video
 
 
 ## Getting Started (How to install)
