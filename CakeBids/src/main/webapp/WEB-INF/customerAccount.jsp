@@ -19,7 +19,16 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
+<style>
+body { 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/841B1728-7A97-4F4E-8C13-CE53CAB0F916.JPG) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
+</style>
 	<c:choose>
 		<c:when test="${empty loggedIn.bakery }">
 			<form action="searchKeyword.do" method="GET">
@@ -29,24 +38,24 @@
 			</form>
 
 			<form action="showBakeries.do" method="GET">
-				<input class="btn btn-primary" type="submit" value="Show Bakeries" />
+				<input class="btn btn-dark" type="submit" value="Show Bakeries" />
 			</form>
 			
 			<form action="createCake.do" method="GET">
-		<input class="btn btn-primary" type="submit" value="Order a Cake!"/> 
+		<input class="btn btn-dark" type="submit" value="Order a Cake!"/> 
 	        </form>
           
 			<form action="showOrders.do" method="POST">
-				<input class="btn btn-primary" type="submit" value="My Orders" />
+				<input class="btn btn-dark" type="submit" value="My Orders" />
 			</form>
 
 			<form action="accountUpdate.do" method="POST">
-				<input class="btn btn-primary" type="submit"
+				<input class="btn btn-dark" type="submit"
 					value="Update My Account" />
 			</form>
 
 			<form action="logout.do" method="GET">
-				<input class="btn btn-primary" type="submit" value="Logout" />
+				<input class="btn btn-dark" type="submit" value="Logout" />
 			</form>
 
 			<form action="accountDeactivated.do" method="POST">
