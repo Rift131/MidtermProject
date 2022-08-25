@@ -1,4 +1,24 @@
 @charset "UTF-8";
 body{
 	background-color: black;
+	color: white;
+}
+#nav {
+	position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  color: #556b2f;
+}
+
+.input-group {
+	
+	width: 300px;
+	left: 60%;
+}
+
+h7{
+text-align: center;	
+font-family: Copperplate;
 }
