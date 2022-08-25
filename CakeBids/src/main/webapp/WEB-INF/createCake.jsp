@@ -27,9 +27,9 @@
 			<input type="text" id="occasionStreet2" name="occasion.address.address2"/>
 			<h6><label for="occasionCity">City</label></h6>
 			<input type="text" id="occasionCity" name="occasion.address.city"/>
-			<h6><label for="ioccasionState">State</label></h6>
+			<h6><label for="ioccasionState">State/Province</label></h6>
 			<input type="text" id="ioccasionState" name="occasion.address.state"/>
-			<h6><label for="ioccasionState">Zip Code</label></h6>
+			<h6><label for="ioccasionState">Zip/Postal Code</label></h6>
 			<input type="text" id="occasionZip" name="occasion.address.zip" required="required"/>     
 			<h6><label for="occasionPhone">Best Phone Number For Any Questions Regarding This Occasion</label></h6>
 			<input type="text" id="occasionPhone" name="occasion.address.phone"/>
