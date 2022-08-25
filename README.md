@@ -33,8 +33,16 @@ Our intent for the mid-term project was to build an application that would allow
 
 ## Implementation
 
-* description of the project structure
+* Description of the project structure
+
+* image of the wire frame
+
+* image of Trello
+
 * image of the ERDIagram
+<p align="center">
+<img src="DB/CakeBids_ERDiagram.png">
+</p>
 
 ## Lessons Learned
 
@@ -44,10 +52,11 @@ Trello- Keep highest level on the User Story and write out sub cards that get yo
 
 ## Technologies 
 
+* Bootstrap
+* HTML/CSS
+* JPA 
 * MySQL Workbench
 * Spring MVC
-* JPA 
-* HTML/CSS
 
 
 ## Methodologies
