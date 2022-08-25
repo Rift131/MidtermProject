@@ -522,7 +522,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (1, 1);
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (2, 2);
 
 COMMIT;
 
@@ -532,7 +532,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (1, 1);
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (7, 2);
 
 COMMIT;
 
