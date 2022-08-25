@@ -36,9 +36,13 @@ Our intent for the mid-term project was to build an application that would allow
 * Description of the project structure
 
 * image of the wire frame
-
+<p align="center">
+<img src="Images/WireFrame.png">
+</p>
 * image of Trello
-
+<p align="center">
+<img src="Images/Trello.png">
+</p>
 * image of the ERDIagram
 <p align="center">
 <img src="DB/CakeBids_ERDiagram.png">
