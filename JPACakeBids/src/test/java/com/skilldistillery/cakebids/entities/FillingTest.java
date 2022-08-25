@@ -52,8 +52,8 @@ class FillingTest {
 	@Test
 	void test_Filling_entity_mapping_ManyToMany_with_cake_table() {
 		assertNotNull(filling);
-		assertNotNull(filling.getFillings());
-		assertTrue(filling.getFillings().size() > 0);
+		assertNotNull(filling.getCakes());
+		assertTrue(filling.getCakes().size() > 0);
 	}
 
 }

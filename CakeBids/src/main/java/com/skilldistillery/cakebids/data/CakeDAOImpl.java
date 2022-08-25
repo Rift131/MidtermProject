@@ -1,6 +1,7 @@
 package com.skilldistillery.cakebids.data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -20,32 +21,51 @@ import com.skilldistillery.cakebids.entities.User;
 
 @Service
 @Transactional
-public class CakeDAOImpl implements CakeDAO{
+public class CakeDAOImpl implements CakeDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Cake findById(Integer id) {
 		return em.find(Cake.class, id);
 	}
+
 	@Override
-	public Cake createCake(Cake cake, User user, Integer bakeryId) {
+	public Cake createCake(Cake cake, User user, Integer bakeryId, Integer[] flavorIds, Integer[] fillingIds) {
 		User updateUser = em.find(User.class, user.getId());
 		updateUser.setFirstName(user.getFirstName());
 		updateUser.setLastName(user.getLastName());
 		updateUser.getAddress().setPhone(user.getAddress().getPhone());
 		cake.getOccasion().setUser(updateUser);
+System.out.println("====================================================");
+		if (flavorIds != null && flavorIds.length > 0) {
+			for (int i : flavorIds) {
+				Flavor flavor = em.find(Flavor.class, i);
+				System.out.println(flavor);
+				if (flavor != null) {
+					cake.addFlavor(flavor);
+				}
+			}
+		}
 		
-		
-		
+		if (fillingIds != null && fillingIds.length > 0) {
+			for (int i : fillingIds) {
+				Filling filling = em.find(Filling.class, i);
+				System.out.println(filling);
+				if (filling != null) {
+					cake.addFilling(filling);
+				}
+			}
+		}
 		em.persist(cake.getOccasion().getAddress());
 		em.persist(cake.getOccasion());
+		System.out.println(cake.getFlavors());
 		em.persist(cake);
 
-		if(bakeryId != null && bakeryId > 0) {
+		if (bakeryId != null && bakeryId > 0) {
 			Bakery bakery = em.find(Bakery.class, bakeryId);
-			if(bakery != null) {
+			if (bakery != null) {
 				CakeBid cakeBid = new CakeBid();
 				cakeBid.setCake(cake);
 				cakeBid.setBakery(bakery);
@@ -53,18 +73,15 @@ public class CakeDAOImpl implements CakeDAO{
 				em.persist(cakeBid);
 			}
 		}
-		
+
 		return cake;
 	}
-	
-	
-	
-	
+
 	@Override
 	public Cake updateCake(Cake cake, Integer id) {
 		Cake cakeUpdate = em.find(Cake.class, id);
-		
-		if(cakeUpdate != null) {
+
+		if (cakeUpdate != null) {
 //			Remove anything not getting updated
 			cakeUpdate.setName(cake.getName());
 			cakeUpdate.setDescription(cake.getDescription());
@@ -79,30 +96,34 @@ public class CakeDAOImpl implements CakeDAO{
 			cakeUpdate.setFlavors(cake.getFlavors());
 			cakeUpdate.setCakeImages(cake.getCakeImages());
 		}
-		
+
 		return cakeUpdate;
 	}
-	
+
 	@Override
-	public List<Flavor> getFlavors(){
+	public List<Flavor> getFlavors() {
 		String jpql = "SELECT f FROM Flavor f ORDER BY f.name";
 		return em.createQuery(jpql, Flavor.class).getResultList();
 	}
+
 	@Override
 	public List<Filling> getFillings() {
 		String jpql = "SELECT f FROM Filling f ORDER BY f.fillingType";
 		return em.createQuery(jpql, Filling.class).getResultList();
 	}
+
 	@Override
-	public List<Bakery> getBakeries(){
+	public List<Bakery> getBakeries() {
 		String jpql = "SELECT b FROM Bakery b ORDER BY b.name";
 		return em.createQuery(jpql, Bakery.class).getResultList();
 	}
+
 	@Override
 	public List<DeliveryMethod> getDeliveryMethods() {
 		String jpql = "SELECT dm FROM DeliveryMethod dm ORDER BY dm.deliveryType";
 		return em.createQuery(jpql, DeliveryMethod.class).getResultList();
 	}
+
 	@Override
 	public List<CakeType> getCakeTypes() {
 		String jpql = "SELECT ct FROM CakeType ct ORDER BY ct.name";
@@ -112,21 +133,22 @@ public class CakeDAOImpl implements CakeDAO{
 //	public Address getPhone() {
 //		String jpql = "SELECT adr.phone FROM Address adr JOIN Occasion oc ON adr.id = oc.address JOIN Cake ck ON oc.id = ck.occasion WHERE ";
 //	}
-	
+
 	@Override
 	public boolean deleteCake(Integer id) {
 		Cake cake = em.find(Cake.class, id);
 		boolean cakeDeleted = false;
-		if(cake != null) {
+		if (cake != null) {
 			em.remove(cakeDeleted);
 			cakeDeleted = !em.contains(cake);
 		}
 		return cakeDeleted;
 	}
+
 	@Override
 	public List<Cake> findAll() {
-		String jpql = "Select c FROM Cake c ORDER by c.neededByDate"; //Add cakes only if order has not been fulfilled
-		
+		String jpql = "Select c FROM Cake c ORDER by c.neededByDate"; // Add cakes only if order has not been fulfilled
+
 		return em.createQuery(jpql, Cake.class).getResultList();
 	}
 

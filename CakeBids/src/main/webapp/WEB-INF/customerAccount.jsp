@@ -53,6 +53,57 @@
 				<h4>Delete Account:</h4>
 				<input class="btn btn-warning" type="submit" value="delete" />
 			</form>
+			
+			<table class="table table-hover table-md thead-dark tbody-grey table-striped">
+         
+           <thead>
+            <tr>
+      
+               <th scope="col">Customer First Name</th>
+              <th scope="col">Customer Last Name</th>
+              <th scope="col">Customer Phone</th>
+               <th scope="col">Customer Occasion</th>
+              <th scope="col">Cake Type</th>                           
+              <th scope="col">Cake Flavor</th>                           
+              <th scope="col">Cake Filling</th>                           
+              <th scope="col">Delivery Method</th>                           
+              <th scope="col">Budget</th>                           
+              <th scope="col">Date needed</th>                           
+              <th scope="col">Special Instructions</th>                           
+            </tr>
+          </thead>
+        
+          <tbody>
+        <c:forEach var="occasion" items="${loggedIn.occasions}">
+        <c:forEach var="cake" items="${occasion.cakes}">
+            <tr>
+              <td>${cake.occasion.user.firstName}</td>
+              <td>${cake.occasion.user.address.phone}</td>
+              <td>${cake.occasion.user.lastName}</td>
+              <td>${cake.occasion.name}</td>
+              <td>${cake.cakeType.name}</td>
+              <td>
+              <c:forEach var="flavor" items="${cake.flavors}">
+              <li>${flavor.name}</li>
+              </c:forEach>
+              </td>
+              <td>
+			  <c:forEach var="filling" items="${cake.fillings}">
+              <li>${filling.fillingType}</li>
+              </c:forEach>               
+              </td>
+              <td>${cake.deliveryMethods.deliveryType}</td>
+              <td>${cake.budget}</td>
+              <td>${cake.neededByDate}</td>
+              <td>${cake.specialInstructions}</td>
+              
+              
+            </tr>
+        </c:forEach>
+        </c:forEach>
+          </tbody>
+        
+        </table> 
 		</c:when>
 
 		<c:when test="${not empty loggedIn.bakery }">
@@ -80,19 +131,24 @@
           <tbody>
         <c:forEach var="order" items="${loggedIn.bakery.cakeBids}">
             <tr>
-              <th>${order.cake.occasion.user.firstName}</th>
+              <td>${order.cake.occasion.user.firstName}</td>
               <td>${order.cake.occasion.user.lastName}</td>
               <td>${order.cake.occasion.user.address.phone}</td>
               <td>${order.cake.occasion.name}</td>
               <td>${order.cake.cakeType.name}</td>
+              <td>
               <c:forEach var="flavor" items="${order.cake.flavors}">
-              <td>${flavor.name}</td>
+              <li>${flavor.name}</li>
               </c:forEach>
+              </td>
+              <td>
 			  <c:forEach var="filling" items="${order.cake.fillings}">
-              <td>${filling.fillingType}</td>
+              <li>${filling.fillingType}</li>
               </c:forEach>               
+              </td>
+              <td>${order.cake.deliveryMethods.deliveryType}</td>
               <td>${order.cake.budget}</td>
-              <td>${order.cake.dateAdded}</td>
+              <td>${order.cake.neededByDate}</td>
               <td>${order.cake.specialInstructions}</td>
               
               

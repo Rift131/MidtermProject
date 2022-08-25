@@ -1,5 +1,6 @@
 package com.skilldistillery.cakebids.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class Flavor {
 			name="cake_has_flavor",
 			joinColumns= @JoinColumn(name="cake_flavor_id"),
 			inverseJoinColumns = @JoinColumn(name="cake_id"))
-	private List<Cake> flavors;
+	private List<Cake> cakes;
 	
 	
 	public Flavor() {
@@ -55,14 +56,28 @@ public class Flavor {
 		this.name = name;
 	}
 
-	public List<Cake> getFlavors() {
-		return flavors;
+	public List<Cake> getCakes() {
+		return cakes;
 	}
 
-	public void setFlavors(List<Cake> flavors) {
-		this.flavors = flavors;
+	public void setCakes(List<Cake> flavors) {
+		this.cakes = flavors;
 	}
-
+	
+	public void addCake(Cake cake) {
+		if(cakes == null) {
+			cakes = new ArrayList<>();
+		}
+		if(!cakes.contains(cake)) {
+			cakes.add(cake);
+			cake.addFlavor(this);
+		}
+	}
+	
+	public void removeCake(Cake cake) {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}

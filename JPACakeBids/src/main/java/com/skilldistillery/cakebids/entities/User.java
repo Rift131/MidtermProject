@@ -61,6 +61,9 @@ public class User {
 	@OneToOne(mappedBy="owner")
 	private Bakery bakery;
 	
+	@OneToMany(mappedBy="user")
+	private List<Occasion> occasions;
+	
 	
 	public Bakery getBakery() {
 		return bakery;
@@ -199,6 +202,14 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return id == other.id;
+	}
+
+	public List<Occasion> getOccasions() {
+		return occasions;
+	}
+
+	public void setOccasions(List<Occasion> occasions) {
+		this.occasions = occasions;
 	}
 	
 	

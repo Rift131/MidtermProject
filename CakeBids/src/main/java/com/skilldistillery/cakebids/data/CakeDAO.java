@@ -31,5 +31,5 @@ public interface CakeDAO {
 
 	List<CakeType> getCakeTypes();
 
-	Cake createCake(Cake cake, User user, Integer bakeryId);
+	Cake createCake(Cake cake, User user, Integer bakeryId, Integer [] flavorIds, Integer [] fillingIds);
 }
