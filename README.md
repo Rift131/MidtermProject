@@ -30,11 +30,17 @@ The bakery user, once logged in, is presented with their account page. The accou
 
 Our intent for our mid-term project was to build an application that would allow for customers to post biddable requests or direct orders to bakery's for cakes. This would create a competitive environment between bakery's that would be tempered by the reviews of the customers and managed by an administrator. Also, we wanted to create a malleable project that could easily be translated from the artisan craft of cake making to another similar craft such candle makers or beard oil products producers. Given the time constraints of a week and a half to accomplish the from the ground-up application, the ability for customers to send orders to a bakery is what our team was able to achieve. 
 
+## Methodologies
+
+It's all about Agile.
+
+Before each day began, the Trello board was updated for any adjustments required for new requirements and/or realignment of priorities based on time remaining. From there, Chad conducted his daily scrum meeting to baseline the team and confirm priority's and their assignment to team members. The entire rest of the day was conducted with constant communication amongst the team and the stakeholders (Skill Distillery staff) via Zoom. Our standard process was for two team members to pair-program while the other worked another priority. When either the pair-programming team or the solo programmer would encounter a blocker, the team would swarm as a whole until the issue was resolved. Often the stakeholders would be called upon    
+
 ## Screen shots taken during our application creation journey
 
-* Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="center"><img src="Images/HelpFromInstructors.png" width="65"></p>
-* Finally implementing CSS!  <p align="center"><img src="Images/SSCssWork.png" width="65"></p>
-
+* Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="center" width="350"><img src="Images/HelpFromInstructors.png" width="65"></p>
+* Finally implementing CSS!  <p align="center" width="350"><img src="Images/SSCssWork.png" width="65"></p>
+PLACE HOME PAGE IMAGE HERE
 
 ## Implementation
 
@@ -89,8 +95,3 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 * Terminal -zsh
 * Zoom
 
-## Methodologies
-
-It's all about Agile.
-
-Before each day began, the Trello board was updated for any adjustments required for new requirements and/or realignment of priorities based on time remaining. From there, Chad conducted his daily scrum meeting to baseline the team and confirm priority's and their assignment to team members. The entire rest of the day was conducted with constant communication amongst the team and the stakeholders (Skill Distillery staff) via Zoom. Our standard process was for two team members to pair-program while the other worked another priority. When either the pair-programming team or the solo programmer would encounter a blocker, the team would swarm as a whole until the issue was resolved. Often the stakeholders would be called upon    
