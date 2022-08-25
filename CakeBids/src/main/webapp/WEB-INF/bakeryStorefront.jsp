@@ -15,7 +15,18 @@
 <h1>Welcome to ${bakery.name}</h1>
 <img alt="bakery image" src="${bakery.imageUrl }">
 	
+	<h2>Hours of Operation: ${bakery.hoursOfOperation}</h2>
+	<h2>${bakery.owner.address.address}</h2>
+	<h2>${bakery.owner.address.address2}</h2>
+	<h2>${bakery.owner.address.city}</h2>
+	<h2>${bakery.owner.address.state}</h2>
+	<h2>${bakery.owner.address.phone}</h2>
+	
+	
+	
 <jsp:include page="bootstrapfoot.jsp" />
+
 </main>
+
 </body>
 </html> 
