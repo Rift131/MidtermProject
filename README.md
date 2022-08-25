@@ -41,11 +41,11 @@ Our intent for the mid-term project was to build an application that would allow
 </p>
 * image of Trello
 <p align="center">
-<img src="Images/Trello.png">
+<img src="Images/Trello.png" width="450">
 </p>
 * image of the ERDIagram
 <p align="center">
-<img src="DB/CakeBids_ERDiagram.png">
+<img src="DB/CakeBids_ERDiagram.png" width="450">
 </p>
 
 ## Lessons Learned
