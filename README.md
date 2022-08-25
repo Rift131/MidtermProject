@@ -37,7 +37,7 @@ Our intent for the mid-term project was to build an application that would allow
 
 * image of the wire frame
 <p align="center">
-<img src="Images/WireFrame.png">
+<img src="Images/WireFrame.png" width="300">
 </p>
 * image of Trello
 <p align="center">
