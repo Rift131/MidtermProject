@@ -125,7 +125,7 @@ public class CakeDAOImpl implements CakeDAO{
 	}
 	@Override
 	public List<Cake> findAll() {
-		String jpql = "Select c FROM Cake c"; //Add cakes only if order has not been fulfilled
+		String jpql = "Select c FROM Cake c ORDER by c.neededByDate"; //Add cakes only if order has not been fulfilled
 		
 		return em.createQuery(jpql, Cake.class).getResultList();
 	}

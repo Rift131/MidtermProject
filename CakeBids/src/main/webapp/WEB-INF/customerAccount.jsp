@@ -22,10 +22,10 @@
 
 	<c:choose>
 		<c:when test="${empty loggedIn.bakery }">
-			<form action="results.do" method="GET">
+			<form action="searchKeyword.do" method="GET">
 				<h4>Search Bakeries:</h4>
-				<input class="form-control" type="number" name="id" /> <input
-					class="btn btn-primary" type="submit" value="Search" />
+				<input class="form-control" type="text" name="id" /> <input
+					class="btn btn-secondary" type="submit" value="Search" />
 			</form>
 
 			<form action="showBakeries.do" method="GET">
@@ -35,19 +35,9 @@
 			<form action="createCake.do" method="GET">
 		<input class="btn btn-primary" type="submit" value="Order a Cake!"/> 
 	        </form>
-                      
-                      <!-- STRETCH GOALS -->
-                      
-			<!-- <form action="cakeBid.do" method="GET">
-				<input class="btn btn-primary" type="submit"
-					value="Create Cake Request" />
-			</form>
-			<form action="openCakeRequests.do" method="GET">
-				<input class="btn btn-primary" type="submit"
-					value="My Open Cake Requests" />
-			</form> -->
-			<form action="showCustomerReviews.do" method="POST">
-				<input class="btn btn-primary" type="submit" value="My Reviews" />
+          
+			<form action="showOrders.do" method="POST">
+				<input class="btn btn-primary" type="submit" value="My Orders" />
 			</form>
 
 			<form action="accountUpdate.do" method="POST">
@@ -90,9 +80,9 @@
           <tbody>
         <c:forEach var="order" items="${loggedIn.bakery.cakeBids}">
             <tr>
-              <th>${order.bakery.owner.firstName}</th>
-              <td>${order.bakery.owner.lastName}</td>
-              <td>${order.bakery.owner.address.phone}</td>
+              <th>${order.cake.occasion.user.firstName}</th>
+              <td>${order.cake.occasion.user.lastName}</td>
+              <td>${order.cake.occasion.user.address.phone}</td>
               <td>${order.cake.occasion.name}</td>
               <td>${order.cake.cakeType.name}</td>
               <c:forEach var="flavor" items="${order.cake.flavors}">
@@ -100,7 +90,7 @@
               </c:forEach>
 			  <c:forEach var="filling" items="${order.cake.fillings}">
               <td>${filling.fillingType}</td>
-              </c:forEach>              
+              </c:forEach>               
               <td>${order.cake.budget}</td>
               <td>${order.cake.dateAdded}</td>
               <td>${order.cake.specialInstructions}</td>
