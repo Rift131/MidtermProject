@@ -1,5 +1,7 @@
 # CakeBids
 
+!!!PLACE HOME PAGE IMAGE HERE!!!
+
 ## Authors
 
 <p align="left"><img src="Images/SamanthaProf.png" width="65"> Samantha Heisterkamp (Developer, DBA) </p>
@@ -26,7 +28,7 @@ The customer, once logged in, is presented with their account page. The account 
 
 The bakery user, once logged in, is presented with their account page. The account page is comprised of a list of their orders, an option to log out, update their account or delete their account. As with the customer account, choosing the option of "delete" will simply change the account from active to inactive. The bakery has all the information it needs to build the cake and reach out to the customers for any interaction required to complete the order.
 
-####The why
+<p><strong>The why...</strong></p>
 
 Our intent for our mid-term project was to build an application that would allow for customers to post biddable requests or direct orders to bakery's for cakes. This would create a competitive environment between bakery's that would be tempered by the reviews of the customers and managed by an administrator. Also, we wanted to create a malleable project that could easily be translated from the artisan craft of cake making to another similar craft such candle makers or beard oil products producers. Given the time constraints of a week and a half to accomplish the from the ground-up application, the ability for customers to send orders to a bakery is what our team was able to achieve. 
 
@@ -92,6 +94,5 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 
 ## Screen shots taken during our application creation journey
 
-* Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="left" width="350"><img src="Images/HelpFromInstructors.png" width="65"></p>
-* Finally implementing CSS!  <p align="left" width="350"><img src="Images/SSCssWork.png" width="350"></p>
-PLACE HOME PAGE IMAGE HERE
+* Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="left" width="550"><img src="Images/HelpFromInstructors.png" width="65"></p>
+* Finally implementing CSS!  <p align="left" width="350"><img src="Images/SSCssWork.png" width="550"></p>
