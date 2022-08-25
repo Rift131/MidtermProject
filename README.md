@@ -2,9 +2,9 @@
 
 ## Authors
 
-<p align="center"><img src="Images/SamanthaProf.png" width="25"> Samantha Heisterkamp (Developer, DBA) </p>
-* Chad Rousseau (Developer, Scrum Master)
-* Ken Pederson (Developer, Repo Owner)
+<p align="left"><img src="Images/SamanthaProf.png" width="25"> <br> Samantha Heisterkamp (Developer, DBA) </p>
+<p align="left"><img src="Images/ChadProf.png" width="25"> <br> Chad Rousseau (Developer, Scrum Master) </p>
+<p align="left"><img src="Images/KenProf.png" width="25"> <br> Ken Pederson (Developer, Repo Owner) </p>
 
 ## Overview
 
