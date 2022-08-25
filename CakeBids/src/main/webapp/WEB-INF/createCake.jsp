@@ -52,7 +52,10 @@
 			<br>
 			<br>
 			<label for="flavor.id">Select your flavor</label> <!-- label for matches the select name -->
-			<select name="flavor.id"> <!-- path to get to each flavor through its primary key -->
+			<c:forEach items="${flavors}" var="flavor"> <!-- flavors is the controller calls this element. Flavor is the name of the ENTITY, lowercase first letter -->
+			<input type="checkbox" name="flavorIds" value="${flavor.id}">${flavor.name} <!-- value is the primary key, after that is the path to the value in the table you want to appear -->
+			</c:forEach>
+			<select> <!-- path to get to each flavor through its primary key -->
 			<c:forEach items="${flavors}" var="flavor"> <!-- flavors is the controller calls this element. Flavor is the name of the ENTITY, lowercase first letter -->
 			<option value="${flavor.id}">${flavor.name}</option> <!-- value is the primary key, after that is the path to the value in the table you want to appear -->
 			</c:forEach>
@@ -60,6 +63,9 @@
 			<br>
 			<br>
 			<label for="filling.id">What filling would you like?</label>
+			<c:forEach items="${fillings}" var="filling"> <!-- flavors is the controller calls this element. Flavor is the name of the ENTITY, lowercase first letter -->
+			<input type="checkbox" name="fillingIds" value="${filling.id}">${filling.fillingType} <!-- value is the primary key, after that is the path to the value in the table you want to appear -->
+			</c:forEach>
 			<select name="filling.id">
 			<c:forEach items="${fillings}" var="filling">
 			<option value="${filling.id}">${filling.fillingType}</option>
@@ -85,7 +91,7 @@
 			<br>
 			<h4><label>Final Details</label></h4>
 		    <br>
-		    <h6><label for="budget">What is your budget for this cake?  <input type="number" id="cakeBudget" name="cakeBudget"></label></h6>  
+		    <h6><label for="budget">What is your budget for this cake?  <input type="number" step=".01" id="cakeBudget" name="budget"></label></h6>  
 			<br>
 		    <h6><label for="neededByDate">What day would you like your cake to be ready by?</label></h6> 
 		    <input type="date" id="dateAdded" name="neededByDate" required="required"> 

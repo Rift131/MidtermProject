@@ -1,5 +1,7 @@
 package com.skilldistillery.cakebids.controllers;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +31,12 @@ public class CakeController {
 	}
 
 	@RequestMapping(path = { "cakeCreated.do" })
-	public String createdCake(Cake cake, Model model, HttpSession session, Integer bakeryId) {
+	public String createdCake(Cake cake, Model model, HttpSession session, Integer bakeryId, Integer [] flavorIds, Integer [] fillingIds) {
+		System.out.println(Arrays.deepToString(flavorIds));
+		System.out.println(Arrays.deepToString(fillingIds));
 		User user = (User)session.getAttribute("loggedIn");
 		if (user != null) {
-			cake = dao.createCake(cake, user, bakeryId);
+			cake = dao.createCake(cake, user, bakeryId, flavorIds, fillingIds);
 			
 		}
 		

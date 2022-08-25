@@ -53,8 +53,8 @@ class FlavorTest {
 	@Test
 	void test_Flavor_entity_mapping_ManyToMany_with_cake_table() {
 		assertNotNull(flavor);
-		assertNotNull(flavor.getFlavors());
-		assertTrue(flavor.getFlavors().size() > 0);
+		assertNotNull(flavor.getCakes());
+		assertTrue(flavor.getCakes().size() > 0);
 	}
 	
 }
