@@ -14,8 +14,6 @@ The CakeBids application, as originally envisioned, would also allow a user to p
 
 ## Description
 
-* How Our Application Works
-
 When a user visits the applications web site, the home page presents several options. A user can create a customer account, log in as a customer or visit cake bakery store front sites. Also,  a user can create a bakery account or login as a bakery-type user. If a visitor to the site only wants to see the bakeries that are members of the application, they can either search for bakeries by keyword or click a link that shows a list of all the bakery's on another page. 
 
 The customer, once logged in, is presented with their account page. The account page gives the customer the option to search for bakeries by keyword, show a list of bakeries, order a cake, update their account, logout and delete their account. Should a user choose to "delete" their account, the account will simply become inactive. When a user chooses to order a cake, they are presented with a form gathers the require information. First it asks for the details of the occasion that the cake is being made for, it's location and the best phone number for the bakery to contact should there be any questions about the occasion or the cake itself. Next, the form has multiple inputs for the customer to describe their cake to give the bakery a vision to follow when designing the cake, followed by specific properties of the cake. Finally, the user is presented with their desired budget for the bakery to work within, the date for the cake to be ready by and special instructions. This section is concluded with users auto-filled first name, last name and phone number. Here theses aspects of their account should any changes need to be made. The phone number especially serves as an alternative number for the bakery to reach out to if the phone number for occasion's information become unreachable. Once submitted, the cake order is transferred to the bakery specified by the customer in the cake order form. Each bakery's account page features a table that lists each order they've been given.
@@ -24,9 +22,11 @@ The bakery user, once logged in, is presented with their account page. The accou
 
 The why: Our intent for our mid-term project was to build an application that would allow for customers to post biddable requests or direct orders to bakery's for cakes. This would create a competitive environment between bakery's that would be tempered by the reviews of the customers and managed by an administrator. Also, we wanted to create a malleable project that could easily be translated from the artisan craft of cake making to another similar craft such candle makers or beard oil products producers. Given the time constraints of a week and a half to accomplish the from the ground-up application, the ability for customers to send orders to a bakery is what our team was able to achieve. 
 
-* instructions on how to log in to the site
+
 
 * URL to the programs site
+
+<a href="http://34.206.35.233:8080/CakeBids/home.do">Our Midterm Project</a>
 
 * Screen shots <img src+"URL HERE" width=300>
 
@@ -66,7 +66,6 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 
 * MileStone 3 LL: Troubleshooting became second nature to recognize problems with our database values versus our mappings of the entities with each other. As we progressed with establishing relationships between the tables,  we learned to adjust initial variables to the corresponding data type being linked with the table. If we omitted this change, the JUnit tests would result in an immediate termination and no test results. We quickly learned the error most likely was due to omitting a change of the variable to the object being linked. After pair programming for several hours, writing code and troubleshooting became more and more challenging. They key to pressing forward through blockers was to find different ways to view the problem, either through the ERDiagram or previous code that tackled the same problem. Changing perspective is key.
 
-*   
 
 ## Technologies 
 
@@ -84,10 +83,13 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 * Spring Boot
 * Spring MVC
 * Terminal -zsh
+* Zoom
 
 ## Methodologies
 
-Our teams daily approach was for Chad first conduct a sscrum meeting to baseline and focus the team.   
+It's all about Agile.
+
+Before the day began, the Trello board was updated for any adjustments required for new requirements and/or realignment of priorities based on time remaining. From there, Chad conducted his daily scrum meeting to baseline the team and confirm priority's and their assignment to team members. The entire rest of the day was conducted with constant communication amongst the team and the stakeholders (Skill Distillery staff) via Zoom. Our standard process was for two team members to pair-program while the other worked another priority. When either the pair-programming team or the solo programmer would encounter a blocker, the team would swarm as a whole until the issue was resolved. Often the stakeholders would be called upon    
 
 
 ## Getting Started (How to install)
