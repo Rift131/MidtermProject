@@ -16,7 +16,7 @@ For the link below, if you would like to login to our site without having to cre
 * User name: visitor
 * Password: 1234
 
-<a href="http://34.206.35.233:8080/CakeBids/home.do" target="_blank">Click Here to Visit Our Midterm Project Site</a>
+<p align="center"><a href="http://34.206.35.233:8080/CakeBids/home.do" target="_blank">Click Here to Visit Our Midterm Project Site</a></>
 
 ## Description
 
@@ -36,11 +36,6 @@ It's all about Agile.
 
 Before each day began, the Trello board was updated for any adjustments required for new requirements and/or realignment of priorities based on time remaining. From there, Chad conducted his daily scrum meeting to baseline the team and confirm priority's and their assignment to team members. The entire rest of the day was conducted with constant communication amongst the team and the stakeholders (Skill Distillery staff) via Zoom. Our standard process was for two team members to pair-program while the other worked another priority. When either the pair-programming team or the solo programmer would encounter a blocker, the team would swarm as a whole until the issue was resolved. Often the stakeholders would be called upon    
 
-## Screen shots taken during our application creation journey
-
-* Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="center" width="350"><img src="Images/HelpFromInstructors.png" width="65"></p>
-* Finally implementing CSS!  <p align="center" width="350"><img src="Images/SSCssWork.png" width="65"></p>
-PLACE HOME PAGE IMAGE HERE
 
 ## Implementation
 
@@ -95,3 +90,8 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 * Terminal -zsh
 * Zoom
 
+## Screen shots taken during our application creation journey
+
+* Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="left" width="350"><img src="Images/HelpFromInstructors.png" width="65"></p>
+* Finally implementing CSS!  <p align="left" width="350"><img src="Images/SSCssWork.png" width="350"></p>
+PLACE HOME PAGE IMAGE HERE
