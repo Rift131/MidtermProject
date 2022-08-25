@@ -2,6 +2,7 @@ package com.skilldistillery.cakebids.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -53,10 +54,10 @@ public class Cake {
 	@JoinColumn(name="occasion_id")
 	private Occasion occasion;
 	
-	@ManyToMany(mappedBy="fillings")
+	@ManyToMany(mappedBy="cakes")
 	private List<Filling> fillings;
 
-	@ManyToMany(mappedBy="flavors")
+	@ManyToMany(mappedBy="cakes")
 	private List<Flavor> flavors;
 	
 	@OneToMany(mappedBy="cake")
@@ -158,7 +159,16 @@ public class Cake {
 	public void setFillings(List<Filling> fillings) {
 		this.fillings = fillings;
 	}
-
+	
+	public void addFilling(Filling filling) {
+		if(fillings == null) {
+			fillings = new ArrayList<>();
+		}
+		if(!fillings.contains(filling)) {
+			fillings.add(filling);
+			filling.addCake(this);
+		}
+	}
 	public List<Flavor> getFlavors() {
 		return flavors;
 	}
@@ -166,7 +176,21 @@ public class Cake {
 	public void setFlavors(List<Flavor> flavors) {
 		this.flavors = flavors;
 	}
-
+	
+	public void addFlavor(Flavor flavor) {
+		if(flavors == null) {
+			flavors = new ArrayList<>();
+		}
+		if(!flavors.contains(flavor)) {
+			flavors.add(flavor);
+			flavor.addCake(this);
+		}
+		
+	}
+	public void removeFlavor(Flavor flavor) {
+		
+	}
+	
 	public List<CakeImage> getCakeImages() {
 		return cakeImages;
 	}

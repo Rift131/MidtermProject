@@ -22,7 +22,7 @@ public class Occasion {
 	
 	private LocalDateTime date;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 	
