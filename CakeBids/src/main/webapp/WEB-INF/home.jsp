@@ -4,6 +4,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<style>
+/* body{
+background-image: url(https://i.pinimg.com/236x/79/5f/55/795f5555fb2cac60a976f2f9ea22ca80.jpg);
+background-repeat: no-repeat;
+/* background-size: cover; */
+/* background-position: center;
+object-fit: cover;
+} */ 
+body { 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://findyourcakeinspiration.com/wp-content/uploads/2020/02/Drama-Romance-Wedding-Cake-808x1024.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
+
+
 <meta charset="UTF-8">
 <title>CakeBids Homepage</title>
 <link
@@ -13,29 +33,32 @@
 	crossorigin="anonymous">
 <jsp:include page="bootstraphead.jsp" />
 <jsp:include page="navbar.jsp"></jsp:include>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <main class="container-fluid">
-	<h1>Welcome to CakeBids</h1>
+	<h7>Cake Network</h7>
 
 	<form action="login.do">
-		<input class="btn btn-light" type="submit" value="Login" />
+		<input class="btn btn-dark" type="submit" value="Login" />
 	</form>
 
 	<form action="createAccount.do" method="GET">
-		<input class="btn btn-light" type="submit"
+		<input class="btn btn-dark" type="submit"
 			value="Create Customer Account" />
 	</form>
 	<form action="createBakeryAccount.do" method="GET">
-		<input class="btn btn-light" type="submit"
+		<input class="btn btn-dark" type="submit"
 			value="Create Bakery Account" />
 	</form>
 
 	<form action="searchKeyword.do" method="GET">
-		<h4>Search Bakeries:</h4>
-		<input class="form-control" type="text" name="keyword" /> <input
-			class="btn btn-success" type="submit" value="Search" />
+		 <div class="input-group">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-dark">search</button>
+</div>
+		
+		
 	</form>
 	<br>
 
