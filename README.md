@@ -2,9 +2,9 @@
 
 ## Authors
 
-<p align="left"><img src="Images/SamanthaProf.png" width="25"> Samantha Heisterkamp (Developer, DBA) </p>
-<p align="left"><img src="Images/ChadProf2.png" width="25"> Chad Rousseau (Developer, Scrum Master) </p>
-<p align="left"><img src="Images/KenProf.png" width="25"> Ken Pederson (Developer, Repo Owner) </p>
+<p align="left"><img src="Images/SamanthaProf.png" width="50"> Samantha Heisterkamp (Developer, DBA) </p>
+<p align="left"><img src="Images/ChadProf2.png" width="50"> Chad Rousseau (Developer, Scrum Master) </p>
+<p align="left"><img src="Images/KenProf.png" width="50"> Ken Pederson (Developer, Repo Owner) </p>
 
 ## Overview
 
@@ -14,8 +14,6 @@ The CakeBids application, as originally envisioned, would also allow a user to p
 
 ## Description
 
-* URL to the programs site
-
 * How Our Application Works
 
 When a user visits the applications web site, the home page presents several options. A user can create a customer account, log in as a customer or visit cake bakery store front sites. Also,  a user can create a bakery account or login as a bakery-type user. If a visitor to the site only wants to see the bakeries that are members of the application, they can either search for bakeries by keyword or click a link that shows a list of all the bakery's on another page. 
@@ -24,12 +22,14 @@ The customer, once logged in, is presented with their account page. The account 
 
 The bakery user, once logged in, is presented with their account page. The account page is comprised of a list of their orders, an option to log out, update their account or delete their account. As with the customer account, choosing the option of "delete" will simply change the account from active to inactive. The bakery has all the information it needs to build the cake and reach out to the customers for any interaction required to complete the order.
 
-* The why. 
-Our intent for the mid-term project was to build an application that would allow for customers to post requests or direct orders to bakery's for cakes. This would create a competitive environment between bakery's that would be tempered by the reviews of the customers. Also, our a malleable project that could easily be translated from the artisan craft of cake making to another similar craft such candle makers or beard oil products. Given the time constraints of a week and a half to accomplish the functionality, the ability for customers to post orders is what our team was able to achieve. 
+The why: Our intent for our mid-term project was to build an application that would allow for customers to post biddable requests or direct orders to bakery's for cakes. This would create a competitive environment between bakery's that would be tempered by the reviews of the customers and managed by an administrator. Also, we wanted to create a malleable project that could easily be translated from the artisan craft of cake making to another similar craft such candle makers or beard oil products producers. Given the time constraints of a week and a half to accomplish the from the ground-up application, the ability for customers to send orders to a bakery is what our team was able to achieve. 
+
+* instructions on how to log in to the site
+
+* URL to the programs site
 
 * Screen shots <img src+"URL HERE" width=300>
 
-* instructions on how to log in to the site
 
 ## Implementation
 
@@ -70,16 +70,24 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 
 ## Technologies 
 
+* AWS- EC2
 * Bootstrap
-* HTML/CSS
+* CSS/HTML
+* Git
+* GitHub
+* Gradle
+* Java 
+* JDBC
 * JPA 
 * MySQL Workbench
+* SpringToolSuite4
+* Spring Boot
 * Spring MVC
-
+* Terminal -zsh
 
 ## Methodologies
 
-*scrum, agile, Trello, Balsamic wire frame, etc. 
+Our teams daily approach was for Chad first conduct a sscrum meeting to baseline and focus the team.   
 
 
 ## Getting Started (How to install)
