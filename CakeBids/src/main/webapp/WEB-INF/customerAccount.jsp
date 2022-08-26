@@ -20,6 +20,7 @@
 </head>
 <body>
 <style>
+
 body { 
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/841B1728-7A97-4F4E-8C13-CE53CAB0F916.JPG) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -29,41 +30,38 @@ body {
 }
 
 </style>
+
 	<c:choose>
 		<c:when test="${empty loggedIn.bakery }">
 			<form action="searchKeyword.do" method="GET">
 				<h4>Search Bakeries:</h4>
-				<input class="form-control" type="text" name="id" /> <input
+				<input class="form-control" type="text" name="keyword" /> <input
 					class="btn btn-secondary" type="submit" value="Search" />
 			</form>
 
 			<form action="showBakeries.do" method="GET">
-				<input class="btn btn-dark" type="submit" value="Show Bakeries" />
+				<input class="btn btn-secondary" type="submit" value="Show Bakeries" />
 			</form>
 			
 			<form action="createCake.do" method="GET">
 		<input class="btn btn-dark" type="submit" value="Order a Cake!"/> 
 	        </form>
-          
-			<form action="showOrders.do" method="POST">
-				<input class="btn btn-dark" type="submit" value="My Orders" />
-			</form>
 
 			<form action="accountUpdate.do" method="POST">
-				<input class="btn btn-dark" type="submit"
+				<input class="btn btn-secondary" type="submit"
 					value="Update My Account" />
 			</form>
 
 			<form action="logout.do" method="GET">
-				<input class="btn btn-dark" type="submit" value="Logout" />
+				<input class="btn btn-secondary" type="submit" value="Logout" />
 			</form>
 
 			<form action="accountDeactivated.do" method="POST">
-				<h4>Delete Account:</h4>
-				<input class="btn btn-warning" type="submit" value="delete" />
+				
+				<input class="delete" type="submit" value="Delete Account" />
 			</form>
 			
-			<table class="table table-hover table-md thead-dark tbody-grey table-striped">
+			<table class="table">
          
            <thead>
             <tr>
@@ -87,8 +85,8 @@ body {
         <c:forEach var="cake" items="${occasion.cakes}">
             <tr>
               <td>${cake.occasion.user.firstName}</td>
-              <td>${cake.occasion.user.address.phone}</td>
               <td>${cake.occasion.user.lastName}</td>
+              <td>${cake.occasion.user.address.phone}</td>
               <td>${cake.occasion.name}</td>
               <td>${cake.cakeType.name}</td>
               <td>
@@ -117,8 +115,8 @@ body {
 
 		<c:when test="${not empty loggedIn.bakery }">
 			<!-- display bakery stuff -->
-
-<table class="table table-hover table-md thead-dark tbody-grey table-striped">
+<h1>${loggedIn.bakery.name }</h1>
+<table class="table">
          
            <thead>
             <tr>
@@ -167,21 +165,18 @@ body {
         
         </table> 
 
-			<form action="reviews.do" method="GET">
-				<input class="form-control" type="number" name="id" /> <input
-					class="btn btn-light" type="submit" value="All Bakery Reviews" />
-			</form>
+			
 
 			<form action="logout.do" method="GET">
-				<input class="btn btn-light" type="submit" value="Logout" />
+				<input class="btn btn-secondary" id="logoutB" type="submit" value="Logout" />
 			</form>
 			<form action="bakeryAccountUpdate.do" method="POST">
-				<input class="btn btn-light" type="submit"
+				<input class="btn btn-secondary" id="updateB" type="submit"
 					value="Update My Account" />
 			</form>
 			<form action="accountDeactivated.do" method="POST">
-				<h4>Delete Account:</h4>
-				<input class="btn btn-info" type="submit" value="delete" />
+				
+				<input class="delete" type="submit" value="Delete Account" />
 			</form>
 		</c:when>
 

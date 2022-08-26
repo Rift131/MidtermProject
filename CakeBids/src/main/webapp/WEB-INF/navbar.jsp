@@ -6,10 +6,9 @@
 <div id="nav">
  
 <h5>
-	<a href="home.do" style="color: #556b2f">Home</a> | <a href="showBakeries.do">Bakeries</a> | <a
-		href="reviews.do">Reviews</a>  
+	<a href="home.do" style="color: lightgray">Home</a> | <a href="showBakeries.do" style="color: lightgray">Bakeries</a> 
 		<c:if test="${not empty sessionScope.loggedIn }">|
-		<a href="customerAccount.do">Account</a>
+		<a href="customerAccount.do" style="color: lightgray">Account</a>
 		</c:if>
 </h5>
 

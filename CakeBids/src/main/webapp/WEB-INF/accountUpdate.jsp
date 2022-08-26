@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Update Account</title>
 </head>
-
+<!-- ADD CSS LINKS -->
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
  

@@ -6,6 +6,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+body { 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://findyourcakeinspiration.com/wp-content/uploads/2020/02/Drama-Romance-Wedding-Cake-808x1024.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
+
+
+
+
+
+
 <meta charset="UTF-8">
 <title>Show Bakeries</title><link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -23,11 +40,10 @@
 
 
 
- <table class="table table-hover table-md thead-dark tbody-grey table-striped">
+ <table class="table">
          
-           <thead>
+           <thead >
             <tr>
-      
                <th scope="col">Business Name</th>
               <th scope="col">Website</th>
               <th scope="col">Hours</th>
@@ -43,7 +59,7 @@
           <tbody>
         <c:forEach var="bakery" items="${bakery}">
             <tr>
-              <th><a href="bakeryStorefront.do?bakeryId=${bakery.id }" >${bakery.name }</a></th>
+              <th><a style="color: #36454F" href="bakeryStorefront.do?bakeryId=${bakery.id }" >${bakery.name }</a></th>
               <td>${bakery.websiteUrl}</td>
               <td>${bakery.hoursOfOperation}</td>
               <td>${bakery.owner.address.address}</td>

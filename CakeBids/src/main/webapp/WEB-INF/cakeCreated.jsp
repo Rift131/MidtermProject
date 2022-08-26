@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Cake Ordered!</title>
+<!-- ADD CSS LINKS -->
 </head>
 <body>
 <h1>The bakery has received your order!</h1>
