@@ -1,4 +1,4 @@
-# CakeBids
+# CakeNetwork
 
 <p align="center"><img src="Images/HomePage.png" width="550"></p>
 
