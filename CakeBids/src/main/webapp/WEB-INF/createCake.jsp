@@ -9,9 +9,9 @@
 <title>Cake Order Form</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <!--  CSS FILES AFTER BOOTSRAP-->
+<jsp:include page="bootstraphead.jsp" />
 <link rel="stylsheet" href="css/cakeForm.css">
- <jsp:include page="navbar.jsp"></jsp:include>
- <body>
+ 
 		<style>
 body {
 	background: linear-gradient(to top, rgba(0, 0, 0, 0.7),
@@ -25,9 +25,11 @@ body {
 </style>
 </head>
 <body>
+<jsp:include page="navbar.jsp"></jsp:include>
+<main class="container-fluid">
 
 	<h1>Cake Order Form</h1>
-	<center><form action="cakeCreated.do" method="GET">
+	<div id="cakeOrderMain"><form action="cakeCreated.do" method="GET">
 		    <br>
 			<h4><label>Venue For Your Occasion</label></h4>
 			<br>
@@ -58,7 +60,7 @@ body {
 			<label for="cakeType.id">Select the type of cake you would like</label>
 			<select name="cakeType.id">
 			<c:forEach items="${cakeTypes}" var="cakeType">
-			<option value="${cakeType.id}">${cakeType.name}</option>
+			<option  value="${cakeType.id}">${cakeType.name}</option>
 			</c:forEach>
 			</select>
 			<br>
@@ -67,28 +69,20 @@ body {
 			<c:forEach items="${flavors}" var="flavor"> <!-- flavors is the controller calls this element. Flavor is the name of the ENTITY, lowercase first letter -->
 			<input type="checkbox" name="flavorIds" value="${flavor.id}">${flavor.name} <!-- value is the primary key, after that is the path to the value in the table you want to appear -->
 			</c:forEach>
-			<select> <!-- path to get to each flavor through its primary key -->
-			<c:forEach items="${flavors}" var="flavor"> <!-- flavors is the controller calls this element. Flavor is the name of the ENTITY, lowercase first letter -->
-			<option value="${flavor.id}">${flavor.name}</option> <!-- value is the primary key, after that is the path to the value in the table you want to appear -->
-			</c:forEach>
-			</select>
+			
 			<br>
 			<br>
 			<label for="filling.id">What filling would you like?</label>
 			<c:forEach items="${fillings}" var="filling"> <!-- flavors is the controller calls this element. Flavor is the name of the ENTITY, lowercase first letter -->
 			<input type="checkbox" name="fillingIds" value="${filling.id}">${filling.fillingType} <!-- value is the primary key, after that is the path to the value in the table you want to appear -->
 			</c:forEach>
-			<select name="filling.id">
-			<c:forEach items="${fillings}" var="filling">
-			<option value="${filling.id}">${filling.fillingType}</option>
-			</c:forEach>
-			</select>
+			
 			<br>
 		    <br>
 		    <label for="bakeryId">Choose your favorite bakery</label>
 		    <select name="bakeryId">
 			<c:forEach items="${bakeries}" var="bakery">
-			<option value="${bakery.id}">${bakery.name}</option>
+			<option  value="${bakery.id}">${bakery.name}</option>
 			</c:forEach>
 			</select> 
 			<br>
@@ -96,7 +90,7 @@ body {
 		    <label for="deliveryMethod.id">Choose your delivery method</label>
 		    <select name="deliveryMethods.id">
 			<c:forEach items="${deliveryMethods}" var="deliveryMethod">
-			<option value="${deliveryMethod.id}">${deliveryMethod.deliveryType}</option>
+			<option  value="${deliveryMethod.id}">${deliveryMethod.deliveryType}</option>
 			</c:forEach>
 			</select>
 			<br>
@@ -122,11 +116,13 @@ body {
 		    <input type="text" name="occasion.user.address.phone" value="${loggedIn.address.phone}"/>
 		    <br>
 		    <br>
-		    <br>
-		    <input class="btn btn-success" type="submit" value="Submit Your Order!">
+		    <br> 
+		    <input class="btn btn-success" type="submit" id="submit" value="Submit Your Order!">
 	
 			<input type="hidden" name="addressId" value="${loggedIn.address.id }">
-	</form></center> 
+	</form></div> 
+	</main>
 
+<jsp:include page="bootstrapfoot.jsp" />
 </body>
 </html>
