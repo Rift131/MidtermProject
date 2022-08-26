@@ -5,7 +5,7 @@
 
 <div id="nav">
  
-<h5>
+<h5 id="navhead">
 	<a href="home.do" style="color: lightgray">Home</a> | <a href="showBakeries.do" style="color: lightgray">Bakeries</a> 
 		<c:if test="${not empty sessionScope.loggedIn }">|
 		<a href="customerAccount.do" style="color: lightgray">Account</a>

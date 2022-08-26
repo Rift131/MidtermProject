@@ -12,14 +12,10 @@
 	rel="stylesheet"
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 	crossorigin="anonymous">
+	<jsp:include page="bootstraphead.jsp" />
 <link rel="stylesheet" href="css/styles.css">
-</head>
-<jsp:include page="bootstraphead.jsp" />
-<main class="container-fluid">
-	<jsp:include page="navbar.jsp"></jsp:include>
-	</head>
-	<body>
-		<style>
+
+<style>
 body {
 	background: linear-gradient(to top, rgba(0, 0, 0, 0.7),
 		rgba(0, 0, 0, 0.7)), url(img/841B1728-7A97-4F4E-8C13-CE53CAB0F916.JPG)
@@ -30,6 +26,12 @@ body {
 	background-size: cover;
 }
 </style>
+	</head>
+	<body>
+	
+<main class="container-fluid">
+	
+		
 		<c:choose>
 			<c:when test="${empty loggedIn.bakery }">
 				<form action="searchKeyword.do" method="GET">
@@ -159,10 +161,10 @@ body {
 				
 
 				<form action="logout.do" method="GET">
-					<input class="btn btn-dark" type="submit" value="Logout" />
+					<input class="btn btn-dark" type="submit" value="Logout" id="logoutB" />
 				</form>
 				<form action="bakeryAccountUpdate.do" method="POST">
-					<input class="btn btn-dark" type="submit" value="Update My Account" />
+					<input class="btn btn-dark" type="submit" value="Update My Account" id="updateB"/>
 				</form>
 				<form action="accountDeactivated.do" method="POST">
 				
@@ -173,7 +175,10 @@ body {
 
 
 		</c:choose>
-		<jsp:include page="bootstrapfoot.jsp" />
+		
+		</main>
+	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="bootstrapfoot.jsp" />
 	</body>
-</main>
+
 </html>
