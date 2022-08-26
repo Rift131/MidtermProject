@@ -1,8 +1,6 @@
 # CakeBids
 
-!!!PLACE HOME PAGE IMAGE HERE!!!
-
-<p align="center"><a href="http://34.206.35.233:8080/CakeBids/home.do"></a></p>
+<p align="center"><img src="Images/HomePage.png" width="65"></p>
 
 ## Authors
 
