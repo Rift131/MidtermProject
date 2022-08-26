@@ -1,6 +1,6 @@
 # CakeBids
 
-<p align="center"><img src="Images/HomePage.png" width="65"></p>
+<p align="center"><img src="Images/HomePage.png" width="550"></p>
 
 ## Authors
 
