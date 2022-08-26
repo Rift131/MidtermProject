@@ -28,7 +28,7 @@ The customer, once logged in, is presented with their account page. The account 
 
 The bakery user, once logged in, is presented with their account page. The account page is comprised of a list of their orders, an option to log out, update their account or delete their account. As with the customer account, choosing the option of "delete" will simply change the account from active to inactive. The bakery has all the information it needs to build the cake and reach out to the customers for any interaction required to complete the order.
 
-<p><strong>The why...</strong></p>
+The why...
 
 Our intent for our mid-term project was to build an application that would allow for customers to post biddable requests or direct orders to bakery's for cakes. This would create a competitive environment between bakery's that would be tempered by the reviews of the customers and managed by an administrator. Also, we wanted to create a malleable project that could easily be translated from the artisan craft of cake making to another similar craft such candle makers or beard oil products producers. Given the time constraints of a week and a half to accomplish the from the ground-up application, the ability for customers to send orders to a bakery is what our team was able to achieve. 
 
@@ -36,8 +36,13 @@ Our intent for our mid-term project was to build an application that would allow
 
 It's all about Agile.
 
-Before each day began, the Trello board was updated for any adjustments required for new requirements and/or realignment of priorities based on time remaining. From there, Chad conducted his daily scrum meeting to baseline the team and confirm priority's and their assignment to team members. The entire rest of the day was conducted with constant communication amongst the team and the stakeholders (Skill Distillery staff) via Zoom. Our standard process was for two team members to pair-program while the other worked another priority. When either the pair-programming team or the solo programmer would encounter a blocker, the team would swarm as a whole until the issue was resolved. Often the stakeholders would be called upon    
+Planning
+* Before each day began, the Trello board was updated for any adjustments required for new requirements and/or realignment of priorities based on time remaining. From there, Chad conducted his daily scrum meeting to baseline the team and confirm priority's and their assignment to team members. Priorities reflected the order presented by the Trello board (phases distinguished by user stories). 
 
+Executing
+* The entire rest of the day was conducted with constant communication amongst the team and the stakeholders (Skill Distillery staff) via Zoom. Our standard process was for two team members to pair-program while the other worked another priority. When either the pair-programming team or the solo programmer would encounter a blocker, the team would swarm as a whole until the issue was resolved. When the issue could not be resolved within the team, we called upon the "stakeholders".     
+Evaluating
+* Evaluation often occurred in real time as the clock continued to click and blockers consumed more time than expected. The decision making, based on our observations through the day, would be discussed at the end of the day for how to adjust our applications features into a "stretch goal" category. Before the morning official start time, the Trello board would already be adjusted to reflect the teams evaluation of features to prioritize. To say "constant collaboration" was key, is an understatement.
 
 ## Implementation
 
@@ -68,11 +73,13 @@ With our first-draft Trello board and wire frame in hand we built a database to 
 
 ## Lessons Learned
 
-Trello- Keep highest level on the User Story and write out sub cards that get you to the User Story completion.
+Keeping situational awareness is provided through the Agile methodology 
+	* Because of our Trello board and constant communication, we had a visual representation at all times of how far we had to go. This "reality check" allowed us to see in advance that adjustments had to be made. The plan molded to the new reality and the Trello board reflected those changes, cancelling out any confusion on what we needed to do next as a team.
 
-Keeping the path clear: A morning routine of organizing the Trello board kept the team on the same page and focused on the right priorities. The first iteration of the Trello board featured every possible facet of the application we could imagine. Howe Refactoring of the user stories was especially important as time for completing the project on time and achieving an MVP (minimum viable product)
-
-* MileStone 3 LL: Troubleshooting became second nature to recognize problems with our database values versus our mappings of the entities with each other. As we progressed with establishing relationships between the tables,  we learned to adjust initial variables to the corresponding data type being linked with the table. If we omitted this change, the JUnit tests would result in an immediate termination and no test results. We quickly learned the error most likely was due to omitting a change of the variable to the object being linked. After pair programming for several hours, writing code and troubleshooting became more and more challenging. They key to pressing forward through blockers was to find different ways to view the problem, either through the ERDiagram or previous code that tackled the same problem. Changing perspective is key.
+Learning through the struggle
+	* Troubleshooting became second nature to recognize problems with our database values versus our mappings of the entities with each other. As we progressed with establishing relationships between the tables,  we learned to adjust initial variables to the corresponding data type being linked with the table. If we omitted this change, the JUnit tests would result in an immediate termination and no test results. We quickly learned the error most likely was due to omitting a change of the variable to the object being linked. After pair programming for several hours, writing code and troubleshooting became more and more challenging. They key to pressing forward through blockers was to find different ways to view the problem, either through the ERDiagram or previous code that tackled the same problem. Changing perspective is key.
+	* Building a complex application from the ground up combined with long hours of grinding causes accelerated diminishing returns. By the last hour of the class day, the team collectively would begin to experience more difficulty in writing code and producing the desired results. Typically, the next morning would go much smoother with fresher minds. Calling it a day and walking away is often wiser than sticking to the grind. 
+	* No one person has the answer, but the team does. Our team experienced blockers that even our most seasoned instructor was temporarily baffled by. Students and staff alike, working through a problem by voicing their thoughts and questions, "googling" on their own computer ALWAYS led to the way forward. 
 
 ## Technologies 
 
@@ -92,7 +99,7 @@ Keeping the path clear: A morning routine of organizing the Trello board kept th
 * Terminal -zsh
 * Zoom
 
-## Screen shots taken during our application creation journey
+## A Few Screen shots taken during our application creation journey
 
 * Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="left" width="550"><img src="Images/HelpFromInstructors.png" width="65"></p>
 * Finally implementing CSS!  <p align="left" width="350"><img src="Images/SSCssWork.png" width="550"></p>
