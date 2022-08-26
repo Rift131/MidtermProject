@@ -395,6 +395,8 @@ INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `pho
 INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (4, '8956 Dog Way', NULL, 'Mill Neck', 'NY', '11560', '(516)654-8923');
 INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (5, '247 W 38th Street', 'Floor Thirteen', 'New York', 'NY', '10018', '(212)625-3369');
 INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (6, '123 Cake Way', NULL, 'Littleton', 'CO', '80120', '(575)222-3333');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (7, '123 Visitor Way', 'Apt. 3', 'Warrensburg', 'MO', '64093', '(660)456-7891');
+INSERT INTO `address` (`id`, `address`, `address2`, `city`, `state`, `zip`, `phone`) VALUES (8, '456 Grunge Street', NULL, 'Alexandria', 'VA', '22206', '(756)789-1596');
 
 COMMIT;
 
@@ -410,6 +412,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (4, 'WickJ', '4567', 1, 'customer', 'John', 'Wick', 4, '', '2022-08-24', 'Everything\'s got a price');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (5, 'IsrealNYC', '4567', 1, 'bakery', 'Ron-Ben', 'Isreal', 5, NULL, '2022-08-24', 'Israeli-American Pastry Chef');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (6, 'cakeCO', '912', 1, 'bakery', 'Samantha', 'Heisterkamp-Reno', 6, NULL, '2022-08-24', 'Cake Artist');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (7, 'visitor', '1234', 1, 'customer', 'Visitor', 'Visitor', 7, NULL, '2022-08-25', 'Visitor to the site.');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `address_id`, `profile_picture`, `create_date`, `about_me`) VALUES (8, 'grohl', '1234', 1, 'customer', 'Dave', 'Grohl', 8, NULL, '2022-08-25', 'Rock on! ');
 
 COMMIT;
 
@@ -434,6 +438,12 @@ USE `cakebidsdb`;
 INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (1, 'wedding', '2022-08-25', 2, '3 tier watercolor cake', 1);
 INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (2, 'birthday', '2022-09-15', 3, 'chocolate birthday cake ', 3);
 INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (3, 'graduation', '2022-10-23', 4, 'cake with a grad hat on top! ', 4);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (4, 'rocking party', '2022-08-23', 8, 'sculpted guitar cake', 8);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (5, 'wedding', '2022-07-13', 4, 'tiered floral wedding cake', 4);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (6, 'birthday', '2022-07-20', 3, 'birthday sheet cake', 3);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (7, 'birthday', '2021-07-20', 3, 'birthday sheet cake', 3);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (8, 'graduation', '2022-09-12', 2, 'double barrel floral black cake', 1);
+INSERT INTO `occasion` (`id`, `name`, `date`, `user_id`, `description`, `address_id`) VALUES (9, 'graduation', '2021-09-12', 2, 'double barrel floral black cake', 1);
 
 COMMIT;
 
@@ -468,9 +478,15 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cakebidsdb`;
-INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (1, 'Bill Nye\'s birthday!', '2 tier science theme cake', 'put a giant atom on the top!', '2022-06-23', 1, 1, 1, 'https://images.squarespace-cdn.com/content/v1/5c4b6b663c3a5399055adb5f/1599371701267-GW1ZKK9N8HH8GF9GQCVZ/10bd2e1ed5f7a58d40345af8070b1a4d.jpg', 200.00, NULL);
-INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (2, 'birthday cake ', '3 tier cake ', NULL, '2022-08-15', 2, 1, 2, NULL, 300.00, NULL);
-INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (3, 'graduation cake', 'sculpted cake like dog', '', '2022-08-13', 1, 3, 2, NULL, 200.00, NULL);
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (1, 'Bill Nye\'s birthday!', '2 tier science theme cake', 'put a giant atom on the top!', '2022-06-23', 1, 1, 1, 'https://images.squarespace-cdn.com/content/v1/5c4b6b663c3a5399055adb5f/1599371701267-GW1ZKK9N8HH8GF9GQCVZ/10bd2e1ed5f7a58d40345af8070b1a4d.jpg', 200.00, '2022-06-23');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (2, 'birthday cake ', '3 tier cake ', 'have fun with it!', '2022-08-15', 2, 1, 2, NULL, 300.00, '2022-08-15');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (3, 'graduation cake', 'sculpted cake like dog', 'love everything!', '2022-08-13', 1, 3, 2, NULL, 200.00, '2022-08-13');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (4, 'party cake', 'sculpted guitar', 'please scuplt into a banging guitar! ', '2022-07-22', 4, 3, 2, NULL, 450.00, '2022-08-23');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (5, 'wedding cake', 'tiered floral cake', 'please cover in gold', '2022-07-23', 5, 1, 2, NULL, 3200.00, '2022-08-23');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (6, 'birthday cake', 'kitchen cake', 'make it super rich', '2022-07-20', 6, 2, 1, NULL, 500.00, '2022-07-23');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (7, 'birthday cake', 'kitchen cake', 'we love chocolate!', '2022-07-21', 7, 2, 1, NULL, 575.00, '2022-07-21');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (8, 'graduation cake', 'double barrel ', 'make it fancy', '2022-09-12', 8, 4, 1, NULL, 1050.00, '2022-09-12');
+INSERT INTO `cake` (`id`, `name`, `description`, `special_instructions`, `date_added`, `occasion_id`, `cake_type_id`, `delivery_id`, `cake_inspiration`, `budget`, `needed_by_date`) VALUES (9, 'graduation cake', 'double barrel', 'add macaron', '2021-09-12', 9, 4, 1, NULL, 1050.00, '2022-09-12');
 
 COMMIT;
 
@@ -525,6 +541,12 @@ USE `cakebidsdb`;
 INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (2, 2);
 INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (1, 3);
 INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (3, 5);
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (4, 6);
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (5, 1);
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (6, 4);
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (7, 2);
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (8, 5);
+INSERT INTO `cake_has_fillings` (`cake_id`, `fillings_type_id`) VALUES (9, 1);
 
 COMMIT;
 
@@ -537,6 +559,12 @@ USE `cakebidsdb`;
 INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (7, 2);
 INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (6, 1);
 INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (3, 3);
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (4, 4);
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (2, 5);
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (5, 6);
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (1, 7);
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (7, 8);
+INSERT INTO `cake_has_flavor` (`cake_flavor_id`, `cake_id`) VALUES (2, 9);
 
 COMMIT;
 
@@ -549,6 +577,12 @@ USE `cakebidsdb`;
 INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (1, 1, 1, 150.00, '2022-08-19', '2022-08-20', '2022-08-23', 'need a drip cake yo!');
 INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (2, 3, 2, 300.00, '2022-08-15', '2022-08-23', '2022-08-24', '3 tier cake');
 INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (3, 3, 3, 200.00, '2022-08-13', '2022-08-15', '2022-08-22', 'sculpted dog cake');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (4, 2, 4, 450.00, '2022-06-23', '2022-08-16', '2022-08-23', 'sculpted guitar cake');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (5, 1, 5, 3200.00, '2022-08-13', '2022-08-14', '2022-08-20', 'tiered wedding floral cake');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (6, 2, 6, 500.00, '2020-07-20', '2020-07-21', '2022-08-23', 'kitchen cake');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (7, 2, 7, 575.00, '2021-07-20', '2021-07-21', '2022-08-23', 'kitchen cake');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (8, 3, 8, 1050.00, '2022-09-12', '2022-09-23', '2022-09-24', 'double barrel');
+INSERT INTO `cake_bid` (`id`, `bakery_id`, `cake_id`, `price`, `bid_date`, `accepted_date`, `fulfilled_date`, `description`) VALUES (9, 1, 9, 1050.00, '2021-09-12', '2021-09-23', '2021-09-24', 'double barrel');
 
 COMMIT;
 
