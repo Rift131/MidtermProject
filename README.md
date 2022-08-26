@@ -105,7 +105,7 @@ Learning through the struggle
 * Terminal -zsh
 * Zoom
 
-## A Few Screen shots taken during our application creation journey
+## A Few Screen Shots Taken During Our Application Creation Journey
 
 * Finally implementing CSS!  <p align="left" width="350"><img src="Images/SSCssWork.png" width="550"></p>
 * Swarming on Zoom with the Skill Distillery Staff (bringing in the big guns)! <p align="left" width="550"><img src="Images/HelpFromInstructors.png" width="85"></p>
