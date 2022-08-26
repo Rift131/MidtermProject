@@ -36,13 +36,13 @@ font-size:500%;
 	background-color: #800000;
 }
 #logoutB{
-	top:20px;
+	top:70px;
 	position: fixed;
 	left: 85%;
 	
 } 
 #updateB{
-	top: 60px;
+	top: 110px;
 	position: fixed;
 	left: 85%;
 	
@@ -51,6 +51,7 @@ th{
 	text-align: center;	
 	font-family: Copperplate;
 	color: #800000;
+	
 }
 
 td {
@@ -75,26 +76,28 @@ td {
 #createAccountBtn{
 	top:230px;
 	position: fixed;
-	left: 74%;
+	left: 80%;
 }
 #tagline{
 	text-align: center;
-	color: gray;
+	color: #d3d3d3;
 	font-size: 150%;
 	font-family: Copperplate;
 	
 }
 #createBaccount{
-	left: 74%;
+	left: 80%;
 	top: 290px;
 	position: fixed;
 }
 #developers{
 	
-	position: absolute; bottom: 0px;
-	left: 20%;
+	position: fixed; bottom: 0px;
 	font-family: Copperplate;
 	color: gray;
+	transform: translate(-50%, -50%);
+	left: 50%;
+  bottom: 30px;
 }
 /* .w-100{
 	width: 50% !important;
@@ -112,5 +115,18 @@ h3{
 	text-align: center;
 	font-size: 150%;
 }
-
-
+input[type=text]{
+	background-color: gray;
+}
+#aboutMe{
+	background-color: gray;
+}
+input[type=password]{
+	background-color: gray;
+}
+#createC{
+	top: 55px;
+}
+#showB{
+	top: 30px;
+}

@@ -133,7 +133,7 @@ public class UserController {
 
 			dao.deactivateAccount(userId);
 			session.removeAttribute("loggedIn");
-			return "home";
+			return "accountDeactivated";
 		} else {
 			return "login";
 		}

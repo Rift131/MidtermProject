@@ -44,7 +44,7 @@ class BakeryImageTest {
 	void test_Bakery_image_entity_mapping_to_bakery_table() {
 		assertNotNull(bakeryImage);
 		assertNotNull(bakeryImage.getBakery());
-		assertEquals("Chic French bakery", bakeryImage.getBakery().getDescription());
+		assertEquals("French inspired boutique pastry shop. Specializing in cakes, pastries, and plated desserts.", bakeryImage.getBakery().getDescription());
 	}
 
 }

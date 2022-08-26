@@ -32,6 +32,9 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -41,7 +44,16 @@
       <img src="img/IMG_1375.PNG" class="d-block w-100" alt="cake 2">
     </div>
     <div class="carousel-item">
-      <img src="img/IMG_1377.PNG" class="d-block w-100" alt="cake 3">
+      <img src="img/IMG_3351.PNG" class="d-block w-100" alt="cake 3">
+    </div>
+    <div class="carousel-item">
+      <img src="img/IMG_3922.PNG" class="d-block w-100" alt="cake 4">
+    </div>
+    <div class="carousel-item">
+      <img src="img/IMG_3628.PNG" class="d-block w-100" alt="cake 5">
+    </div>
+    <div class="carousel-item">
+      <img src="img/IMG_1377.PNG" class="d-block w-100" alt="cake 6">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

@@ -47,22 +47,19 @@ body {
 				<form action="createCake.do" method="GET">
 					<input class="btn btn-dark" id="createC" type="submit" value="Order a Cake!"  />
 				</form>
-				<form action="showOrders.do" method="POST">
-					<input class="btn btn-dark" type="submit" value="My Orders" />
-				</form>
 				<form action="accountUpdate.do" method="POST">
-					<input class="btn btn-dark" type="submit" value="Update My Account" />
+					<input class="btn btn-dark" type="submit" value="Update My Account" id="updateB" />
 				</form>
 				<form action="logout.do" method="GET">
-					<input class="btn btn-dark" type="submit" value="Logout" />
+					<input class="btn btn-dark" type="submit" value="Logout" id="logoutB" />
 				</form>
 				<form action="accountDeactivated.do" method="POST">
 					
-					<input class="btn btn-warning" type="submit" value="delete" />
+					<input class="delete" type="submit" value="Delete Account" />
 				</form>
 
 				<table
-					class="table table-hover table-md thead-dark tbody-grey table-striped">
+					class="table">
 
 					<thead>
 						<tr>
@@ -114,7 +111,7 @@ body {
 				<!-- display bakery stuff -->
 
 				<table
-					class="table table-hover table-md thead-dark tbody-grey table-striped">
+					class="table table-hover table-md thead-dark tbody-grey ">
 
 					<thead>
 						<tr>
@@ -159,10 +156,7 @@ body {
 
 				</table>
 
-				<form action="reviews.do" method="GET">
-					<input class="form-control" type="number" name="id" /> <input
-						class="btn btn-dark" type="submit" value="All Bakery Reviews" />
-				</form>
+				
 
 				<form action="logout.do" method="GET">
 					<input class="btn btn-dark" type="submit" value="Logout" />
@@ -171,8 +165,8 @@ body {
 					<input class="btn btn-dark" type="submit" value="Update My Account" />
 				</form>
 				<form action="accountDeactivated.do" method="POST">
-					<h4>Delete Account:</h4>
-					<input class="btn btn-info" type="submit" value="delete" />
+				
+					<input class="delete" type="submit" value="Delete Account" />
 				</form>
 			</c:when>
 

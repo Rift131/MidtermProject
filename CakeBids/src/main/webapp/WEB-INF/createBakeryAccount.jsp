@@ -7,12 +7,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Bakery Account</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+body {
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.8),
+		rgba(0, 0, 0, 0.8)), url(img/IMG_1782.PNG)
+		no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
 
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
 
-	<h3>Create Account:</h3>
+	<center><h3>Create Account:</h3>
 	<form action="bakeryAccountCreated.do" method="POST">
 		<label for="owner.username"><h4>Username: </h4> </label> <input type="text"
 			name="owner.username"> <br>
@@ -45,7 +57,7 @@
  -->		
 		<input class="btn btn-success" type="submit" value="Create Account">
 	
-	</form>
+	</form></center>
 
 	
     

@@ -53,8 +53,8 @@ body {
 	</form>
 	<form action="searchKeyword.do" method="GET">
 		 <div class="input-group">
-  <input type="text" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-  <button type="submit" class="btn btn-outline-dark">Search</button>
+  <input type="text" name="keyword" class="form-control rounded"  aria-label="Search" aria-describedby="search-addon" />
+  <button type="submit" class="btn btn-outline-secondary">Search</button>
 </div>
 	</form>
 	<form action="createBakeryAccount.do" method="GET">
