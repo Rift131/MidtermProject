@@ -35,8 +35,8 @@
 		<label for="address.phone"><h4>Phone: </h4> </label> <input type="text"
 			name="address.phone"> <br>
        <label for="aboutMe"><h4>About Me: </h4> </label> <textarea  cols="30" rows="10" name="aboutMe"></textarea> <br> 
-		<label for="profilePic"><h4>Profile Pic:</h4></label> <input type="file" name="profilePic" id="file"/>
-		
+<!-- 		<label for="profilePic"><h4>Profile Pic:</h4></label> <input type="file" name="profilePic" id="file"/>
+ -->		
 		<input class="btn btn-success" type="submit" value="Create Account">
 	
 	</form>

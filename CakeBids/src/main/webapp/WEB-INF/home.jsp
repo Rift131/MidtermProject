@@ -55,7 +55,7 @@ body {
 	<form action="searchKeyword.do" method="GET">
 		 <div class="input-group">
   <input type="text" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-dark">search</button>
+  <button type="submit" class="btn btn-outline-dark">Search</button>
 </div>
 		
 		

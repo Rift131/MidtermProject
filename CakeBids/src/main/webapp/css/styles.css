@@ -1,15 +1,16 @@
 @charset "UTF-8";
-body{
+ body{
 	background-color: gray;
 	color: white;
-}
+} 
+
 #nav {
 	position: fixed;
   left: 50%;
   bottom: 20px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  color: #556b2f;
+ 
 }
 
 .input-group {
@@ -21,4 +22,44 @@ body{
 h1{
 text-align: center;	
 font-family: Copperplate;
+}
+
+.delete {
+	bottom: 20px;
+	position: fixed;
+	left: 85%;
+	color: silver;
+	background-color: #800000;
+}
+#logoutB{
+	top:20px;
+	position: fixed;
+	left: 85%;
+	
+} 
+#updateB{
+	top: 60px;
+	position: fixed;
+	left: 85%;
+	
+}
+th{
+	text-align: center;	
+	font-family: Copperplate;
+	color: #800000;
+}
+
+td {
+	text-align: center;	
+	font-family: Copperplate;
+	color: silver;
+}
+
+.table{
+	position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+	color: silver;
 }

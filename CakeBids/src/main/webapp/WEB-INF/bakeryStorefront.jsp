@@ -8,7 +8,7 @@
 <title>Bakery Page</title>
 <jsp:include page="bootstraphead.jsp" />
 <jsp:include page="navbar.jsp"></jsp:include>
-
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <main class="container-fluid">
@@ -21,6 +21,7 @@
 	<h2>${bakery.owner.address.city}</h2>
 	<h2>${bakery.owner.address.state}</h2>
 	<h2>${bakery.owner.address.phone}</h2>
+	<h2>${bakery.description}</h2>
 	
 	
 	

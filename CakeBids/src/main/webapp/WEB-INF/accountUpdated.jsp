@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Account Updated</title>
+<!-- ADD CSS LINKS -->
 </head>
 <body>
 <h1>Account Updated Successfully!</h1>
