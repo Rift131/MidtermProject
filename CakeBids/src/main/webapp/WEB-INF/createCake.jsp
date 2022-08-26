@@ -11,11 +11,23 @@
 <!--  CSS FILES AFTER BOOTSRAP-->
 <link rel="stylsheet" href="css/cakeForm.css">
  <jsp:include page="navbar.jsp"></jsp:include>
+ <body>
+		<style>
+body {
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.7),
+		rgba(0, 0, 0, 0.7)), url(img/IMG_1375.PNG)
+		no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
 </head>
 <body>
 
-	<h3>Cake Order Form</h3>
-	<form action="cakeCreated.do" method="GET">
+	<h1>Cake Order Form</h1>
+	<center><form action="cakeCreated.do" method="GET">
 		    <br>
 			<h4><label>Venue For Your Occasion</label></h4>
 			<br>
@@ -114,7 +126,7 @@
 		    <input class="btn btn-success" type="submit" value="Submit Your Order!">
 	
 			<input type="hidden" name="addressId" value="${loggedIn.address.id }">
-	</form> 
+	</form></center> 
 
 </body>
 </html>

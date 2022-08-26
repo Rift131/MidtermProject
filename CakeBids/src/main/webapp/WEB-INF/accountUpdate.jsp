@@ -4,15 +4,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/styles.css">
 <meta charset="UTF-8">
 <title>Update Account</title>
 </head>
+<style>
+
+body { 
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/IMG_4322.PNG) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
 <!-- ADD CSS LINKS -->
 <jsp:include page="navbar.jsp"></jsp:include>
 <body>
  
-       <h3>Update Account:</h3>
-	<form action="accountUpdated.do" method="POST">
+       <h1>Update Account:</h1>
+<center><form action="accountUpdated.do" method="POST">
 		
 		<label for="firstName"><h4>First Name: </h4> </label> <input type="text"
 			name="firstName" value="${user.firstName }"> <br>
@@ -35,7 +47,7 @@
 			<input type="hidden" name="address.id" value="${user.address.id }"/>
 		<input class="btn btn-success" type="submit" value="Update Account">
 	
-	</form>
+	</form></center>
 
    
 </body>

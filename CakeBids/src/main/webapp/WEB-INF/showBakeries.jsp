@@ -38,7 +38,7 @@ body {
 
 
 
-
+<h2>Bakeries | Patisseries | Kitchens</h2>
 
  <table class="table">
          

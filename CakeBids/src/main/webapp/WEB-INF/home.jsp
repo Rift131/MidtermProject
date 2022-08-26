@@ -21,6 +21,7 @@ body {
   background-size: cover;
 }
 
+
 </style>
 
 
@@ -37,29 +38,34 @@ body {
 </head>
 <body>
 <main class="container-fluid">
-	<h1>Cake Network</h1>
 
+	<h1>Cake Network</h1>
+	<div id="tagline">
+	<p> Search. Order. Enjoy.<p>
+	</div>
 	<form action="login.do">
-		<input class="btn btn-dark" type="submit" value="Login" />
+		<input class="btn btn-dark" id="loginbtn" type="submit" value="Login" />
 	</form>
 
 	<form action="createAccount.do" method="GET">
-		<input class="btn btn-dark" type="submit"
+		<input class="btn btn-dark" id="createAccountBtn" type="submit"
 			value="Create Customer Account" />
 	</form>
-	<form action="createBakeryAccount.do" method="GET">
-		<input class="btn btn-dark" type="submit"
-			value="Create Bakery Account" />
-	</form>
-
 	<form action="searchKeyword.do" method="GET">
 		 <div class="input-group">
   <input type="text" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
   <button type="submit" class="btn btn-outline-dark">Search</button>
 </div>
-		
-		
 	</form>
+	<form action="createBakeryAccount.do" method="GET">
+		<input class="btn btn-dark" id="createBaccount" type="submit"
+			value="Create Bakery Account" />
+	</form>
+
+	<div id="developers">
+	<p>Developed and Designed by: Kenneth Pederson | Chad Rousseau | Samantha Heisterkamp</p>
+	</div>
+		
 	<br>
 
   <jsp:include page="bootstrapfoot.jsp" />
