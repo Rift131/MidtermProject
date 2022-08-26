@@ -7,13 +7,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Customer Account</title>
-
+<link rel="stylesheet" href="css/styles.css">
 <jsp:include page="navbar.jsp"></jsp:include>
 </head>
 <body>
-
+		<style>
+body {
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.7),
+		rgba(0, 0, 0, 0.7)), url(img/IMG_3923.PNG)
+		no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
 	<h3>Create Account:</h3>
-	<form action="accountCreated.do" method="GET">
+	<center><form action="accountCreated.do" method="GET">
 		<label for="username"><h4>Username: </h4> </label> <input type="text"
 			name="username"> <br>
 			<label for="password"><h4>Password: </h4> </label> <input type="password"
@@ -37,9 +47,9 @@
        <label for="aboutMe"><h4>About Me: </h4> </label> <textarea  cols="30" rows="10" name="aboutMe"></textarea> <br> 
 <!-- 		<label for="profilePic"><h4>Profile Pic:</h4></label> <input type="file" name="profilePic" id="file"/>
  -->		
-		<input class="btn btn-success" type="submit" value="Create Account">
+		<input class="btn btn-dark" type="submit" value="Create Account">
 	
-	</form>
+	</form></center>
 
 	
     

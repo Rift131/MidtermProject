@@ -6,6 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+
+</style>
 <meta charset="UTF-8">
 <title>LOGIN</title>
 <jsp:include page="bootstraphead.jsp" />
@@ -18,9 +22,9 @@
 
 	<td><form action="login.do" method="POST">
 			<h1>Customer Login</h1>
-			Username<input type="text" name="username" value="${user.username }" />
+		<p style="text-align:center;">	Username<input type="text" name="username" value="${user.username }" />
 			Password<input type="password" name="password" value="${user.password }" />
-			<button class="btn btn-primary" type="submit">Login</button>
+			<button class="btn btn-dark" type="submit">Login</button></p>
 		</form></td>
 		
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
